@@ -1,0 +1,25 @@
+{
+  "name": "vws-js-lib",
+  "version": "0.0.1",
+  "description": "Javascript library for video website scrapping",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://rvillamil@bitbucket.org/rvillamil/vws-js-lib.git"
+  },
+  "keywords": [
+    "scrapping",
+    "torrent",
+    "portal",
+    "video"
+  ],
+  "author": "Rodrigo Villamil Pérez",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/rvillamil/vws-js-lib#readme"
+}
