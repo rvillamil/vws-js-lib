@@ -4,11 +4,11 @@ const assert = require('assert');
 const mylib = require('../lib');
 
 // describe es la forma en la que describimos que pasara
-describe('vws-js-lib', function() {
-    describe('#parseVideoPremieres()', function() {
+describe('vws-js-lib', function () {
+    describe('#parseURLWithShows()', function () {
 
-        it('should return a string representing a greeting', function() {
-            assert.equal(mylib.parseVideoPremieres(), "Hello!");
+        it('MAL.........should return at less one url', function () {
+            assert.length == 0;
         });
     });
 });
