@@ -8,40 +8,42 @@ const assert = require('assert');
 const tumejortorrent_scraper = require('../lib/tumejortorrent');
 const url = require("url");
 
-describe('tumejortorrent', function () {
-    describe('#parseVideoPremieres()', function () {
+describe('crawlShows', function () {
+    describe('#crawlVideoPremieres()', function () {
+        it('should return a list with at least one show', function () {
 
-        it('should return a list with at least one valid url', function () {
-            return tumejortorrent_scraper.parseVideoPremieres().then(function (urlList) {
-                urlList.forEach(function (element) {
-                    assert.ok(url.parse(element));
-                    //console.log('URL: ' + element);
-                });
-                assert.ok(urlList.length > 1);
-                console.log('urlList size:' + urlList.length);
-            });
+            tumejortorrent_scraper.crawlVideoPremieres(
+                showObjectCrawled => {
+                    assert(showObjectCrawled.title);
+                    assert(showObjectCrawled.urltodownload);
+                },
+                showListCrawled => {
+                    assert.ok(showListCrawled.length >= 1);
+                }
+            )
+        });
+    });
+    describe('#crawlBillboardFilms()', function () {
+        it('should return a list with at least one show', function () {
+
+            tumejortorrent_scraper.crawlBillboardFilms(
+                showObjectCrawled => {
+                    assert(showObjectCrawled.title);
+                    assert(showObjectCrawled.urltodownload);
+                },
+                showListCrawled => {
+                    //console.log("End ..")
+                    assert.ok(showListCrawled.length >= 1);
+                }
+            )
         });
     });
 
-    describe('#parseBillboardFilms()', function () {
-
-        it('should return a list with at least one valid url', function () {
-            return tumejortorrent_scraper.parseBillboardFilms().then(function (urlList) {
-                urlList.forEach(function (element) {
-                    assert.ok(url.parse(element));
-                });
-                assert.ok(urlList.length > 1);
-                console.log('urlList size:' + urlList.length);
-            });
-        });
-    });
-
-    describe('#parseShow()', function () {
-
+    describe('#crawlShow()', function () {
         var urlWithFilm = 'http://tumejortorrent.com/descargar/peliculas-x264-mkv/coco-/bluray-microhd/';
 
         it("should return the film 'coco' with all data", function () {
-            return tumejortorrent_scraper.parseShow(urlWithFilm).then(function (show) {
+            return tumejortorrent_scraper.crawlShow(urlWithFilm).then(function (show) {
                 assert.equal(show.urlBase, 'http://tumejortorrent.com/descargar/peliculas-x264-mkv/coco-/bluray-microhd/');
                 assert.equal(show.title, 'Coco');
                 assert.ok(show.description);
