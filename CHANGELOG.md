@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.2] - 2018-03-10
+### Changed
+API enhanced 
+### Added
+Get all torrent shows on sync mode
+
 ## [0.0.1] - 2018-02-20
 ### Added
 - First big commit
