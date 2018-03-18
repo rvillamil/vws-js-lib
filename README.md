@@ -24,6 +24,23 @@ $cd vws-js-lib
 $npm install
 ```
 
+### Example use
+
+```js
+/**
+ * Parse URL from 'tumejortorrent' portal, scraping shows (Films, TVshows...etc)
+ *  
+ * @param {*} urlPortal URL with shows
+ * @param {*} myFunction Function to apply on every show scraped
+ * @param {*} onCrawlFinish If not null, then run the function on finish process on show list
+ */
+crawlShows(
+    'http://tumejortorrent.com/peliculas-x264-mkv/',
+    showObjectCrawled => console.log('ShowObjectCrawled: ', showObjectCrawled),
+    showListCrawled => console.log("ShowListCrawled size: " + showListCrawled.length)
+);
+
+```
 ## Running the tests
 
  For running the automated tests for this system, with [Mocha](https://mochajs.org) Javascript test framework

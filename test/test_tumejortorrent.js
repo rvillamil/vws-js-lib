@@ -55,7 +55,7 @@ describe('crawlShows', function () {
                 assert.equal(show.releaseDate, '10-02-2018');
                 assert.equal(show.urltodownload, 'http://tumejortorrent.com/descargar-torrent/103770_-1518265235-coco--bluray-microhd/');
                 assert.equal(show.originalTitle, 'Coco');
-                console.log("Show:'" + JSON.stringify(show) + "'");
+                //console.log("Show:'" + JSON.stringify(show) + "'");
             });
         });
     });
