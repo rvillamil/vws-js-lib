@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - New data Scraped : Original title
 - Enhance sinopsis field crawling
+- Clean area when reload the same menu option (non duplicated shows)
+- Other minor bug fixed
 
 ## [0.0.3] - 2018-03-16
 
