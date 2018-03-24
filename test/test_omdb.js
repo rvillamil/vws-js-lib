@@ -14,7 +14,6 @@ describe('omdb', function () {
                 //console.log('Response: ', response);
                 assert.equal(response.Title, 'Star Wars: Episode IV - A New Hope')
                 assert.equal(response.Year, '1977')
-                assert.equal(response.imdbRating, '8.6')
             })
     });
 
