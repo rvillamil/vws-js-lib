@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- New TMDB support
 - New OMDB API Support
 - New data Scraped : Original title
 - New data Scraped : Year
