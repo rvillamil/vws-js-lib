@@ -17,11 +17,8 @@ describe('crawlShows', function () {
                 showObjectCrawled => {
                     assert(showObjectCrawled.title);
                     assert(showObjectCrawled.urltodownload);
-                },
-                showListCrawled => {
-                    assert.ok(showListCrawled.length >= 1);
                 }
-            )
+            ).then(showListCrawled => assert.ok(showListCrawled.length >= 1))
         });
     });
     describe('#crawlBillboardFilms()', function () {
@@ -32,12 +29,8 @@ describe('crawlShows', function () {
                     assert(showObjectCrawled.title);
                     assert(showObjectCrawled.urltodownload);
                     // console.log("showObjectCrawled: " + JSON.stringify(showObjectCrawled));
-                },
-                showListCrawled => {
-                    //console.log("End ..")
-                    assert.ok(showListCrawled.length >= 1);
                 }
-            )
+            ).then(showListCrawled => assert.ok(showListCrawled.length >= 1))
         });
     });
 
