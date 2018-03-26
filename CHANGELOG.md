@@ -8,11 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- New API for tumejortorrent crawler
 - New TMDB support
 - New OMDB API Support
-- New data Scraped : Original title
-- New data Scraped : Year
-- Enhance sinopsis field crawling
+- New data: Original title, year, tmdbRating, imdbRating, rottenTomatoes
 - Other minor bug fixed
 
 ## [0.0.3] - 2018-03-16
