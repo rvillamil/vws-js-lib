@@ -5,32 +5,30 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert');
-const tumejortorrent_scraper = require('../lib/tumejortorrent');
+const tumejortorrent = require('../lib/tumejortorrent');
 const url = require("url");
 
 describe('crawlShows', function () {
 
     describe('#crawlVideoPremieres()', function () {
         it('should return a list with at least one show', function () {
-
-            tumejortorrent_scraper.crawlVideoPremieres(
-                showObjectCrawled => {
-                    assert(showObjectCrawled.title);
-                    assert(showObjectCrawled.urltodownload);
+            tumejortorrent.crawlVideoPremieres(
+                show => {
+                    assert(show.title);
+                    assert(show.urltodownload);
                 }
-            ).then(showListCrawled => assert.ok(showListCrawled.length >= 1))
+            ).then(showList => assert.ok(showList.length >= 1))
         });
     });
     describe('#crawlBillboardFilms()', function () {
         it('should return a list with at least one show', function () {
-
-            tumejortorrent_scraper.crawlBillboardFilms(
-                showObjectCrawled => {
-                    assert(showObjectCrawled.title);
-                    assert(showObjectCrawled.urltodownload);
+            tumejortorrent.crawlBillboardFilms(
+                show => {
+                    assert(show.title);
+                    assert(show.urltodownload);
                     // console.log("showObjectCrawled: " + JSON.stringify(showObjectCrawled));
                 }
-            ).then(showListCrawled => assert.ok(showListCrawled.length >= 1))
+            ).then(showList => assert.ok(showList.length >= 1))
         });
     });
 
@@ -38,7 +36,7 @@ describe('crawlShows', function () {
         var urlWithFilm = 'http://tumejortorrent.com/descargar/peliculas-x264-mkv/coco-/bluray-microhd/';
 
         it("should return the film 'Coco' with all data", function () {
-            return tumejortorrent_scraper.crawlShow(urlWithFilm).then(function (show) {
+            return tumejortorrent.crawlShow(urlWithFilm).then(show => {
                 assert.equal(show.urlBase, 'http://tumejortorrent.com/descargar/peliculas-x264-mkv/coco-/bluray-microhd/');
                 assert.equal(show.title, 'Coco');
                 assert.ok(show.description);
@@ -48,7 +46,7 @@ describe('crawlShows', function () {
                 assert.equal(show.releaseDate, '10-02-2018');
                 assert.equal(show.urltodownload, 'http://tumejortorrent.com/descargar-torrent/103770_-1518265235-coco--bluray-microhd/');
                 assert.equal(show.originalTitle, 'Coco');
-                //console.log("Show:'" + JSON.stringify(show) + "'");
+                //console.log("Show crawled:'" + JSON.stringify(show) + "'");
             });
         });
     });

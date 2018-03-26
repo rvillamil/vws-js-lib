@@ -4,17 +4,18 @@ const omdb = require('../lib/omdb');
 // Example use
 //
 omdb.searchShow('Star wars', '1977')
-    .then(function (response) {
-        console.log('Response: ', response);
+    .then(show => {
+        console.log('Show Star wars: ', show);
     })
-    .catch(function (err) {
+    .catch(err => {
         console.log('Error: ' + err);
     });
 
-omdb.searchShow('No existe', '1977')
-    .then(function (response) {
-        console.log('Response: ', response);
+
+omdb.searchShow('does not exist', '2076')
+    .then(show => {
+        console.log('Show does not exist: ', show);
     })
-    .catch(function (err) {
+    .catch(err=> {
         console.log('Error: ' + err);
     });

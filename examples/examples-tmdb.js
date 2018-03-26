@@ -3,19 +3,21 @@ const tmdb = require('../lib/tmdb');
 //
 // Example use
 //
-
+/*
 tmdb.searchShow('Star wars', '1977')
-    .then(function (response) {
-        console.log('Response: ', response);
+    .then(show => {
+        console.log('Show Star wars: ', show);
     })
-    .catch(function (err) {
+    .catch(err => {
         console.log('Error: ' + err);
     });
 
-tmdb.searchShow('No existe', '1977')
-    .then(function (response) {
-        console.log('Response: ', response);
+    */
+
+tmdb.searchShow('does not exist', '2076')
+    .then(show => {
+        console.log('Show does not exist: ', show);
     })
-    .catch(function (err) {
+    .catch(err=> {
         console.log('Error: ' + err);
     });

@@ -5,22 +5,25 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert');
-const omdb = require('../lib/tmdb');
+const tmdb = require('../lib/tmdb');
+const show = require('../lib/show');
 
 describe('tmdb', function () {
-    it('should return the film La guerra de las galaxias. Episodio IV: Una nueva esperanza', function () {
-        return omdb.searchShow('Star wars', '1977')
-            .then(response => {
-                // console.log('Response: ', response);
-                assert.equal(response.results[0].title, 'La guerra de las galaxias. Episodio IV: Una nueva esperanza')
+    it('Should return one Show object with the film Star Wars', function () {
+        return tmdb.searchShow('Star wars', '1977')
+            .then(show => {
+                //console.log('Show: ', show);
+                assert.equal(show.title, 'Star wars');
+                assert.equal(show.year, '1977');    
+                assert.equal(show.error, 'none');                    
             })
     });
 
-    it('not should return the film La guerra de las galaxias. Episodio IV: Una nueva esperanza', function () {
-        return omdb.searchShow('Star way', '2977')
-            .then(response => {
-                //console.log('Response: ', response);
-                assert.equal(response.total_results, '0')
+    it('Should return one Show object with error description', function () {
+        return tmdb.searchShow('Star way', '2977')
+            .then(show => {
+                //console.log('Show: ', show);
+                assert.notEqual (show.error, 'none');                 
             })
     });
 
