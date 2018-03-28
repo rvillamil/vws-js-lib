@@ -6,9 +6,8 @@
 //
 const assert = require('assert');
 const tumejortorrent = require('../lib/tumejortorrent');
-const url = require("url");
 
-describe('crawlShows', function () {
+describe('tumejortorrent', function () {
 
     describe('#crawlVideoPremieres()', function () {
         it('should return a list with at least one show', function () {
