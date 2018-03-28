@@ -11,7 +11,7 @@ omdb.searchShow('Star wars', '1977')
         console.log('Error: ' + err);
     });
 
-
+/*
 omdb.searchShow('does not exist', '2076')
     .then(show => {
         console.log('Show does not exist: ', show);
@@ -19,3 +19,4 @@ omdb.searchShow('does not exist', '2076')
     .catch(err=> {
         console.log('Error: ' + err);
     });
+*/

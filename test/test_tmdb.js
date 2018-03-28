@@ -14,8 +14,8 @@ describe('tmdb', function () {
             .then(show => {
                 //console.log('Show: ', show);
                 assert.equal(show.title, 'Star wars');
-                assert.equal(show.year, '1977');    
-                assert.equal(show.error, 'none');                    
+                assert.equal(show.year, '1977');
+                assert.equal(show.error, 0);
             })
     });
 
@@ -23,7 +23,7 @@ describe('tmdb', function () {
         return tmdb.searchShow('Star way', '2977')
             .then(show => {
                 //console.log('Show: ', show);
-                assert.notEqual (show.error, 'none');                 
+                assert.notEqual(show.error, 0);
             })
     });
 

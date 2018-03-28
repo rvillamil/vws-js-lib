@@ -14,16 +14,16 @@ describe('omdb', function () {
             .then(show => {
                 //console.log('Show: ', show);
                 assert.equal(show.title, 'Star wars');
-                assert.equal(show.year, '1977');    
-                assert.equal(show.error, 'none');                    
+                assert.equal(show.year, '1977');
+                assert.equal(show.error, 0);
             })
     });
 
     it('Should return one Show object with error description', function () {
         return omdb.searchShow('Star way', '2977')
             .then(show => {
-                //console.log('Show: ', show);
-                assert.notEqual (show.error, 'none');                 
+                //console.log('Show Error: ', show);
+                assert.notEqual(show.error, 0);
             })
     });
 });

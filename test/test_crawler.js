@@ -15,8 +15,8 @@ describe('crawler', function () {
                 show => {
                     assert(show.title);
                     assert(show.urltodownload);
-                }
-            ).then(showList => assert.ok(showList.length >= 1))
+                }, 2
+            ).then(showList => assert.ok(showList.length == 2))
         });
     });
     describe('#crawlBillboardFilms()', function () {
@@ -26,8 +26,8 @@ describe('crawler', function () {
                     assert(show.title);
                     assert(show.urltodownload);
                     // console.log("show: " + JSON.stringify(show));
-                }
-            ).then(showList => assert.ok(showList.length >= 1))
+                }, 2
+            ).then(showList => assert.ok(showList.length == 2))
         });
     });
 });

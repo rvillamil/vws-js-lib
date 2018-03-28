@@ -15,8 +15,8 @@ describe('tumejortorrent', function () {
                 show => {
                     assert(show.title);
                     assert(show.urltodownload);
-                }
-            ).then(showList => assert.ok(showList.length >= 1))
+                }, 2
+            ).then(showList => assert.ok(showList.length == 2))
         });
     });
     describe('#crawlBillboardFilms()', function () {
@@ -26,8 +26,8 @@ describe('tumejortorrent', function () {
                     assert(show.title);
                     assert(show.urltodownload);
                     // console.log("showObjectCrawled: " + JSON.stringify(showObjectCrawled));
-                }
-            ).then(showList => assert.ok(showList.length >= 1))
+                }, 2
+            ).then(showList => assert.ok(showList.length == 2))
         });
     });
 
