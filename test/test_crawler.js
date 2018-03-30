@@ -12,21 +12,23 @@ describe('crawler', function () {
     describe('#crawlVideoPremieres()', function () {
         it('should return a list with at least one show', function () {
             crawler.crawlVideoPremieres(
+                2,
                 show => {
                     assert(show.title);
                     assert(show.urltodownload);
-                }, 2
+                }
             ).then(showList => assert.ok(showList.length == 2))
         });
     });
     describe('#crawlBillboardFilms()', function () {
         it('should return a list with at least one show', function () {
             crawler.crawlBillboardFilms(
+                2,
                 show => {
                     assert(show.title);
                     assert(show.urltodownload);
                     // console.log("show: " + JSON.stringify(show));
-                }, 2
+                }
             ).then(showList => assert.ok(showList.length == 2))
         });
     });

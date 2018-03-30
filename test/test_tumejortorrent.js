@@ -9,25 +9,16 @@ const tumejortorrent = require('../lib/tumejortorrent');
 
 describe('tumejortorrent', function () {
 
-    describe('#crawlVideoPremieres()', function () {
-        it('should return a list with at least one show', function () {
-            tumejortorrent.crawlVideoPremieres(
-                show => {
-                    assert(show.title);
-                    assert(show.urltodownload);
-                }, 2
-            ).then(showList => assert.ok(showList.length == 2))
+    describe('#crawlURLsWithVideoPremieres()', function () {
+        it('should return a list with 2 url', function () {
+            tumejortorrent.crawlURLsWithVideoPremieres(2).then(
+                showList => assert.ok(showList.length == 2))
         });
     });
-    describe('#crawlBillboardFilms()', function () {
-        it('should return a list with at least one show', function () {
-            tumejortorrent.crawlBillboardFilms(
-                show => {
-                    assert(show.title);
-                    assert(show.urltodownload);
-                    // console.log("showObjectCrawled: " + JSON.stringify(showObjectCrawled));
-                }, 2
-            ).then(showList => assert.ok(showList.length == 2))
+    describe('#crawlURLsWithBillboardFilms()', function () {
+        it('should return a list with 2 url', function () {
+            tumejortorrent.crawlURLsWithBillboardFilms(2).then(
+                showList => assert.ok(showList.length == 2))
         });
     });
 
