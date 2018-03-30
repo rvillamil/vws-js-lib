@@ -1,14 +1,17 @@
 const crawler = require('../lib/crawler');
+const Show = require('../lib/show');
 
 //
 // Example use
 //
-crawler.crawlBillboardFilms(
-        show => console.log('Show: ', show), 2)
-    .then(
-        showList => {
-            console.log("crawler - Billboardfilms length: " + showList.length);
-        }
-    ).catch(function (err) {
-        console.log('Error: ' + err);
+
+var onShowFoundEvent = function onShowFoundEvent(show) {
+    console.log(`onShowFoundEvent - Show crawled !!  --> ${JSON.stringify(show)}\n\n`)
+}
+
+crawler.crawlVideoPremieres(2, onShowFoundEvent)
+    .then(urlList => {
+        console.log("crawler - crawlVideoPremieres length: " + urlList.length);
+    }).catch(function (err) {
+        console.log('ERROR! crawlVideoPremieres: ' + err);
     });
