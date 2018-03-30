@@ -10,7 +10,7 @@ Currently websites scraped list:
 
 - [TuMejorTorrent](http://tumejortorrent.com/)
 
-Implemented node modules for search in film databases:
+Implemented node modules for search on internet movie databases as:
 
 - [omdb](http://www.omdbapi.com/)
 - [tmdb](https://www.themoviedb.org/)
@@ -31,19 +31,19 @@ $npm install
 
 ### Example use
 
-#### Node module for crawl in 'tumejortorrent' portal
+#### Node module for crawl 2 video premieres in 'tumejortorrent' portal
 
 ```js
-tumejortorrent.crawlBillboardFilms(
-    show => console.log('Show: ', showObjectCrawled))
-.then(
-    showList => {
-        console.log("billboardfilms length: " + showList.length);
-    }
-).catch(function (err) {
-    console.log('Error: ' + err);
-});
+var onShowFoundEvent = function onShowFoundEvent(show) {
+    console.log(`onShowFoundEvent - Show crawled !!  --> ${JSON.stringify(show)}\n\n`)
+}
 
+crawler.crawlVideoPremieres(2, onShowFoundEvent)
+    .then(urlList => {
+        console.log("crawler - crawlVideoPremieres length: " + urlList.length);
+    }).catch(function (err) {
+        console.log('ERROR! crawlVideoPremieres: ' + err);
+    });
 ```
 
 #### Node module for search in OMDB
