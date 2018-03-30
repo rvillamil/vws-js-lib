@@ -9,8 +9,9 @@ tmdb.searchShow('Star wars', '1977')
     })
     .catch(err => {
         console.log('Error: ' + err);
-    });  
+    });
 
+/*
 tmdb.searchShow('does not exist', '2076')
     .then(show => {
         console.log('Show does not exist: ', show);
@@ -18,3 +19,4 @@ tmdb.searchShow('does not exist', '2076')
     .catch(err=> {
         console.log('Error: ' + err);
     });
+    */
