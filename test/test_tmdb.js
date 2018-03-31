@@ -24,7 +24,7 @@ describe('tmdb', function () {
 
     describe('#searchShow()', function () {
 
-        it('Should return one Show object with error description', function () {
+        it('Should return one Show object with error', function () {
             return tmdb.searchShow('Star way', '2977')
                 .then(show => {
                     //console.log('Show: ', show);

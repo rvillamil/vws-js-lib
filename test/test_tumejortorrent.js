@@ -10,13 +10,13 @@ const tumejortorrent = require('../lib/tumejortorrent');
 describe('tumejortorrent', function () {
 
     describe('#crawlURLsWithVideoPremieres()', function () {
-        it('should return a list with 2 url', function () {
+        it('should return a video premiere list with 2 url', function () {
             tumejortorrent.crawlURLsWithVideoPremieres(2).then(
                 showList => assert.ok(showList.length == 2))
         });
     });
     describe('#crawlURLsWithBillboardFilms()', function () {
-        it('should return a list with 2 url', function () {
+        it('should return a billboard film list with 2 url', function () {
             tumejortorrent.crawlURLsWithBillboardFilms(2).then(
                 showList => assert.ok(showList.length == 2))
         });
