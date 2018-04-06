@@ -27,8 +27,22 @@ tumejortorrent.crawlURLsWithBillboardFilms(2)
         console.log('Error: ' + err);
     });
 
-
 tumejortorrent.crawlURLsWithVideoPremieres(2)
+    .then(
+        urlList => {
+            urlList.forEach(
+                url => {
+                    return crawlShowFromUrl(url);
+                }
+            )
+            return urlList;
+        }
+    ).catch(function (err) {
+        console.log('Error: ' + err);
+    });
+
+
+tumejortorrent.crawlURLsFromTVShow('erase-una-vez/1490', 3)
     .then(
         urlList => {
             urlList.forEach(
