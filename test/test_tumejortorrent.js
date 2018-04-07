@@ -23,10 +23,17 @@ describe('tumejortorrent', function () {
         });
     });
 
-    describe('#crawlURLsWithTVShows()', function () {
-        it('should return a tvshow film list with 2 url', function () {
-            tumejortorrent.crawlURLsWithBillboardFilms(2).then(
-                showList => assert.ok(showList.length == 2))
+    describe('#crawlURLsWithBillboardFilms()', function () {
+        it('should return a tvshow list with 3 url', function () {
+            tumejortorrent.crawlURLsWithTVShows(3).then(
+                showList => assert.ok(showList.length == 3))
+        });
+    });
+
+    describe('#crawlEpisodesURL()', function () {
+        it('should return a tvshow list with 3 url', function () {
+            tumejortorrent.crawlEpisodesURL('erase-una-vez/1490', 3).then(
+                showList => assert.ok(showList.length == 3))
         });
     });
 
@@ -35,6 +42,7 @@ describe('tumejortorrent', function () {
 
         it("should return the film 'Coco' with all data", function () {
             return tumejortorrent.crawlShow(urlWithFilm).then(show => {
+                //console.log("Show crawled:'" + JSON.stringify(show) + "'");
                 assert.equal(show.urlBase, 'http://tumejortorrent.com/descargar/peliculas-x264-mkv/coco-/bluray-microhd/');
                 assert.equal(show.title, 'Coco');
                 assert.ok(show.description);
@@ -44,7 +52,6 @@ describe('tumejortorrent', function () {
                 assert.equal(show.releaseDate, '10-02-2018');
                 assert.equal(show.urltodownload, 'http://tumejortorrent.com/descargar-torrent/103770_-1518265235-coco--bluray-microhd/');
                 assert.equal(show.originalTitle, 'Coco');
-                //console.log("Show crawled:'" + JSON.stringify(show) + "'");
             });
         });
     });

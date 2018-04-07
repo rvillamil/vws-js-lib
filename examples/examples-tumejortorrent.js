@@ -42,7 +42,7 @@ tumejortorrent.crawlURLsWithVideoPremieres(2)
     });
 
 
-tumejortorrent.crawlURLsFromTVShow('erase-una-vez/1490', 3)
+tumejortorrent.crawlEpisodesURL('erase-una-vez/1490', 3)
     .then(
         urlList => {
             urlList.forEach(
