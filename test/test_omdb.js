@@ -20,9 +20,6 @@ describe('omdb', function () {
                     assert.equal(show.error, 0);
                 })
         });
-    });
-
-    describe('#searchShow()', function () {
 
         it('Should return one Show object with error', function () {
             return omdb.searchShow('Star way', '2977')

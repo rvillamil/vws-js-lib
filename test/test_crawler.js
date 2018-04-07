@@ -22,7 +22,7 @@ describe('crawler', function () {
         });
     });
     describe('#crawlBillboardFilms()', function () {
-        it('should return a billboard film list with thow shows', function () {
+        it('should return a billboard film list with two shows', function () {
             crawler.crawlBillboardFilms(
                 2,
                 show => {
@@ -32,6 +32,20 @@ describe('crawler', function () {
                     // console.log("show: " + JSON.stringify(show));
                 }
             ).then(showList => assert.ok(showList.length == 2))
+        });
+    });
+
+    describe('#crawlTVShows()', function () {
+        it('should return a TVShow list with three shows', function () {
+            crawler.crawlTVShows(
+                3,
+                show => {
+                    assert(show.title);
+                    assert(show.urltodownload);
+                    assert.equal(show.error, 0);
+                    //console.log("TVShow: " + JSON.stringify(show));
+                }
+            ).then(showList => assert.ok(showList.length == 3))
         });
     });
 });

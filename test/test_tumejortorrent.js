@@ -54,9 +54,7 @@ describe('tumejortorrent', function () {
                 assert.equal(show.originalTitle, 'Coco');
             });
         });
-    });
 
-    describe('#crawlShow() - TVshow', function () {
         var urlWithTVShow = 'http://tumejortorrent.com/descargar/serie-en-hd/erase-una-vez/temporada-7/capitulo-14/';
 
         it("should return the TVShow 'Erase una vez', 7x14 with all data", function () {
