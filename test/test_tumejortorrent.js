@@ -23,7 +23,7 @@ describe('tumejortorrent', function () {
         });
     });
 
-    describe('#crawlURLsWithBillboardFilms()', function () {
+    describe('#crawlURLsWithTVShows()', function () {
         it('should return a tvshow list with 3 url', function () {
             tumejortorrent.crawlURLsWithTVShows(3).then(
                 showList => assert.ok(showList.length == 3))

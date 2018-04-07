@@ -3,7 +3,7 @@ const tumejortorrent = require('../lib/tumejortorrent');
 //
 // Example use
 //
-
+/*
 function crawlShowFromUrl(url) {
 
     return tumejortorrent.crawlShow(url)
@@ -53,5 +53,17 @@ tumejortorrent.crawlEpisodesURL('erase-una-vez/1490', 3)
             return urlList;
         }
     ).catch(function (err) {
+        console.log('Error: ' + err);
+    });
+    */
+
+tumejortorrent.crawlURLsWithTVShows(3)
+    .then(urlListWithLastEpisode => {
+        urlListWithLastEpisode.forEach(url => {
+            console.log("URL: " + url)
+        })
+        return urlListWithLastEpisode;
+
+    }).catch(function (err) {
         console.log('Error: ' + err);
     });
