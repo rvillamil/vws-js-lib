@@ -34,7 +34,7 @@ describe('show object', function () {
         it('Should add the episode list from shows to show', function () {
 
             console.log(`toShow antes  --> ${JSON.stringify(toShow)}\n\n`)
-            Show.mergeTVShowLinks(favoritesList, toShow);
+            toShow.mergeTVShowLinks(favoritesList);
             console.log(`toShow despues  --> ${JSON.stringify(toShow)}\n\n`)
         });
     });
