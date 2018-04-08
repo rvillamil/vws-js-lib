@@ -82,6 +82,14 @@ tmdb.searchShow('Star wars', '1977')
 $npm test
 ```
 
+or indiviual test by description
+
+```sh
+$npm test -- --grep "show object"
+$npm test -- --grep "crawler"
+
+```
+
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/rvillamil/vws-js-lib/tags).
