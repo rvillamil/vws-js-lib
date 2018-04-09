@@ -17,7 +17,7 @@ function newTestShow(title, currentSession, currentEpisode) {
     return toShow
 }
 
-describe('show object', function () {
+describe('Show object', function () {
 
     describe('#addPreviousTVShowLinks(fromShows)', function () {
 
@@ -36,17 +36,17 @@ describe('show object', function () {
             // console.log(`toShow antes  --> ${JSON.stringify(toShow)}\n\n`)
             toShow.addPreviousTVShowLinks(fromShows)
 
-            assert.equal(toShow.tvShowLinks[0].session, "5");
-            assert.equal(toShow.tvShowLinks[0].episode, "2");
-            assert.equal(toShow.tvShowLinks[0].urltodownload, "http://urltodownload_TVShow_5_2");
+            assert.equal(toShow.previousTVShowLinks[0].session, "5");
+            assert.equal(toShow.previousTVShowLinks[0].episode, "2");
+            assert.equal(toShow.previousTVShowLinks[0].urltodownload, "http://urltodownload_TVShow_5_2");
 
-            assert.equal(toShow.tvShowLinks[1].session, "5");
-            assert.equal(toShow.tvShowLinks[1].episode, "3");
-            assert.equal(toShow.tvShowLinks[1].urltodownload, "http://urltodownload_TVShow_5_3");
+            assert.equal(toShow.previousTVShowLinks[1].session, "5");
+            assert.equal(toShow.previousTVShowLinks[1].episode, "3");
+            assert.equal(toShow.previousTVShowLinks[1].urltodownload, "http://urltodownload_TVShow_5_3");
 
-            assert.equal(toShow.tvShowLinks[2].session, "5");
-            assert.equal(toShow.tvShowLinks[2].episode, "4");
-            assert.equal(toShow.tvShowLinks[2].urltodownload, "http://urltodownload_TVShow_5_4");
+            assert.equal(toShow.previousTVShowLinks[2].session, "5");
+            assert.equal(toShow.previousTVShowLinks[2].episode, "4");
+            assert.equal(toShow.previousTVShowLinks[2].urltodownload, "http://urltodownload_TVShow_5_4");
         });
     });
 });

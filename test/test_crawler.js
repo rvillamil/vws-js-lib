@@ -8,6 +8,7 @@ const assert = require('assert');
 const crawler = require('../lib/crawler');
 
 describe('crawler', function () {
+    this.timeout(15000);
 
     describe('#crawlVideoPremieres()', function () {
         it('should return a video premiere list with two shows', function () {
