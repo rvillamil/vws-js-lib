@@ -18,7 +18,7 @@ describe('crawler', function () {
                     assert(show.urltodownload);
                     assert.equal(show.error, 0);
                 }
-            ).then(showList => assert.ok(showList.length == 2))
+            ).then(shows => assert.ok(shows.length == 2))
         });
     });
     describe('#crawlBillboardFilms()', function () {
@@ -31,7 +31,7 @@ describe('crawler', function () {
                     assert.equal(show.error, 0);
                     // console.log("show: " + JSON.stringify(show));
                 }
-            ).then(showList => assert.ok(showList.length == 2))
+            ).then(shows => assert.ok(shows.length == 2))
         });
     });
 
@@ -45,7 +45,7 @@ describe('crawler', function () {
                     assert.equal(show.error, 0);
                     //console.log("TVShow: " + JSON.stringify(show));
                 }
-            ).then(showList => assert.ok(showList.length == 3))
+            ).then(shows => assert.ok(shows.length == 3))
         });
     });
 });

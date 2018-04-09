@@ -11,16 +11,16 @@ var onShowFoundEvent = function onShowFoundEvent(show) {
 
 /*
 crawler.crawlVideoPremieres(2, onShowFoundEvent)
-    .then(urlList => {
-        console.log("crawler - crawlVideoPremieres length: " + urlList.length);
+    .then(shows => {
+        console.log("crawler - crawlVideoPremieres length: " + shows.length);
     }).catch(function (err) {
         console.log('ERROR! crawlVideoPremieres: ' + err);
     });
 
 
 crawler.crawlTVShows(2, onShowFoundEvent)
-    .then(urlList => {
-        console.log("crawler - crawlTVShows length: " + urlList.length);
+    .then(shows => {
+        console.log("crawler - crawlTVShows length: " + shows.length);
     }).catch(function (err) {
         console.log('ERROR! crawlTVShows: ' + err);
     });
@@ -28,8 +28,8 @@ crawler.crawlTVShows(2, onShowFoundEvent)
     */
 favoritesList = ['erase-una-vez/1490']
 crawler.crawlMyFavoritesTVShows(4, favoritesList, onShowFoundEvent)
-    .then(urlList => {
-        console.log("crawler - myFavoritesTVShows length: " + urlList.length);
+    .then(shows => {
+        console.log("crawler - myFavoritesTVShows length: " + shows.length);
     }).catch(function (err) {
         console.log('ERROR! crawlMyFavoritesTVShows: ' + err);
     });

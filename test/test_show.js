@@ -19,22 +19,22 @@ function newTestShow(title, currentSession, currentEpisode) {
 
 describe('show object', function () {
 
-    describe('#newTVShowLinks(showList)', function () {
+    describe('#addPreviousTVShowLinks(fromShows)', function () {
 
-        favoritesList = [];
+        fromShows = [];
 
         var toShow = newTestShow("TVShow", "5", "1")
         var fromShow1 = newTestShow("TVShow", "5", "2")
         var fromShow2 = newTestShow("TVShow", "5", "3")
         var fromShow3 = newTestShow("TVShow", "5", "4")
 
-        favoritesList.push(fromShow1);
-        favoritesList.push(fromShow2);
-        favoritesList.push(fromShow3);
+        fromShows.push(fromShow1);
+        fromShows.push(fromShow2);
+        fromShows.push(fromShow3);
 
         it('Should add the episode list from shows to show', function () {
             // console.log(`toShow antes  --> ${JSON.stringify(toShow)}\n\n`)
-            toShow.newTVShowLinks(favoritesList)
+            toShow.addPreviousTVShowLinks(fromShows)
 
             assert.equal(toShow.tvShowLinks[0].session, "5");
             assert.equal(toShow.tvShowLinks[0].episode, "2");
