@@ -5,12 +5,12 @@ const Show = require('../lib/show');
 // Example use
 //
 
-var onShowFoundEvent = function onShowFoundEvent(show) {
-    console.log(`onShowFoundEvent - Show crawled !!  --> ${JSON.stringify(show)}\n\n`)
+var onShowURLCrawled = function onShowURLCrawled(show) {
+    console.log(`onShowURLCrawled - Show crawled !!  --> ${JSON.stringify(show)}\n\n`)
 }
 
 /*
-crawler.crawlVideoPremieres(2, onShowFoundEvent)
+crawler.crawlVideoPremieres(2, onShowURLCrawled)
     .then(shows => {
         console.log("crawler - crawlVideoPremieres length: " + shows.length);
     }).catch(function (err) {
@@ -18,7 +18,7 @@ crawler.crawlVideoPremieres(2, onShowFoundEvent)
     });
 
 
-crawler.crawlTVShows(2, onShowFoundEvent)
+crawler.crawlTVShows(2, onShowURLCrawled)
     .then(shows => {
         console.log("crawler - crawlTVShows length: " + shows.length);
     }).catch(function (err) {
@@ -27,9 +27,9 @@ crawler.crawlTVShows(2, onShowFoundEvent)
 
     */
 favoritesList = ['erase-una-vez/1490']
-crawler.crawlMyFavoritesTVShows(4, favoritesList, onShowFoundEvent)
+crawler.crawlMyFavoritesTVShows(4, favoritesList, onShowURLCrawled)
     .then(shows => {
-        console.log("crawler - myFavoritesTVShows length: " + shows.length);
+        console.log("crawler - crawlMyFavoritesTVShows length: " + shows.length);
     }).catch(function (err) {
         console.log('ERROR! crawlMyFavoritesTVShows: ' + err);
     });
