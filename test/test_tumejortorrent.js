@@ -11,28 +11,28 @@ describe('tumejortorrent', function () {
     this.timeout(15000);
     describe('#crawlURLsWithVideoPremieres()', function () {
         it('should return a video premiere list with 2 url', function () {
-            tumejortorrent.crawlURLsWithVideoPremieres(2).then(
+            return tumejortorrent.crawlURLsWithVideoPremieres(2).then(
                 showList => assert.ok(showList.length == 2))
         });
     });
 
     describe('#crawlURLsWithBillboardFilms()', function () {
         it('should return a billboard film list with 2 url', function () {
-            tumejortorrent.crawlURLsWithBillboardFilms(2).then(
+            return tumejortorrent.crawlURLsWithBillboardFilms(2).then(
                 showList => assert.ok(showList.length == 2))
         });
     });
 
     describe('#crawlURLsWithTVShows()', function () {
         it('should return a tvshow list with 3 url', function () {
-            tumejortorrent.crawlURLsWithTVShows(3).then(
+            return tumejortorrent.crawlURLsWithTVShows(3).then(
                 showList => assert.ok(showList.length == 3))
         });
     });
 
     describe('#crawlEpisodesURL()', function () {
         it('should return a tvshow list with 3 url', function () {
-            tumejortorrent.crawlEpisodesURL('erase-una-vez/1490', 3).then(
+            return tumejortorrent.crawlEpisodesURL('erase-una-vez/1490', 3).then(
                 showList => assert.ok(showList.length == 3))
         });
     });

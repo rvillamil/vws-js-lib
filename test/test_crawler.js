@@ -11,7 +11,7 @@ describe('crawler', function () {
 
     describe('#crawlVideoPremieres()', function () {
         it('should return a video premiere list with two shows', function () {
-            crawler.crawlVideoPremieres(
+            return crawler.crawlVideoPremieres(
                 2,
                 show => {
                     assert(show.title);
@@ -23,7 +23,7 @@ describe('crawler', function () {
     });
     describe('#crawlBillboardFilms()', function () {
         it('should return a billboard film list with two shows', function () {
-            crawler.crawlBillboardFilms(
+            return crawler.crawlBillboardFilms(
                 2,
                 show => {
                     assert(show.title);
@@ -37,7 +37,7 @@ describe('crawler', function () {
 
     describe('#crawlTVShows()', function () {
         it('should return a TVShow list with three shows', function () {
-            crawler.crawlTVShows(
+            return crawler.crawlTVShows(
                 3,
                 show => {
                     assert(show.title);
