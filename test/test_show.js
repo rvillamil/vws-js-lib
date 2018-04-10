@@ -18,35 +18,36 @@ function newTestShow(title, currentSession, currentEpisode) {
 }
 
 describe('Show object', function () {
+    /*
+        describe('#addPreviousTVShowLinks(fromShows)', function () {
 
-    describe('#addPreviousTVShowLinks(fromShows)', function () {
+            fromShows = [];
 
-        fromShows = [];
+            var toShow = newTestShow("TVShow", "5", "1")
+            var fromShow1 = newTestShow("TVShow", "5", "2")
+            var fromShow2 = newTestShow("TVShow", "5", "3")
+            var fromShow3 = newTestShow("TVShow", "5", "4")
 
-        var toShow = newTestShow("TVShow", "5", "1")
-        var fromShow1 = newTestShow("TVShow", "5", "2")
-        var fromShow2 = newTestShow("TVShow", "5", "3")
-        var fromShow3 = newTestShow("TVShow", "5", "4")
+            fromShows.push(fromShow1);
+            fromShows.push(fromShow2);
+            fromShows.push(fromShow3);
 
-        fromShows.push(fromShow1);
-        fromShows.push(fromShow2);
-        fromShows.push(fromShow3);
+            it('Should add the episode list from shows to show', function () {
+                // console.log(`toShow antes  --> ${JSON.stringify(toShow)}\n\n`)
+                toShow.addPreviousTVShowLinks(fromShows)
 
-        it('Should add the episode list from shows to show', function () {
-            // console.log(`toShow antes  --> ${JSON.stringify(toShow)}\n\n`)
-            toShow.addPreviousTVShowLinks(fromShows)
+                assert.equal(toShow.previousTVShowLinks[0].session, "5");
+                assert.equal(toShow.previousTVShowLinks[0].episode, "2");
+                assert.equal(toShow.previousTVShowLinks[0].urltodownload, "http://urltodownload_TVShow_5_2");
 
-            assert.equal(toShow.previousTVShowLinks[0].session, "5");
-            assert.equal(toShow.previousTVShowLinks[0].episode, "2");
-            assert.equal(toShow.previousTVShowLinks[0].urltodownload, "http://urltodownload_TVShow_5_2");
+                assert.equal(toShow.previousTVShowLinks[1].session, "5");
+                assert.equal(toShow.previousTVShowLinks[1].episode, "3");
+                assert.equal(toShow.previousTVShowLinks[1].urltodownload, "http://urltodownload_TVShow_5_3");
 
-            assert.equal(toShow.previousTVShowLinks[1].session, "5");
-            assert.equal(toShow.previousTVShowLinks[1].episode, "3");
-            assert.equal(toShow.previousTVShowLinks[1].urltodownload, "http://urltodownload_TVShow_5_3");
-
-            assert.equal(toShow.previousTVShowLinks[2].session, "5");
-            assert.equal(toShow.previousTVShowLinks[2].episode, "4");
-            assert.equal(toShow.previousTVShowLinks[2].urltodownload, "http://urltodownload_TVShow_5_4");
+                assert.equal(toShow.previousTVShowLinks[2].session, "5");
+                assert.equal(toShow.previousTVShowLinks[2].episode, "4");
+                assert.equal(toShow.previousTVShowLinks[2].urltodownload, "http://urltodownload_TVShow_5_4");
+            });
         });
-    });
+        */
 });
