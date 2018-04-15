@@ -26,14 +26,16 @@ describe('favoriteRepository', function () {
             var showCollection2 = new ShowCollection()
             showCollection2.name = "hola/mola_2"
 
-            favoriteRepository.save(showCollection1)
-                .catch(showCollectionSaved => {
-                    console.error("Problem on save!")
+            return favoriteRepository.save(showCollection1)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
-            favoriteRepository.save(showCollection2)
-                .catch(showCollectionSaved => {
-                    console.error("Problem on save!")
+            return favoriteRepository.save(showCollection2)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
             return favoriteRepository.findAll().then(

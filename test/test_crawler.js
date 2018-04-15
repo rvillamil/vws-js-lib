@@ -6,6 +6,7 @@
 //
 const assert = require('assert');
 const crawler = require('../lib/crawler');
+const ShowCollection = require('../lib/showcollection');
 
 describe('crawler', function () {
     this.timeout(15000);
@@ -49,4 +50,27 @@ describe('crawler', function () {
             ).then(shows => assert.ok(shows.length == 3))
         });
     });
+
+
+    describe('#crawlTVShowCollections()', function () {
+        it('should return a TVShow collection list with 2 showscollection with 4 episodes every collecion', function () {
+            var showCollection1 = new ShowCollection()
+            showCollection1.name = 'modern-family/2261'
+
+            var showCollection2 = new ShowCollection()
+            showCollection1.name = 'arrow/1596'
+
+            var showCollectionList = []
+            showCollectionList.push(showCollection1)
+            showCollectionList.push(showCollection2)
+
+            return crawler.crawlTVShowCollections(4, showCollectionList)
+                .then(newShowCollectionList => {
+                    assert.equal(newShowCollectionList.length, 2)
+                    assert.equal(newShowCollectionList[0].shows.length, 4)
+                })
+        });
+    });
+
+
 });

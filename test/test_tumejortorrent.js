@@ -9,30 +9,30 @@ const tumejortorrent = require('../lib/tumejortorrent');
 
 describe('tumejortorrent', function () {
     this.timeout(15000);
-    describe('#crawlURLsWithVideoPremieres()', function () {
+    describe('#crawlLinkToURLsWithVideoPremieres()', function () {
         it('should return a video premiere url list with 2 url', function () {
-            return tumejortorrent.crawlURLsWithVideoPremieres(2).then(
+            return tumejortorrent.crawlLinkToURLsWithVideoPremieres(2).then(
                 urls => assert.ok(urls.length == 2))
         });
     });
 
-    describe('#crawlURLsWithBillboardFilms()', function () {
+    describe('#crawlLinkToURLsWithBillboardFilms()', function () {
         it('should return a billboard film url list with 2 url', function () {
-            return tumejortorrent.crawlURLsWithBillboardFilms(2).then(
+            return tumejortorrent.crawlLinkToURLsWithBillboardFilms(2).then(
                 urls => assert.ok(urls.length == 2))
         });
     });
 
-    describe('#crawlURLsWithLatestTVShows()', function () {
+    describe('#crawlLinkToURLsWithLatestTVShows()', function () {
         it('should return a tvshow url list with 3 url', function () {
-            return tumejortorrent.crawlURLsWithLatestTVShows(3).then(
+            return tumejortorrent.crawlLinkToURLsWithLatestTVShows(3).then(
                 urls => assert.ok(urls.length == 3))
         });
     });
 
-    describe('#crawlURLsWithCollection()', function () {
+    describe('#crawlLinkToURLsWithEpisodes()', function () {
         it('should return a tvshow url list with 3 url', function () {
-            return tumejortorrent.crawlURLsWithCollection(3, 'erase-una-vez/1490').then(
+            return tumejortorrent.crawlLinkToURLsWithEpisodes(3, 'erase-una-vez/1490').then(
                 urls => assert.ok(urls.length == 3))
         });
     });
