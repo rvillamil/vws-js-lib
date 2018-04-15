@@ -16,7 +16,7 @@ var FavoriteRepository = require('../lib/favoriteRepository');
 describe('favoriteRepository', function () {
 
     describe('#findAll()', function () {
-        var favoriteRepository = new FavoriteRepository();
+        var favoriteRepository = new FavoriteRepository('vws-db');
 
         it('Should load two Collection', function () {
 
