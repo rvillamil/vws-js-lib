@@ -5,12 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.0.0] - 2018-04-16
 
 ### Added
 
-- API enhacements: new objects and incompatible changes
-- New TVShows data scraped support
+- API enhacements: new objects. Incompatible changes with previous version
+- New LinkChained object. Wrapper for URL Links
+- New Showcollection object. e.g: TVShow sessions are show collection
+- New Database support: nedb
+- New FavoriteRepository object, with 'showCollection' persistence support
 - Test enhacements
 
 ## [1.0.0] - 2018-03-30

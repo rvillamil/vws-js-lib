@@ -34,13 +34,16 @@ $npm install
 #### Node module for crawl 2 video premieres in 'tumejortorrent' portal
 
 ```js
-var onShowFoundEvent = function onShowFoundEvent(show) {
-    console.log(`onShowFoundEvent - Show crawled !!  --> ${JSON.stringify(show)}\n\n`)
+var Show = require('vws-js-lib/lib/show');
+var crawler = require('vws-js-lib/lib/crawler');
+
+var onShowFoundEvent = function onShowDataCrawled(show) {
+    console.log(`onShowDataCrawled - Show crawled !!  --> ${JSON.stringify(show)}\n\n`)
 }
 
-crawler.crawlVideoPremieres(2, onShowFoundEvent)
-    .then(urlList => {
-        console.log("crawler - crawlVideoPremieres length: " + urlList.length);
+return crawler.crawlVideoPremieres(2, onShowDataCrawled)
+    .then(showList => {
+        console.log("crawler - crawlVideoPremieres length: " + showList.length);
     }).catch(function (err) {
         console.log('ERROR! crawlVideoPremieres: ' + err);
     });
@@ -49,9 +52,9 @@ crawler.crawlVideoPremieres(2, onShowFoundEvent)
 #### Node module for search in OMDB
 
 ```js
-const omdb = require('../lib/omdb');
+var omdb = require('vws-js-lib/lib/omdb');
 
-omdb.searchShow('Star wars', '1977')
+return omdb.searchShow('Star wars', '1977')
     .then(show => {
         console.log('Show Star wars: ', show);
     })
@@ -63,9 +66,9 @@ omdb.searchShow('Star wars', '1977')
 #### Node module for earch in TMDB 
 
 ```js
-const tmdb = require('../lib/tmdb');
+var tmdb = require('vws-js-lib/lib/tmdb');
 
-tmdb.searchShow('Star wars', '1977')
+return tmdb.searchShow('Star wars', '1977')
     .then(show => {
         console.log('Show Star wars: ', show);
     })
@@ -73,6 +76,8 @@ tmdb.searchShow('Star wars', '1977')
         console.log('Error: ' + err);
     });
 ```
+
+- More examples in 'test' directory
 
 ## Running the tests
 
@@ -85,9 +90,8 @@ $npm test
 or indiviual test by description
 
 ```sh
-$npm test -- --grep "show object"
+$npm test -- --grep "omdb"
 $npm test -- --grep "crawler"
-
 ```
 
 ## Versioning
