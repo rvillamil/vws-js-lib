@@ -40,8 +40,6 @@ describe('favoriteRepository', function () {
 
             favoriteRepository.findAll().then(
                 showCollectionList => {
-                    console.log("showCollectionList: " + JSON.stringify(showCollectionList))
-
                     assert.equal(showCollectionList.length, 2)
                 }
             )
@@ -51,6 +49,7 @@ describe('favoriteRepository', function () {
                 }
             )
         });
+
 
         it('Not Should save duplicated collection name', function () {
 
@@ -63,13 +62,11 @@ describe('favoriteRepository', function () {
             favoriteRepository.save(showCollection1)
                 .catch(err => {
                     assert(err)
-                    //console.error(err)
                 })
 
             favoriteRepository.save(showCollection2)
                 .catch(err => {
                     assert(err)
-                    //console.error(err)
                 })
 
             favoriteRepository.findAll().then(
@@ -80,10 +77,11 @@ describe('favoriteRepository', function () {
 
             return favoriteRepository.deleteAll().then(
                 numRemoved => {
-                    assert.equal(numRemoved, 2)
+                    assert.equal(numRemoved, 1)
                 }
             )
         });
+
     });
 
     describe('#delete()', function () {
@@ -110,7 +108,6 @@ describe('favoriteRepository', function () {
 
             favoriteRepository.findAll().then(
                 showCollectionList => {
-                    console.log("showCollectionList: " + JSON.stringify(showCollectionList))
                     assert.equal(showCollectionList.length, 2)
                 })
 
@@ -129,6 +126,7 @@ describe('favoriteRepository', function () {
                 assert.ok(1 == 0) // Forzamos el pete del test
             })
         });
+
     });
 
 });
