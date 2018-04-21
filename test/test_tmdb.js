@@ -30,5 +30,15 @@ describe('tmdb', function () {
                     assert.notEqual(show.error, 0);
                 })
         });
+
+        it('Should return one Show object with the TVShow Arroq', function () {
+            return tmdb.searchShow('Arrow', null, 'tv')
+                .then(show => {
+                    //console.log('Show TMDB: ', show);
+                    assert.equal(show.title, 'Arrow');
+                    assert.equal(show.error, 0);
+                })
+        });
+
     });
 });

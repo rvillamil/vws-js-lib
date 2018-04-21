@@ -61,7 +61,7 @@ describe('tumejortorrent', function () {
             return tumejortorrent.crawlDataShow(urlWithTVShow).then(show => {
                 //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
                 assert.equal(show.urlBase, 'http://tumejortorrent.com/descargar/serie-en-hd/erase-una-vez/temporada-7/capitulo-14/');
-                assert.equal(show.title, 'Erase una Vez/Erase Una Vez - Temporada 7');
+                assert.equal(show.title, 'Erase una Vez');
                 assert.equal(show.year, '2018');
                 assert.equal(show.currentSession, '7');
                 assert.equal(show.currentEpisode, '14');
@@ -74,9 +74,5 @@ describe('tumejortorrent', function () {
                 assert.equal(show.urltodownload, 'http://tumejortorrent.com/descargar-torrent/105678_-1523024727-erase-una-vez---temporada-7--hdtv-720p-ac3-5-1/');
             });
         });
-    });
-
-    describe('#crawlDataShowCollection()', function () {
-        console.error("TODO....crawlDataShowCollection")
     });
 });
