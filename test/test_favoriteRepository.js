@@ -159,8 +159,8 @@ describe('favoriteRepository', function () {
                 })
 
             favoriteRepository.findByCollectionName('hola/mola_1').then(
-                showCollectionList => {
-                    assert.equal(showCollectionList.length, 1)
+                showCollection => {
+                    assert.equal(showCollection.name, 'hola/mola_1')
                 }
             )
             return favoriteRepository.deleteAll().then(
@@ -192,8 +192,8 @@ describe('favoriteRepository', function () {
                 })
 
             favoriteRepository.findByCollectionName('hola/mola_3').then(
-                showCollectionList => {
-                    assert.equal(showCollectionList.length, 0)
+                showCollection => {
+                    assert.equal(showCollection, null)
                 }
             )
             return favoriteRepository.deleteAll().then(
