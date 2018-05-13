@@ -55,6 +55,17 @@ describe('tumejortorrent', function () {
             });
         });
 
+        var urlWithFilm2 = 'http://tumejortorrent.com/descargar/peliculas-castellano/estrenos-de-cine/ready-player-one-/ts-screener/'
+
+        it("should return the film 'Ready Player oner' with all data", function () {
+            return tumejortorrent.crawlDataShow(urlWithFilm2).then(show => {
+                console.log("Show crawled:'" + JSON.stringify(show) + "'");
+                assert.equal(show.title, 'Ready Player One');
+                assert.equal(show.originalTitle, 'Ready Player One');
+            });
+        });
+
+
         var urlWithTVShow = 'http://tumejortorrent.com/descargar/serie-en-hd/erase-una-vez/temporada-7/capitulo-14/';
 
         it("should return the TVShow 'Erase una vez', 7x14 with all data", function () {
