@@ -9,13 +9,14 @@ const crawler = require('../lib/crawler');
 const ShowCollection = require('../lib/showcollection');
 
 describe('crawler', function () {
-    this.timeout(15000);
+    this.timeout(55000);
 
     describe('#crawlVideoPremieres()', function () {
         it('should return a video premiere list with two shows', function () {
             return crawler.crawlVideoPremieres(
                 2,
                 show => {
+                    //console.log("show: " + JSON.stringify(show));
                     assert(show.title);
                     assert(show.urltodownload);
                     assert.equal(show.error, 0);

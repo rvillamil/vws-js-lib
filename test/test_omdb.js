@@ -12,7 +12,7 @@ describe('omdb', function () {
     describe('#searchShow()', function () {
 
         it('Should return one Show object with the film Star Wars', function () {
-            return omdb.searchShow('Star wars', '1977')
+            return omdb.searchShow('Star wars')
                 .then(show => {
                     //console.log('Show OMDB: ', show);
                     assert.equal(show.title, 'Star wars');
@@ -24,10 +24,9 @@ describe('omdb', function () {
                 })
         });
 
-        it('Should return one Show object with error', function () {
-            return omdb.searchShow('Star way', '2977')
+        it('Should return one Show object with error not 0', function () {
+            return omdb.searchShow('dfewpom pmwd')
                 .then(show => {
-                    //console.log('Show Error: ', show);
                     assert.notEqual(show.error, 0);
                 })
         });
