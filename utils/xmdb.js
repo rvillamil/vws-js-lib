@@ -3,7 +3,7 @@ const tmdb = require('../lib/tmdb');
 const crawler = require('../lib/crawler');
 const Show = require('../lib/show');
 
-var title = "Winchester la casa que construyeron los espiritus"
+var title = "Vengadores infinity war"
 show = new Show()
 show.title = title
 
