@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - New node tool for search in OMDB and TMDB : `utils/xmdb.js`
 
 ### Changed
+
 - Minor bug fixed 
 
 - OMDB and TMDB search enhacements and results
