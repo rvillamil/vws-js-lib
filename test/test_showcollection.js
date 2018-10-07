@@ -6,7 +6,7 @@
 //
 const assert = require('assert');
 const Show = require('../lib/show');
-const ShowCollection = require('../lib/showcollection');
+const ShowCollection = require('../lib/showCollection');
 
 function newTestShow(title, currentSession, currentEpisode) {
     var toShow = new Show()

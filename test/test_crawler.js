@@ -6,7 +6,7 @@
 //
 const assert = require('assert');
 const crawler = require('../lib/crawler');
-const ShowCollection = require('../lib/showcollection');
+const ShowCollection = require('../lib/showCollection');
 
 describe('crawler', function () {
     this.timeout(55000);
