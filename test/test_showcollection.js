@@ -37,7 +37,7 @@ describe('ShowCollection', function () {
             showCollection.push(show2);
             showCollection.push(show3);
 
-            //console.log(`ShowCollection antes  --> ${JSON.stringify(showCollection)}\n\n`)
+            // console.log(`ShowCollection antes  --> ${showCollection.toStringSimple()}\n\n`)
 
             var shows = showCollection.getShows()
 

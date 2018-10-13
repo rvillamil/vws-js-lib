@@ -11,7 +11,18 @@
 const assert = require('assert');
 var ShowCollection = require('../lib/showCollection');
 var FavoriteRepository = require('../lib/favoriteRepository');
+const Show = require('../lib/show');
 
+function newTestShow(title, currentSession, currentEpisode) {
+    var toShow = new Show()
+    toShow.title = title
+    toShow.currentSession = currentSession
+    toShow.currentEpisode = currentEpisode
+    toShow.urltodownload = `http://urltodownload_${title}_${currentSession}_${currentEpisode}`
+    toShow.collectionName = `collection_${title}_${currentSession}`
+
+    return toShow
+}
 
 describe('favoriteRepository', function () {
     var favoriteRepository = new FavoriteRepository('vws-db');
@@ -196,6 +207,150 @@ describe('favoriteRepository', function () {
                     assert.equal(showCollection, null)
                 }
             )
+            return favoriteRepository.deleteAll().then(
+                numRemoved => {
+                    assert.equal(numRemoved, 2)
+                }
+            )
+        });
+
+    });
+
+    describe('#findShowByURLtodownload()', function () {
+
+        it('Should find the url show in the Collection', function () {
+
+            var showCollection1 = new ShowCollection()
+            showCollection1.name = "showCollection1/5167"
+            showCollection1.urlBase = "http://urlbase1"
+            var show1 = newTestShow("showCollection1", "5", "2")
+            var show2 = newTestShow("showCollection1", "5", "3")
+            var show3 = newTestShow("showCollection1", "5", "4")
+            showCollection1.push(show1);
+            showCollection1.push(show2);
+            showCollection1.push(show3);
+
+            var showCollection2 = new ShowCollection()
+            showCollection2.name = "showCollection2/5167"
+            showCollection2.urlBase = "http://urlbase2"
+            var showA = newTestShow("showCollection2", "5", "2")
+            var showB = newTestShow("showCollection2", "5", "3")
+            var showC = newTestShow("showCollection2", "5", "4")
+            showCollection2.push(showA);
+            showCollection2.push(showB);
+            showCollection2.push(showC);
+
+
+            favoriteRepository.save(showCollection1)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
+
+            favoriteRepository.save(showCollection2)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
+
+            favoriteRepository.findByCollectionName('showCollection2/5167').then(
+                showCollection => {
+                    assert.equal(showCollection.name, 'showCollection2/5167')
+                }
+            ).catch(err => {
+                console.error("ERROR! " + err)
+            })
+
+            favoriteRepository.findShowByURLtodownload('http://urltodownload_showCollection2_5_3').then(
+                show => {
+                    assert.equal(show.urltodownload, 'http://urltodownload_showCollection2_5_3')
+                }
+            ).catch(err => {
+                console.error("ERROR! " + err)
+            })
+
+
+            favoriteRepository.findShowByURLtodownload('http://urltodownload_showCollection6_5_3').then(
+                show => {
+                    assert.equal(show.urltodownload, null)
+                }
+            ).catch(err => {
+                console.error("ERROR! " + err)
+            })
+
+            return favoriteRepository.deleteAll().then(
+                numRemoved => {
+                    assert.equal(numRemoved, 2)
+                }
+            )
+        });
+
+    });
+
+    describe('#updateCollectionWithNewShow()', function () {
+
+        it('Should update new show in the Collection 2', function () {
+
+            var showCollection1 = new ShowCollection()
+            showCollection1.name = "showCollection1/567"
+            showCollection1.urlBase = "http://urlbase1"
+            var show1 = newTestShow("showCollection1", "5", "2")
+            var show2 = newTestShow("showCollection1", "5", "3")
+            var show3 = newTestShow("showCollection1", "5", "4")
+            showCollection1.push(show1);
+            showCollection1.push(show2);
+            showCollection1.push(show3);
+
+            var showCollection2 = new ShowCollection()
+            showCollection2.name = "showCollection2/567"
+            showCollection2.urlBase = "http://urlbase2"
+            var showA = newTestShow("showCollection2", "5", "1")
+            var showB = newTestShow("showCollection2", "5", "2")
+            var showC = newTestShow("showCollection2", "5", "3")
+            showCollection2.push(showA);
+            showCollection2.push(showB);
+            showCollection2.push(showC);
+
+
+            favoriteRepository.save(showCollection1)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
+
+            favoriteRepository.save(showCollection2)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
+
+            var newShow = newTestShow("showCollection2", "5", "4")
+
+            // Imprimimos antes..
+            /*
+            favoriteRepository.findByCollectionName('showCollection2/567').then(
+                showCollection => {
+                    console.log(`showCollection antes ${JSON.stringify(showCollection)}`)
+                }
+            )
+            */
+            favoriteRepository.updateCollectionWithNewShow('showCollection2/567', newShow).then(
+                showCollection => {
+                    assert.equal(showCollection.shows.length, 4)
+                }
+            ).catch(err => {
+                console.error("ERROR! " + err)
+            })
+
+            // Imprimimos despues..
+            /*
+            favoriteRepository.findByCollectionName('showCollection2/567').then(
+                showCollection => {
+                    console.log(`showCollection DESPUES ${JSON.stringify(showCollection)}`)
+                }
+            )
+            */
+
             return favoriteRepository.deleteAll().then(
                 numRemoved => {
                     assert.equal(numRemoved, 2)
