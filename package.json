@@ -1,6 +1,6 @@
 {
   "name": "vws-js-lib",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Node module for web-scraping on torrent video websites",
   "directories": {
     "test": "test"
