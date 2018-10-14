@@ -218,7 +218,10 @@ describe('favoriteRepository', function () {
 
     describe('#findShowByURLtodownload()', function () {
 
+
+
         it('Should find the url show in the Collection', function () {
+
 
             var showCollection1 = new ShowCollection()
             showCollection1.name = "showCollection1/5167"
@@ -252,7 +255,6 @@ describe('favoriteRepository', function () {
                     console.error("ERROR!" + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
-
             favoriteRepository.findByCollectionName('showCollection2/5167').then(
                 showCollection => {
                     assert.equal(showCollection.name, 'showCollection2/5167')
@@ -261,18 +263,62 @@ describe('favoriteRepository', function () {
                 console.error("ERROR! " + err)
             })
 
+
             favoriteRepository.findShowByURLtodownload('http://urltodownload_showCollection2_5_3').then(
                 show => {
+                    //console.log (`SHOW: ${JSON.stringify(show)}`)
                     assert.equal(show.urltodownload, 'http://urltodownload_showCollection2_5_3')
                 }
             ).catch(err => {
                 console.error("ERROR! " + err)
             })
 
+            favoriteRepository.deleteAll().then(
+                numRemoved => {
+                    assert.equal(numRemoved, 2)
+                }
+            )
+
+        });
+
+        it('Should not find the url show in the Collection', function () {
+            var showCollection1 = new ShowCollection()
+            showCollection1.name = "showCollection1/5167"
+            showCollection1.urlBase = "http://urlbase1"
+            var show1 = newTestShow("showCollection1", "5", "2")
+            var show2 = newTestShow("showCollection1", "5", "3")
+            var show3 = newTestShow("showCollection1", "5", "4")
+            showCollection1.push(show1);
+            showCollection1.push(show2);
+            showCollection1.push(show3);
+
+            var showCollection2 = new ShowCollection()
+            showCollection2.name = "showCollection2/5167"
+            showCollection2.urlBase = "http://urlbase2"
+            var showA = newTestShow("showCollection2", "5", "2")
+            var showB = newTestShow("showCollection2", "5", "3")
+            var showC = newTestShow("showCollection2", "5", "4")
+            showCollection2.push(showA);
+            showCollection2.push(showB);
+            showCollection2.push(showC);
+
+
+            favoriteRepository.save(showCollection1)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
+
+            favoriteRepository.save(showCollection2)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
 
             favoriteRepository.findShowByURLtodownload('http://urltodownload_showCollection6_5_3').then(
                 show => {
-                    assert.equal(show.urltodownload, null)
+                    //console.log (`SHOW 2: ${JSON.stringify(show)}`)
+                    assert.equal(show, null)
                 }
             ).catch(err => {
                 console.error("ERROR! " + err)
@@ -285,11 +331,12 @@ describe('favoriteRepository', function () {
             )
         });
 
+
     });
 
     describe('#updateCollectionWithNewShow()', function () {
 
-        it('Should update new show in the Collection 2', function () {
+        it('Should update with new show in the Collection 2', function () {
 
             var showCollection1 = new ShowCollection()
             showCollection1.name = "showCollection1/567"
@@ -333,6 +380,14 @@ describe('favoriteRepository', function () {
                     console.log(`showCollection antes ${JSON.stringify(showCollection)}`)
                 }
             )
+ 
+           favoriteRepository.findAll().then(
+            showCollectionList => {
+                showCollectionList.forEach(element => {
+                    console.log(`showCollectionList  Antes ${JSON.stringify(element)}\n`)
+                });
+              
+            })
             */
             favoriteRepository.updateCollectionWithNewShow('showCollection2/567', newShow).then(
                 showCollection => {
@@ -349,7 +404,18 @@ describe('favoriteRepository', function () {
                     console.log(`showCollection DESPUES ${JSON.stringify(showCollection)}`)
                 }
             )
+            
+            favoriteRepository.findAll().then(
+                showCollectionList => {
+                    showCollectionList.forEach(element => {
+                        console.log(`showCollectionList despues  ${JSON.stringify(element)}\n`)
+                    });
+
+                })
             */
+        });
+
+        it('Should removed the objects to test', function () {
 
             return favoriteRepository.deleteAll().then(
                 numRemoved => {
@@ -357,6 +423,7 @@ describe('favoriteRepository', function () {
                 }
             )
         });
+
 
     });
 });
