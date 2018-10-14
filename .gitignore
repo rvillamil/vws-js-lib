@@ -330,3 +330,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# vws files
+vws-db
