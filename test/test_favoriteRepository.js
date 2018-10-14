@@ -478,7 +478,7 @@ describe('favoriteRepository', function () {
             return favoriteRepository.updateCollectionWithNewShows('showCollection2/567', shows).then(
                 numReplaced => {
                     //console.log(`Total totaloso de reemplazos " ${numReplaced}`)
-                    assert.equal (numReplaced, 2)
+                    assert.equal(numReplaced, 2)
                     // Imprimimos despues..
                     favoriteRepository.findByCollectionName('showCollection2/567').then(
                         showCollection => {
@@ -510,7 +510,7 @@ describe('favoriteRepository', function () {
 
             return favoriteRepository.updateCollectionWithNewShows('showCollection2/567', shows).then(
                 numReplaced => {
-                    assert.equal (numReplaced, 0)
+                    assert.equal(numReplaced, 0)
                     // Imprimimos despues..
                     favoriteRepository.findByCollectionName('showCollection2/567').then(
                         showCollection => {
@@ -536,4 +536,79 @@ describe('favoriteRepository', function () {
 
     });
 
+
+    describe('#updateAllreadyDownloadedShowByURL()', function () {
+
+        it('Should update the showB when allreadyDownloaded = true', function () {
+
+            var showCollection1 = new ShowCollection()
+            showCollection1.name = "showCollection1/567"
+            showCollection1.urlBase = "http://urlbase1"
+            var show1 = newTestShow("showCollection1", "5", "2")
+            var show2 = newTestShow("showCollection1", "5", "3")
+            var show3 = newTestShow("showCollection1", "5", "4")
+            showCollection1.push(show1);
+            showCollection1.push(show2);
+            showCollection1.push(show3);
+
+            var showCollection2 = new ShowCollection()
+            showCollection2.name = "showCollection2/567"
+            showCollection2.urlBase = "http://urlbase2"
+            var showA = newTestShow("showCollection2", "5", "1")
+            var showB = newTestShow("showCollection2", "5", "2")
+            var showC = newTestShow("showCollection2", "5", "3")
+            showCollection2.push(showA);
+            showCollection2.push(showB);
+            showCollection2.push(showC);
+
+
+            favoriteRepository.save(showCollection1)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
+
+            favoriteRepository.save(showCollection2)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
+
+            favoriteRepository.findByCollectionName('showCollection2/567').then(
+                showCollection => {
+                    assert.equal(showCollection.shows.length, 3)
+                    console.log(`\n\n ShowCollection ANTES ${JSON.stringify(showCollection)}`)
+                }
+            )
+
+            return favoriteRepository.updateAllreadyDownloadedShowByURL('http://urltodownload_showCollection2_5_3', true).then(
+                numReplaced => {
+                    //console.log(`Total totaloso de reemplazos " ${numReplaced}`)
+                    //assert.equal(numReplaced, 2)
+                    // Imprimimos despues..
+                    favoriteRepository.findByCollectionName('showCollection2/567').then(
+                        showCollection => {
+                            console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
+                            //assert.equal(showCollection.shows.length, 5)
+                        }
+                    )
+                }
+            ).catch(err => {
+                console.error("ERROR! " + err)
+            })
+
+        });
+
+
+        it('Should removed the objects to test', function () {
+
+            return favoriteRepository.deleteAll().then(
+                numRemoved => {
+                    assert.equal(numRemoved, 2)
+                }
+            )
+        });
+
+
+    });
 });
