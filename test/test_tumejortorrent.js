@@ -59,7 +59,7 @@ describe('tumejortorrent', function () {
 
         it("should return the film 'Ready Player oner' with all data", function () {
             return tumejortorrent.crawlDataShow(urlWithFilm2).then(show => {
-                console.log("Show crawled:'" + JSON.stringify(show) + "'");
+                //console.log("Show crawled:'" + JSON.stringify(show) + "'");
                 assert.equal(show.title, 'Ready Player One');
                 assert.equal(show.originalTitle, 'Ready Player One');
             });

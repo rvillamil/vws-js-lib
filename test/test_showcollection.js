@@ -39,7 +39,7 @@ describe('ShowCollection', function () {
 
             // console.log(`ShowCollection antes  --> ${showCollection.toStringSimple()}\n\n`)
 
-            var shows = showCollection.getShows()
+            var shows = showCollection.shows
 
             assert.equal(shows[0].currentSession, "5");
             assert.equal(shows[0].currentEpisode, "2");
