@@ -573,7 +573,7 @@ describe('favoriteRepository', function () {
             favoriteRepository.findByCollectionName('showCollection2/567').then(
                 showCollection => {
                     //console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
-                    assert.equal(showCollection.shows.length, 6)
+                    assert.equal(showCollection.shows.length, 3)
                 }
             )
 
