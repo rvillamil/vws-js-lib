@@ -334,7 +334,7 @@ describe('favoriteRepository', function () {
 
     });
 
-    describe('#updateCollectionWithNewShow()', function () {
+    describe('#oneupdateCollectionWithNewShow()', function () {
 
         it('Should update with new show in the Collection 2', function () {
 
@@ -372,39 +372,38 @@ describe('favoriteRepository', function () {
                 })
 
 
-            // Imprimimos antes..
-            /*
-            favoriteRepository.findByCollectionName('showCollection2/567').then(
-                showCollection => {
-                    console.log(`showCollection antes ${JSON.stringify(showCollection)}`)
-                }
-            )
- 
-           favoriteRepository.findAll().then(
-            showCollectionList => {
-                showCollectionList.forEach(element => {
-                    console.log(`showCollectionList  Antes ${JSON.stringify(element)}\n`)
-                });
-              
-            })
-            */
             var newShow = newTestShow("showCollection2", "5", "4")
-            favoriteRepository.updateCollectionWithNewShow('showCollection2/567', newShow).then(
+            return favoriteRepository.updateCollectionWithNewShow('showCollection2/567', newShow).then(
+
                 numReplaced => {
+                    console.log(`A - Numero de reemplazos ${numReplaced}`)
                     assert.equal(numReplaced, 1)
-                }
-            ).catch(err => {
-                console.error("ERROR! " + err)
-            })
-
-            // Imprimimos despues..
-
-            favoriteRepository.findByCollectionName('showCollection2/567').then(
-                showCollection => {
-                    assert.equal(showCollection.shows.length, 4)
+                    favoriteRepository.findByCollectionName('showCollection2/567').then(
+                        showCollection => {
+                            assert.equal(showCollection.shows.length, 4)
+                            //console.log(`showCollection DESPUES ${JSON.stringify(showCollection)}`)
+                        }
+                    )
                 }
             )
+        });
 
+        it('Should NOT update with new show in the Collection 2', function () {
+
+            var newShow = newTestShow("showCollection2", "5", "4")
+            return favoriteRepository.updateCollectionWithNewShow('showCollection2/567', newShow).then(
+
+                numReplaced => {
+                    console.log(`B - Numero de reemplazos ${numReplaced}`)
+                    assert.equal(numReplaced, 0)
+                    favoriteRepository.findByCollectionName('showCollection2/567').then(
+                        showCollection => {
+                            assert.equal(showCollection.shows.length, 4)
+                            //console.log(`showCollection DESPUES ${JSON.stringify(showCollection)}`)
+                        }
+                    )
+                }
+            )
         });
 
         it('Should removed the objects to test', function () {
@@ -464,11 +463,11 @@ describe('favoriteRepository', function () {
             )
 
             var shows = []
-            var newShow1 = newTestShow("showCollection2", "5", "4")
-            var newShow2 = newTestShow("showCollection2", "5", "1")
-            var newShow3 = newTestShow("showCollection2", "5", "2")
-            var newShow4 = newTestShow("showCollection2", "5", "5")
-            var newShow5 = newTestShow("showCollection2", "5", "6")
+            var newShow1 = newTestShow("showCollection2", "5", "1")
+            var newShow2 = newTestShow("showCollection2", "5", "2")
+            var newShow3 = newTestShow("showCollection2", "5", "3")
+            var newShow4 = newTestShow("showCollection2", "5", "4")
+            var newShow5 = newTestShow("showCollection2", "5", "5")
             shows.push(newShow1)
             shows.push(newShow2)
             shows.push(newShow3)
@@ -476,86 +475,32 @@ describe('favoriteRepository', function () {
             shows.push(newShow5)
 
 
-            favoriteRepository.updateCollectionWithNewShows('showCollection2/567', shows).then(
-                // console.log(`\n\nCollection updated `)
+            return favoriteRepository.updateCollectionWithNewShows('showCollection2/567', shows).then(
+                numReplaced => {
+                    //console.log(`Total totaloso de reemplazos " ${numReplaced}`)
+                    assert.equal (numReplaced, 2)
+                    // Imprimimos despues..
+                    favoriteRepository.findByCollectionName('showCollection2/567').then(
+                        showCollection => {
+                            //console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
+                            assert.equal(showCollection.shows.length, 5)
+                        }
+                    )
+                }
             ).catch(err => {
                 console.error("ERROR! " + err)
             })
 
-            // Imprimimos despues..
-            favoriteRepository.findByCollectionName('showCollection2/567').then(
-                showCollection => {
-                    //console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
-                    assert.equal(showCollection.shows.length, 6)
-                }
-            )
-
-            favoriteRepository.findByCollectionName('showCollection1/567').then(
-                showCollection => {
-                    assert.equal(showCollection.shows.length, 3)
-                }
-            )
         });
 
-        it('Should removed the objects to test', function () {
-
-            favoriteRepository.deleteAll().then(
-                numRemoved => {
-                    assert.equal(numRemoved, 2)
-                }
-            )
-        });
-
-        it('Should update with 0 new shows in the Collection 2', function () {
-
-            var showCollection1 = new ShowCollection()
-            showCollection1.name = "showCollection1/567"
-            showCollection1.urlBase = "http://urlbase1"
-            var show1 = newTestShow("showCollection1", "5", "2")
-            var show2 = newTestShow("showCollection1", "5", "3")
-            var show3 = newTestShow("showCollection1", "5", "4")
-            showCollection1.push(show1);
-            showCollection1.push(show2);
-            showCollection1.push(show3);
-
-            var showCollection2 = new ShowCollection()
-            showCollection2.name = "showCollection2/567"
-            showCollection2.urlBase = "http://urlbase2"
-            var showA = newTestShow("showCollection2", "5", "1")
-            var showB = newTestShow("showCollection2", "5", "2")
-            var showC = newTestShow("showCollection2", "5", "3")
-            showCollection2.push(showA);
-            showCollection2.push(showB);
-            showCollection2.push(showC);
-
-
-            favoriteRepository.save(showCollection1)
-                .catch(err => {
-                    console.error("ERROR!" + err)
-                    assert.ok(1 == 0) // Forzamos el pete del test
-                })
-
-            favoriteRepository.save(showCollection2)
-                .catch(err => {
-                    console.error("ERROR!" + err)
-                    assert.ok(1 == 0) // Forzamos el pete del test
-                })
-
-
-            // Imprimimos antes..
-            favoriteRepository.findByCollectionName('showCollection2/567').then(
-                showCollection => {
-                    assert.equal(showCollection.shows.length, 3)
-                    //console.log(`\n\n ShowCollection ANTES ${JSON.stringify(showCollection)}`)
-                }
-            )
+        it('Not Should update with three new shows in the Collection 2', function () {
 
             var shows = []
             var newShow1 = newTestShow("showCollection2", "5", "1")
             var newShow2 = newTestShow("showCollection2", "5", "2")
             var newShow3 = newTestShow("showCollection2", "5", "3")
-            var newShow4 = newTestShow("showCollection2", "5", "1")
-            var newShow5 = newTestShow("showCollection2", "5", "2")
+            var newShow4 = newTestShow("showCollection2", "5", "4")
+            var newShow5 = newTestShow("showCollection2", "5", "5")
             shows.push(newShow1)
             shows.push(newShow2)
             shows.push(newShow3)
@@ -563,35 +508,31 @@ describe('favoriteRepository', function () {
             shows.push(newShow5)
 
 
-            favoriteRepository.updateCollectionWithNewShows('showCollection2/567', shows).then(
-                // console.log(`\n\nCollection updated `)
+            return favoriteRepository.updateCollectionWithNewShows('showCollection2/567', shows).then(
+                numReplaced => {
+                    assert.equal (numReplaced, 0)
+                    // Imprimimos despues..
+                    favoriteRepository.findByCollectionName('showCollection2/567').then(
+                        showCollection => {
+                            assert.equal(showCollection.shows.length, 5)
+                        }
+                    )
+                }
             ).catch(err => {
                 console.error("ERROR! " + err)
             })
 
-            // Imprimimos despues..
-            favoriteRepository.findByCollectionName('showCollection2/567').then(
-                showCollection => {
-                    //console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
-                    assert.equal(showCollection.shows.length, 3)
-                }
-            )
-
-            favoriteRepository.findByCollectionName('showCollection1/567').then(
-                showCollection => {
-                    assert.equal(showCollection.shows.length, 3)
-                }
-            )
         });
 
         it('Should removed the objects to test', function () {
 
-            favoriteRepository.deleteAll().then(
+            return favoriteRepository.deleteAll().then(
                 numRemoved => {
                     assert.equal(numRemoved, 2)
                 }
             )
         });
+
 
     });
 
