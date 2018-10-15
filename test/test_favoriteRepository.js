@@ -577,19 +577,18 @@ describe('favoriteRepository', function () {
             favoriteRepository.findByCollectionName('showCollection2/567').then(
                 showCollection => {
                     assert.equal(showCollection.shows.length, 3)
-                    console.log(`\n\n ShowCollection ANTES ${JSON.stringify(showCollection)}`)
+                    assert.equal(showCollection.shows[2].allreadyDownloaded, false)
+                    //console.log(`\n\n ShowCollection ANTES ${JSON.stringify(showCollection)}`)
                 }
             )
 
             return favoriteRepository.updateAllreadyDownloadedShowByURL('http://urltodownload_showCollection2_5_3', true).then(
                 numReplaced => {
-                    //console.log(`Total totaloso de reemplazos " ${numReplaced}`)
-                    //assert.equal(numReplaced, 2)
-                    // Imprimimos despues..
                     favoriteRepository.findByCollectionName('showCollection2/567').then(
                         showCollection => {
-                            console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
-                            //assert.equal(showCollection.shows.length, 5)
+                            // console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
+                            assert.equal(showCollection.shows.length, 3)
+                            assert.equal(showCollection.shows[2].allreadyDownloaded, true)
                         }
                     )
                 }
