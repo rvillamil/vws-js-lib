@@ -29,6 +29,55 @@ describe('favoriteRepository', function () {
 
     describe('#findAll()', function () {
 
+        it('Should load two first elements from collection who size is four', function () {
+
+            var showCollection1 = new ShowCollection()
+            showCollection1.name = "hola/mola_1"
+
+            var showCollection2 = new ShowCollection()
+            showCollection2.name = "hola/mola_2"
+
+            var showCollection3 = new ShowCollection()
+            showCollection3.name = "hola/mola_3"
+
+            var showCollection4 = new ShowCollection()
+            showCollection4.name = "hola/mola_4"
+
+            favoriteRepository.save(showCollection1)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
+
+            favoriteRepository.save(showCollection2)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
+
+            favoriteRepository.save(showCollection3)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
+
+            favoriteRepository.save(showCollection4)
+                .catch(err => {
+                    console.error("ERROR!" + err)
+                    assert.ok(1 == 0) // Forzamos el pete del test
+                })
+            favoriteRepository.findAll(2).then(
+                showCollectionList => {
+                    assert.equal(showCollectionList.length, 2)
+                }
+            )
+            return favoriteRepository.deleteAll().then(
+                numRemoved => {
+                    assert.equal(numRemoved, 4)
+                }
+            )
+        });
+
         it('Should load two Collection', function () {
 
             var showCollection1 = new ShowCollection()
