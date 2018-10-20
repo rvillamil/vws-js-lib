@@ -465,16 +465,16 @@ describe('favoriteRepository', function () {
         });
     });
 
-    describe('#updateCollectionWithNewShows()', function () {
+    describe('#mergeShowCollections()', function () {
 
         it('Should update with three new shows in the Collection 2 and discard repetead', function () {
 
             var showCollection1 = new ShowCollection()
             showCollection1.name = "showCollection1/567"
             showCollection1.urlBase = "http://urlbase1"
-            var show1 = newTestShow("showCollection1", "5", "2")
-            var show2 = newTestShow("showCollection1", "5", "3")
-            var show3 = newTestShow("showCollection1", "5", "4")
+            var show1 = newTestShow("showCollection1_1", "5", "2")
+            var show2 = newTestShow("showCollection1_2", "5", "3")
+            var show3 = newTestShow("showCollection1_3", "5", "4")
             showCollection1.push(show1);
             showCollection1.push(show2);
             showCollection1.push(show3);
@@ -482,9 +482,9 @@ describe('favoriteRepository', function () {
             var showCollection2 = new ShowCollection()
             showCollection2.name = "showCollection2/567"
             showCollection2.urlBase = "http://urlbase2"
-            var showA = newTestShow("showCollection2", "5", "1")
-            var showB = newTestShow("showCollection2", "5", "2")
-            var showC = newTestShow("showCollection2", "5", "3")
+            var showA = newTestShow("showCollection2_1", "5", "1")
+            var showB = newTestShow("showCollection2_2", "5", "2")
+            var showC = newTestShow("showCollection2_3", "5", "3")
             showCollection2.push(showA);
             showCollection2.push(showB);
             showCollection2.push(showC);
@@ -507,31 +507,33 @@ describe('favoriteRepository', function () {
             favoriteRepository.findByCollectionName('showCollection2/567').then(
                 showCollection => {
                     assert.equal(showCollection.shows.length, 3)
-                    //console.log(`\n\n ShowCollection ANTES ${JSON.stringify(showCollection)}`)
+                    //console.log(`\n\n ShowCollection ANTES ${JSON.stringify(showCollection)}\n\n `)
                 }
             )
 
-            var shows = []
-            var newShow1 = newTestShow("showCollection2", "5", "1")
-            var newShow2 = newTestShow("showCollection2", "5", "2")
-            var newShow3 = newTestShow("showCollection2", "5", "3")
-            var newShow4 = newTestShow("showCollection2", "5", "4")
-            var newShow5 = newTestShow("showCollection2", "5", "5")
-            shows.push(newShow1)
-            shows.push(newShow2)
-            shows.push(newShow3)
-            shows.push(newShow4)
-            shows.push(newShow5)
+            var showCollectionCrawled = new ShowCollection()
+            showCollectionCrawled.name = "showCollection2/567"
+            showCollectionCrawled.urlBase = "http://urlbase2"
+
+            var newShow1 = newTestShow("showCollection2_1", "5", "1")
+            var newShow2 = newTestShow("showCollection2_2", "5", "2")
+            var newShow3 = newTestShow("showCollection2_3", "5", "3")
+            var newShow4 = newTestShow("showCollection2_4", "5", "4")
+            var newShow5 = newTestShow("showCollection2_5", "5", "5")
+            showCollectionCrawled.push(newShow1)
+            showCollectionCrawled.push(newShow2)
+            showCollectionCrawled.push(newShow3)
+            showCollectionCrawled.push(newShow4)
+            showCollectionCrawled.push(newShow5)
 
 
-            return favoriteRepository.updateCollectionWithNewShows('showCollection2/567', shows).then(
-                numReplaced => {
-                    //console.log(`Total totaloso de reemplazos " ${numReplaced}`)
-                    assert.equal(numReplaced, 2)
+            return favoriteRepository.mergeShowCollections(showCollectionCrawled, 'showCollection2/567').then(
+                newShowsPersisted => {
+                    assert.equal(5, newShowsPersisted.length)
                     // Imprimimos despues..
                     favoriteRepository.findByCollectionName('showCollection2/567').then(
                         showCollection => {
-                            //console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
+                            console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
                             assert.equal(showCollection.shows.length, 5)
                         }
                     )
@@ -544,22 +546,25 @@ describe('favoriteRepository', function () {
 
         it('Not Should update with three new shows in the Collection 2', function () {
 
-            var shows = []
-            var newShow1 = newTestShow("showCollection2", "5", "1")
-            var newShow2 = newTestShow("showCollection2", "5", "2")
-            var newShow3 = newTestShow("showCollection2", "5", "3")
-            var newShow4 = newTestShow("showCollection2", "5", "4")
-            var newShow5 = newTestShow("showCollection2", "5", "5")
-            shows.push(newShow1)
-            shows.push(newShow2)
-            shows.push(newShow3)
-            shows.push(newShow4)
-            shows.push(newShow5)
+            var showCollectionCrawled2 = new ShowCollection()
+            showCollectionCrawled2.name = "showCollection2/567"
+            showCollectionCrawled2.urlBase = "http://urlbase2"
+
+            var newShow1 = newTestShow("showCollection2_1", "5", "1")
+            var newShow2 = newTestShow("showCollection2_2", "5", "2")
+            var newShow3 = newTestShow("showCollection2_3", "5", "3")
+            var newShow4 = newTestShow("showCollection2_4", "5", "4")
+            var newShow5 = newTestShow("showCollection2_5", "5", "5")
+            showCollectionCrawled2.push(newShow1)
+            showCollectionCrawled2.push(newShow2)
+            showCollectionCrawled2.push(newShow3)
+            showCollectionCrawled2.push(newShow4)
+            showCollectionCrawled2.push(newShow5)
 
 
-            return favoriteRepository.updateCollectionWithNewShows('showCollection2/567', shows).then(
-                numReplaced => {
-                    assert.equal(numReplaced, 0)
+            return favoriteRepository.mergeShowCollections(showCollectionCrawled2, 'showCollection2/567').then(
+                newShowsPersisted => {
+                    assert.equal(newShowsPersisted.length, 0) // TODO: Esto es 5 pero quizas se puede mejorar. Dejo el test que falle para acordarme
                     // Imprimimos despues..
                     favoriteRepository.findByCollectionName('showCollection2/567').then(
                         showCollection => {
@@ -593,9 +598,9 @@ describe('favoriteRepository', function () {
             var showCollection1 = new ShowCollection()
             showCollection1.name = "showCollection1/567"
             showCollection1.urlBase = "http://urlbase1"
-            var show1 = newTestShow("showCollection1", "5", "2")
-            var show2 = newTestShow("showCollection1", "5", "3")
-            var show3 = newTestShow("showCollection1", "5", "4")
+            var show1 = newTestShow("showCollection1_1", "5", "2")
+            var show2 = newTestShow("showCollection1_2", "5", "3")
+            var show3 = newTestShow("showCollection1_3", "5", "4")
             showCollection1.push(show1);
             showCollection1.push(show2);
             showCollection1.push(show3);
@@ -603,9 +608,9 @@ describe('favoriteRepository', function () {
             var showCollection2 = new ShowCollection()
             showCollection2.name = "showCollection2/567"
             showCollection2.urlBase = "http://urlbase2"
-            var showA = newTestShow("showCollection2", "5", "1")
-            var showB = newTestShow("showCollection2", "5", "2")
-            var showC = newTestShow("showCollection2", "5", "3")
+            var showA = newTestShow("showCollection2_1", "5", "1")
+            var showB = newTestShow("showCollection2_2", "5", "2")
+            var showC = newTestShow("showCollection2_3", "5", "3")
             showCollection2.push(showA);
             showCollection2.push(showB);
             showCollection2.push(showC);

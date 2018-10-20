@@ -64,8 +64,8 @@ function help() {
     console.log(`-s: save show collection`)
     console.log(`-d: delete show collection`)
     console.log(`-l: list show collection`)
-    console.log(`     e.g.: ./dbutils -l '/Users/Name/Library/Application Support/Video Website Scraper'`)
-    console.log(`     e.g.: ./dbutils -s '/Users/Name/Library/Application Support/Video Website Scraper' 'pp/ll'`)
+    console.log(`     e.g.: ./dbutils -l '/Users/Name/Library/Application Support/Video Website Scraper/vws.db'`)
+    console.log(`     e.g.: ./dbutils -s '/Users/Name/Library/Application Support/Video Website Scraper/vws.db' 'pp/ll'`)
 }
 
 function saveFavoriteShowCollection(showCollectionName) {
@@ -113,7 +113,7 @@ function listAllFavoritesShowCollection() {
 //
 processArgsNumber()
 option = processOptionArgument()
-var favoriteRepository = new FavoriteRepository(path.join(processUserDataPath(), 'vws-db'));
+var favoriteRepository = new FavoriteRepository(processUserDataPath());
 if (option == '-d') {
     deleteFavoriteShowCollection(processParamTitle())
 } else if (option == '-s') {
