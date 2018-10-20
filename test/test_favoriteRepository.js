@@ -485,9 +485,9 @@ describe('favoriteRepository', function () {
             var showA = newTestShow("showCollection2_1", "5", "1")
             var showB = newTestShow("showCollection2_2", "5", "2")
             var showC = newTestShow("showCollection2_3", "5", "3")
-            showCollection2.push(showA);
-            showCollection2.push(showB);
             showCollection2.push(showC);
+            showCollection2.push(showB);
+            showCollection2.push(showA);
 
 
             favoriteRepository.save(showCollection1)
@@ -520,11 +520,11 @@ describe('favoriteRepository', function () {
             var newShow3 = newTestShow("showCollection2_3", "5", "3")
             var newShow4 = newTestShow("showCollection2_4", "5", "4")
             var newShow5 = newTestShow("showCollection2_5", "5", "5")
-            showCollectionCrawled.push(newShow1)
-            showCollectionCrawled.push(newShow2)
-            showCollectionCrawled.push(newShow3)
-            showCollectionCrawled.push(newShow4)
             showCollectionCrawled.push(newShow5)
+            showCollectionCrawled.push(newShow4)
+            showCollectionCrawled.push(newShow3)
+            showCollectionCrawled.push(newShow2)
+            showCollectionCrawled.push(newShow1)
 
 
             return favoriteRepository.mergeShowCollections(showCollectionCrawled, 'showCollection2/567').then(
