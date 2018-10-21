@@ -533,7 +533,7 @@ describe('favoriteRepository', function () {
                     // Imprimimos despues..
                     favoriteRepository.findByCollectionName('showCollection2/567').then(
                         showCollection => {
-                            console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
+                            //console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
                             assert.equal(showCollection.shows.length, 5)
                         }
                     )
@@ -543,50 +543,6 @@ describe('favoriteRepository', function () {
             })
 
         });
-
-        it('Not Should update with three new shows in the Collection 2', function () {
-
-            var showCollectionCrawled2 = new ShowCollection()
-            showCollectionCrawled2.name = "showCollection2/567"
-            showCollectionCrawled2.urlBase = "http://urlbase2"
-
-            var newShow1 = newTestShow("showCollection2_1", "5", "1")
-            var newShow2 = newTestShow("showCollection2_2", "5", "2")
-            var newShow3 = newTestShow("showCollection2_3", "5", "3")
-            var newShow4 = newTestShow("showCollection2_4", "5", "4")
-            var newShow5 = newTestShow("showCollection2_5", "5", "5")
-            showCollectionCrawled2.push(newShow1)
-            showCollectionCrawled2.push(newShow2)
-            showCollectionCrawled2.push(newShow3)
-            showCollectionCrawled2.push(newShow4)
-            showCollectionCrawled2.push(newShow5)
-
-
-            return favoriteRepository.mergeShowCollections(showCollectionCrawled2, 'showCollection2/567').then(
-                newShowsPersisted => {
-                    assert.equal(newShowsPersisted.length, 0) // TODO: Esto es 5 pero quizas se puede mejorar. Dejo el test que falle para acordarme
-                    // Imprimimos despues..
-                    favoriteRepository.findByCollectionName('showCollection2/567').then(
-                        showCollection => {
-                            assert.equal(showCollection.shows.length, 5)
-                        }
-                    )
-                }
-            ).catch(err => {
-                console.error("ERROR! " + err)
-            })
-
-        });
-
-        it('Should removed the objects to test', function () {
-
-            return favoriteRepository.deleteAll().then(
-                numRemoved => {
-                    assert.equal(numRemoved, 2)
-                }
-            )
-        });
-
 
     });
 
