@@ -7,40 +7,40 @@
 const assert = require('assert');
 const tumejortorrent = require('../lib/tumejortorrent');
 
-describe('tumejortorrent', function () {
+describe('tumejortorrent', function() {
     this.timeout(15000);
-    describe('#crawlLinkToURLsWithVideoPremieres()', function () {
-        it('should return a video premiere url list with 2 url', function () {
+    describe('#crawlLinkToURLsWithVideoPremieres()', function() {
+        it('should return a video premiere url list with 2 url', function() {
             return tumejortorrent.crawlLinkToURLsWithVideoPremieres(2).then(
                 urls => assert.ok(urls.length == 2))
         });
     });
 
-    describe('#crawlLinkToURLsWithBillboardFilms()', function () {
-        it('should return a billboard film url list with 2 url', function () {
+    describe('#crawlLinkToURLsWithBillboardFilms()', function() {
+        it('should return a billboard film url list with 2 url', function() {
             return tumejortorrent.crawlLinkToURLsWithBillboardFilms(2).then(
                 urls => assert.ok(urls.length == 2))
         });
     });
 
-    describe('#crawlLinkToURLsWithLatestTVShows()', function () {
-        it('should return a tvshow url list with 3 url', function () {
+    describe('#crawlLinkToURLsWithLatestTVShows()', function() {
+        it('should return a tvshow url list with 3 url', function() {
             return tumejortorrent.crawlLinkToURLsWithLatestTVShows(3).then(
                 urls => assert.ok(urls.length == 3))
         });
     });
 
-    describe('#crawlLinkToURLsWithEpisodes()', function () {
-        it('should return a tvshow url list with 3 url', function () {
+    describe('#crawlLinkToURLsWithEpisodes()', function() {
+        it('should return a tvshow url list with 3 url', function() {
             return tumejortorrent.crawlLinkToURLsWithEpisodes(3, 'erase-una-vez/1490').then(
                 urls => assert.ok(urls.length == 3))
         });
     });
 
-    describe('#crawlDataShow()', function () {
+    describe('#crawlDataShow()', function() {
         var urlWithFilm = 'http://tumejortorrent.com/descargar/peliculas-x264-mkv/coco-/bluray-microhd/';
 
-        it("should return the film 'Coco' with all data", function () {
+        it("should return the film 'Coco' with all data", function() {
             return tumejortorrent.crawlDataShow(urlWithFilm).then(show => {
                 //console.log("Show crawled:'" + JSON.stringify(show) + "'");
                 assert.equal(show.urlBase, 'http://tumejortorrent.com/descargar/peliculas-x264-mkv/coco-/bluray-microhd/');
@@ -57,7 +57,7 @@ describe('tumejortorrent', function () {
 
         var urlWithFilm2 = 'http://tumejortorrent.com/descargar/peliculas-castellano/estrenos-de-cine/ready-player-one-/ts-screener/'
 
-        it("should return the film 'Ready Player oner' with all data", function () {
+        it("should return the film 'Ready Player oner' with all data", function() {
             return tumejortorrent.crawlDataShow(urlWithFilm2).then(show => {
                 //console.log("Show crawled:'" + JSON.stringify(show) + "'");
                 assert.equal(show.title, 'Ready Player One');
@@ -68,11 +68,11 @@ describe('tumejortorrent', function () {
 
         var urlWithTVShow = 'http://tumejortorrent.com/descargar/serie-en-hd/erase-una-vez/temporada-7/capitulo-14/';
 
-        it("should return the TVShow 'Erase una vez', 7x14 with all data", function () {
+        it("should return the TVShow 'Erase una vez', 7x14 with all data", function() {
             return tumejortorrent.crawlDataShow(urlWithTVShow).then(show => {
                 //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
                 assert.equal(show.urlBase, 'http://tumejortorrent.com/descargar/serie-en-hd/erase-una-vez/temporada-7/capitulo-14/');
-                assert.equal(show.title, 'Erase una Vez');
+                assert.equal(show.title, 'Erase Una Vez');
                 assert.equal(show.year, '2018');
                 assert.equal(show.currentSession, '7');
                 assert.equal(show.currentEpisode, '14');
