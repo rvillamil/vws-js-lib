@@ -9,11 +9,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.1.1] - 2018-12-16
 
+### Changed
+
 - Fix error on load cover from tumejortorrent
 - Fix error on parse tvshow title from tumejortorrent
 - Fix test
 
 ## [2.1.0] - 2018-10-27
+
+### Added
 
 - Now persist all tvshows information about the showcollection in favorites database. Historic storage
 - New favorites tool management console: `utils/dbutils`
