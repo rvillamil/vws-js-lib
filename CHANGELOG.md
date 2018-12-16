@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.1] - 2018-12-ZXX
+
 - Fix error on load cover from tumejortorrent
+- Fix error on  pasrse tvshow title from tumejortorrent
 
 ## [2.1.0] - 2018-10-27
 
