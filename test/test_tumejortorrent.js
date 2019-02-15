@@ -38,24 +38,24 @@ describe('tumejortorrent', function() {
     });
 
     describe('#crawlDataShow()', function() {
-        var urlWithFilm = 'http://tumejortorrent.com/descargar/peliculas-x264-mkv/coco-/bluray-microhd/';
+        var urlWithFilm = 'https://tumejortorrent.com/descargar/peliculas-x264-mkv/coco-/bluray-microhd/';
 
         it("should return the film 'Coco' with all data", function() {
             return tumejortorrent.crawlDataShow(urlWithFilm).then(show => {
                 //console.log("Show crawled:'" + JSON.stringify(show) + "'");
-                assert.equal(show.urlBase, 'http://tumejortorrent.com/descargar/peliculas-x264-mkv/coco-/bluray-microhd/');
+                assert.equal(show.urlBase, 'https://tumejortorrent.com/descargar/peliculas-x264-mkv/coco-/bluray-microhd/');
                 assert.equal(show.title, 'Coco');
                 assert.ok(show.description);
                 assert.equal(show.quality, 'BluRay 720p X264 MKV');
                 assert.equal(show.fileSize, '2.5 GB');
-                assert.equal(show.urlwithCover, 'http://tumejortorrent.com/pictures/f/mediums/103770_-1518265235-coco--bluray-microhd.jpg');
+                assert.equal(show.urlwithCover, 'https://tumejortorrent.com/pictures/f/mediums/103770_-1518265235-coco--bluray-microhd.jpg');
                 assert.equal(show.releaseDate, '10-02-2018');
-                assert.equal(show.urltodownload, 'http://tumejortorrent.com/descargar-torrent/103770_-1518265235-coco--bluray-microhd/');
+                assert.equal(show.urltodownload, 'https://tumejortorrent.com/descargar-torrent/103770_-1518265235-coco--bluray-microhd/');
                 assert.equal(show.originalTitle, 'Coco');
             });
         });
 
-        var urlWithFilm2 = 'http://tumejortorrent.com/descargar/peliculas-castellano/estrenos-de-cine/ready-player-one-/ts-screener/'
+        var urlWithFilm2 = 'https://tumejortorrent.com/descargar/peliculas-castellano/estrenos-de-cine/ready-player-one-/ts-screener/'
 
         it("should return the film 'Ready Player oner' with all data", function() {
             return tumejortorrent.crawlDataShow(urlWithFilm2).then(show => {
@@ -66,12 +66,12 @@ describe('tumejortorrent', function() {
         });
 
 
-        var urlWithTVShow = 'http://tumejortorrent.com/descargar/serie-en-hd/erase-una-vez/temporada-7/capitulo-14/';
+        var urlWithTVShow = 'https://tumejortorrent.com/descargar/serie-en-hd/erase-una-vez/temporada-7/capitulo-14/';
 
         it("should return the TVShow 'Erase una vez', 7x14 with all data", function() {
             return tumejortorrent.crawlDataShow(urlWithTVShow).then(show => {
                 //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
-                assert.equal(show.urlBase, 'http://tumejortorrent.com/descargar/serie-en-hd/erase-una-vez/temporada-7/capitulo-14/');
+                assert.equal(show.urlBase, 'https://tumejortorrent.com/descargar/serie-en-hd/erase-una-vez/temporada-7/capitulo-14/');
                 assert.equal(show.title, 'Erase Una Vez');
                 assert.equal(show.year, '2018');
                 assert.equal(show.currentSession, '7');
@@ -80,9 +80,9 @@ describe('tumejortorrent', function() {
                 assert.ok(show.sinopsis);
                 assert.equal(show.quality, 'HDTV 720p');
                 assert.equal(show.fileSize, '1.6 GB');
-                assert.equal(show.urlwithCover, 'http://tumejortorrent.com/pictures/c/1490_erase-una-vez.jpg');
+                assert.equal(show.urlwithCover, 'https://tumejortorrent.com/pictures/c/1490_erase-una-vez.jpg');
                 assert.equal(show.releaseDate, '06-04-2018');
-                assert.equal(show.urltodownload, 'http://tumejortorrent.com/descargar-torrent/105678_-1523024727-erase-una-vez---temporada-7--hdtv-720p-ac3-5-1/');
+                assert.equal(show.urltodownload, 'https://tumejortorrent.com/descargar-torrent/105678_-1523024727-erase-una-vez---temporada-7--hdtv-720p-ac3-5-1/');
             });
         });
     });
