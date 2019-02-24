@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- tumejor torrent has beeb replaced by newpct vide web site
+- tumejortorrent site, has been replaced by newpct video web site
 
 ## [2.1.2] - 2019-02-15
 
