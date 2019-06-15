@@ -7,11 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.0.0] - 2019-06-15
+
+### Changed
+
+- Change the portal to parse: Now is 'descargas2020.org' 
+
 ## [2.1.4] - 2019-02-24
 
 ### Changed
 
--  minor bug fixed
+- minor bug fixed
 
 ## [2.1.3] - 2019-02-24
 
