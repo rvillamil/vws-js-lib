@@ -1,7 +1,7 @@
 const omdb = require('../lib/omdb');
 const tmdb = require('../lib/tmdb');
 const crawler = require('../lib/crawler');
-const Show = require('../lib/show');
+const Show = require('../lib/model/show');
 
 function processParamTitle() {
     if (process.argv.length > 3) {
