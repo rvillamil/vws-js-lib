@@ -5,8 +5,8 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert');
-const Show = require('../lib/show');
-const ShowCollection = require('../lib/showCollection');
+const Show = require('../lib/model/show');
+const ShowCollection = require('../lib/model/showCollection');
 
 function newTestShow(title, currentSession, currentEpisode) {
     var toShow = new Show()
@@ -19,9 +19,9 @@ function newTestShow(title, currentSession, currentEpisode) {
     return toShow
 }
 
-describe('ShowCollection', function () {
+describe('ShowCollection', function() {
 
-    describe('#push(show)', function () {
+    describe('#push(show)', function() {
 
         var showCollection = new ShowCollection()
         showCollection.name = "collection_TVShow_5"
@@ -32,7 +32,7 @@ describe('ShowCollection', function () {
         var show3 = newTestShow("TVShow", "5", "4")
 
 
-        it('Should add three diferentes shows to ShowCollection', function () {
+        it('Should add three diferentes shows to ShowCollection', function() {
             showCollection.push(show1);
             showCollection.push(show2);
             showCollection.push(show3);
