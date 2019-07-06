@@ -1,5 +1,5 @@
-var ShowCollection = require('../lib/showCollection');
-var FavoriteRepository = require('../lib/favoriteRepository');
+var ShowCollection = require('../lib/model/showCollection');
+var FavoriteRepository = require('../lib/repositories/favoriteRepository');
 const path = require('path');
 
 function processArgsNumber() {
@@ -64,8 +64,8 @@ function help() {
     console.log(`-s: save show collection`)
     console.log(`-d: delete show collection`)
     console.log(`-l: list show collection`)
-    console.log(`     e.g.: ./dbutils -l '/Users/Name/Library/Application Support/Video Website Scraper/vws.db'`)
-    console.log(`     e.g.: ./dbutils -s '/Users/Name/Library/Application Support/Video Website Scraper/vws.db' 'pp/ll'`)
+    console.log(`     e.g.: ./dbutils -l '/Users/Name/Library/Application Support/Video Website Scraper/vws-db'`)
+    console.log(`     e.g.: ./dbutils -s '/Users/Name/Library/Application Support/Video Website Scraper/vws-db' 'pp/ll'`)
 }
 
 function saveFavoriteShowCollection(showCollectionName) {
@@ -100,7 +100,7 @@ function deleteFavoriteShowCollection(showCollectionName) {
 function listAllFavoritesShowCollection() {
     return favoriteRepository.findAll().then(
         showCollectionList => {
-            showCollectionList.forEach(function (showCollection) {
+            showCollectionList.forEach(function(showCollection) {
                 console.log(`Show collection saved!: ${JSON.stringify(showCollection)}\n`)
             })
         }

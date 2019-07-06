@@ -9,9 +9,9 @@
 // npm modules requiered
 //
 const assert = require('assert');
-var ShowCollection = require('../lib/showCollection');
-var FavoriteRepository = require('../lib/favoriteRepository');
-const Show = require('../lib/show');
+var ShowCollection = require('../lib/model/showCollection');
+var FavoriteRepository = require('../lib/repositories/favoriteRepository');
+const Show = require('../lib/model/show');
 
 function newTestShow(title, currentSession, currentEpisode) {
     var toShow = new Show()

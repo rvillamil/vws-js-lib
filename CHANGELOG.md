@@ -7,11 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [3.0.0] - 2019-06-15
+## [3.0.0] - 2019-07-06
 
 ### Changed
 
-- Change the portal to parse: Now is 'descargas2020.org' 
+- Change the portal to parse: Now is 'descargas2020.org'
+- Refactor code
 
 ## [2.1.4] - 2019-02-24
 
@@ -29,7 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Fix error. tumejortorrent  has changed to 'https' url
+- Fix error. tumejortorrent has changed to 'https' url
 
 ## [2.1.1] - 2018-12-16
 
@@ -60,10 +61,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Minor bug fixed 
+- Minor bug fixed
 
 - OMDB and TMDB search enhacements and results
-
 
 ## [2.0.0] - 2018-04-21
 
@@ -99,7 +99,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- API enhanced 
+- API enhanced
 
 ### Added
 

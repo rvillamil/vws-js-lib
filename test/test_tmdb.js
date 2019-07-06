@@ -6,12 +6,12 @@
 //
 const assert = require('assert');
 const tmdb = require('../lib/tmdb');
-const show = require('../lib/show');
+const show = require('../lib/model/show');
 
-describe('tmdb', function () {
-    describe('#searchShow()', function () {
+describe('tmdb', function() {
+    describe('#searchShow()', function() {
 
-        it('Should return one Show object with the film Star Wars', function () {
+        it('Should return one Show object with the film Star Wars', function() {
             return tmdb.searchShow('Star wars')
                 .then(show => {
                     //console.log('Show TMDB: ', show);
@@ -23,7 +23,7 @@ describe('tmdb', function () {
                 })
         });
 
-        it('Should return one Show object with error not 0', function () {
+        it('Should return one Show object with error not 0', function() {
             return tmdb.searchShow('dfewpom pmwd')
                 .then(show => {
                     //console.log('Show: ', show);
@@ -31,7 +31,7 @@ describe('tmdb', function () {
                 })
         });
 
-        it("Should return one Show object with the TVShow named as 'Arrow'", function () {
+        it("Should return one Show object with the TVShow named as 'Arrow'", function() {
             return tmdb.searchShow('Arrow', 'tv')
                 .then(show => {
                     // console.log('Show TMDB: ', show);

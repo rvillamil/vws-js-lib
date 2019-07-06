@@ -6,12 +6,12 @@
 //
 const assert = require('assert');
 const omdb = require('../lib/omdb');
-const show = require('../lib/show');
+const show = require('../lib/model/show');
 
-describe('omdb', function () {
-    describe('#searchShow()', function () {
+describe('omdb', function() {
+    describe('#searchShow()', function() {
 
-        it('Should return one Show object with the film Star Wars', function () {
+        it('Should return one Show object with the film Star Wars', function() {
             return omdb.searchShow('Star wars')
                 .then(show => {
                     //console.log('Show OMDB: ', show);
@@ -24,7 +24,7 @@ describe('omdb', function () {
                 })
         });
 
-        it('Should return one Show object with error not 0', function () {
+        it('Should return one Show object with error not 0', function() {
             return omdb.searchShow('dfewpom pmwd')
                 .then(show => {
                     assert.notEqual(show.error, 0);
