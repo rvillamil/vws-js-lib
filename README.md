@@ -8,7 +8,7 @@ Other module is [request-promise](https://github.com/request/request-promise), "
 
 Currently websites scraped list:
 
-- [TuMejorTorrent](http://tumejortorrent.com/)
+- [descargas2020.org](https://descargas2020.org/)
 
 Implemented node modules for search on internet movie databases as:
 
@@ -63,7 +63,7 @@ return omdb.searchShow('Star wars', '1977')
     });
 ```
 
-#### Node module for earch in TMDB 
+#### Node module for earch in TMDB
 
 ```js
 var tmdb = require('vws-js-lib/lib/tmdb');

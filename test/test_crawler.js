@@ -6,13 +6,13 @@
 //
 const assert = require('assert');
 const crawler = require('../lib/crawler');
-const ShowCollection = require('../lib/showCollection');
+const ShowCollection = require('../lib/model/showCollection');
 
-describe('crawler', function () {
+describe('crawler', function() {
     this.timeout(55000);
 
-    describe('#crawlVideoPremieres()', function () {
-        it('should return a video premiere list with two shows', function () {
+    describe('#crawlVideoPremieres()', function() {
+        it('should return a video premiere list with two shows', function() {
             return crawler.crawlVideoPremieres(
                 2,
                 show => {
@@ -24,8 +24,8 @@ describe('crawler', function () {
             ).then(shows => assert.ok(shows.length == 2))
         });
     });
-    describe('#crawlBillboardFilms()', function () {
-        it('should return a billboard film list with two shows', function () {
+    describe('#crawlBillboardFilms()', function() {
+        it('should return a billboard film list with two shows', function() {
             return crawler.crawlBillboardFilms(
                 2,
                 show => {
@@ -38,8 +38,8 @@ describe('crawler', function () {
         });
     });
 
-    describe('#crawlTVShows()', function () {
-        it('should return a TVShow list with three shows', function () {
+    describe('#crawlTVShows()', function() {
+        it('should return a TVShow list with three shows', function() {
             return crawler.crawlTVShows(
                 3,
                 show => {
@@ -53,8 +53,8 @@ describe('crawler', function () {
     });
 
 
-    describe('#crawlTVShowCollections()', function () {
-        it('should return a TVShow collection list with 2 showscollection with 4 episodes every collecion', function () {
+    describe('#crawlTVShowCollections()', function() {
+        it('should return a TVShow collection list with 2 showscollection with 4 episodes every collecion', function() {
             var showCollection1 = new ShowCollection()
             showCollection1.name = 'modern-family/2261'
 
