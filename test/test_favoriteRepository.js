@@ -1,3 +1,5 @@
+// @ts-nocheck
+/* eslint-disable no-console */
 //
 // Testing support:
 //
@@ -8,10 +10,10 @@
 //
 // npm modules requiered
 //
-const assert = require('assert');
-var ShowCollection = require('../lib/model/showCollection');
-var FavoriteRepository = require('../lib/repositories/favoriteRepository');
-const Show = require('../lib/model/show');
+const assert = require('assert')
+var ShowCollection = require('../lib/model/showCollection')
+var FavoriteRepository = require('../lib/repositories/favoriteRepository')
+const Show = require('../lib/model/show')
 
 function newTestShow(title, currentSession, currentEpisode) {
     var toShow = new Show()
@@ -24,46 +26,46 @@ function newTestShow(title, currentSession, currentEpisode) {
     return toShow
 }
 
-describe('favoriteRepository', function() {
-    var favoriteRepository = new FavoriteRepository('vws-db');
+describe('favoriteRepository', function () {
+    var favoriteRepository = new FavoriteRepository('vws-db')
 
-    describe('#findAll()', function() {
+    describe('#findAll()', function () {
 
-        it('Should load two first elements from collection who size is four', function() {
+        it('Should load two first elements from collection who size is four', function () {
 
             var showCollection1 = new ShowCollection()
-            showCollection1.name = "hola/mola_1"
+            showCollection1.name = 'hola/mola_1'
 
             var showCollection2 = new ShowCollection()
-            showCollection2.name = "hola/mola_2"
+            showCollection2.name = 'hola/mola_2'
 
             var showCollection3 = new ShowCollection()
-            showCollection3.name = "hola/mola_3"
+            showCollection3.name = 'hola/mola_3'
 
             var showCollection4 = new ShowCollection()
-            showCollection4.name = "hola/mola_4"
+            showCollection4.name = 'hola/mola_4'
 
             favoriteRepository.save(showCollection1)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
             favoriteRepository.save(showCollection2)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
             favoriteRepository.save(showCollection3)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
             favoriteRepository.save(showCollection4)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
             favoriteRepository.findAll(2).then(
@@ -76,25 +78,25 @@ describe('favoriteRepository', function() {
                     assert.equal(numRemoved, 4)
                 }
             )
-        });
+        })
 
-        it('Should load two Collection', function() {
+        it('Should load two Collection', function () {
 
             var showCollection1 = new ShowCollection()
-            showCollection1.name = "hola/mola_1"
+            showCollection1.name = 'hola/mola_1'
 
             var showCollection2 = new ShowCollection()
-            showCollection2.name = "hola/mola_2"
+            showCollection2.name = 'hola/mola_2'
 
             favoriteRepository.save(showCollection1)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
             favoriteRepository.save(showCollection2)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
@@ -108,16 +110,16 @@ describe('favoriteRepository', function() {
                     assert.equal(numRemoved, 2)
                 }
             )
-        });
+        })
 
 
-        it('Not Should save duplicated collection name', function() {
+        it('Not Should save duplicated collection name', function () {
 
             var showCollection1 = new ShowCollection()
-            showCollection1.name = "hola/mola_1"
+            showCollection1.name = 'hola/mola_1'
 
             var showCollection2 = new ShowCollection()
-            showCollection2.name = "hola/mola_1"
+            showCollection2.name = 'hola/mola_1'
 
             favoriteRepository.save(showCollection1)
                 .catch(err => {
@@ -140,29 +142,29 @@ describe('favoriteRepository', function() {
                     assert.equal(numRemoved, 1)
                 }
             )
-        });
+        })
 
-    });
+    })
 
-    describe('#delete()', function() {
+    describe('#delete()', function () {
 
-        it('Should persistir two Collection more and delete one', function() {
+        it('Should persistir two Collection more and delete one', function () {
 
             var showCollection1 = new ShowCollection()
-            showCollection1.name = "hola/mola_1"
+            showCollection1.name = 'hola/mola_1'
 
             var showCollection2 = new ShowCollection()
-            showCollection2.name = "hola/mola_2"
+            showCollection2.name = 'hola/mola_2'
 
             favoriteRepository.save(showCollection1)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
             favoriteRepository.save(showCollection2)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
@@ -171,9 +173,9 @@ describe('favoriteRepository', function() {
                     assert.equal(showCollectionList.length, 2)
                 })
 
-            favoriteRepository.delete("hola/mola_2")
+            favoriteRepository.delete('hola/mola_2')
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
@@ -182,7 +184,7 @@ describe('favoriteRepository', function() {
                     assert.equal(showCollectionList.length, 1)
                 }
             ).catch(err => {
-                console.error("ERROR!" + err)
+                console.error('ERROR!' + err)
                 assert.ok(1 == 0) // Forzamos el pete del test
             })
 
@@ -192,29 +194,29 @@ describe('favoriteRepository', function() {
                 }
             )
 
-        });
+        })
 
-    });
+    })
 
-    describe('#findByCollectionName()', function() {
+    describe('#findByCollectionName()', function () {
 
-        it('Should load one Collection by', function() {
+        it('Should load one Collection by', function () {
 
             var showCollection1 = new ShowCollection()
-            showCollection1.name = "hola/mola_1"
+            showCollection1.name = 'hola/mola_1'
 
             var showCollection2 = new ShowCollection()
-            showCollection2.name = "hola/mola_2"
+            showCollection2.name = 'hola/mola_2'
 
             favoriteRepository.save(showCollection1)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
             favoriteRepository.save(showCollection2)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
@@ -228,26 +230,26 @@ describe('favoriteRepository', function() {
                     assert.equal(numRemoved, 2)
                 }
             )
-        });
+        })
 
 
-        it('it should not load one Collection by collection name', function() {
+        it('it should not load one Collection by collection name', function () {
 
             var showCollection1 = new ShowCollection()
-            showCollection1.name = "hola/mola_1"
+            showCollection1.name = 'hola/mola_1'
 
             var showCollection2 = new ShowCollection()
-            showCollection2.name = "hola/mola_2"
+            showCollection2.name = 'hola/mola_2'
 
             favoriteRepository.save(showCollection1)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
             favoriteRepository.save(showCollection2)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
@@ -261,47 +263,47 @@ describe('favoriteRepository', function() {
                     assert.equal(numRemoved, 2)
                 }
             )
-        });
+        })
 
-    });
+    })
 
-    describe('#findShowByURLtodownload()', function() {
+    describe('#findShowByURLtodownload()', function () {
 
 
 
-        it('Should find the url show in the Collection', function() {
+        it('Should find the url show in the Collection', function () {
 
 
             var showCollection1 = new ShowCollection()
-            showCollection1.name = "showCollection1/5167"
-            showCollection1.urlBase = "http://urlbase1"
-            var show1 = newTestShow("showCollection1", "5", "2")
-            var show2 = newTestShow("showCollection1", "5", "3")
-            var show3 = newTestShow("showCollection1", "5", "4")
-            showCollection1.push(show1);
-            showCollection1.push(show2);
-            showCollection1.push(show3);
+            showCollection1.name = 'showCollection1/5167'
+            showCollection1.urlBase = 'http://urlbase1'
+            var show1 = newTestShow('showCollection1', '5', '2')
+            var show2 = newTestShow('showCollection1', '5', '3')
+            var show3 = newTestShow('showCollection1', '5', '4')
+            showCollection1.push(show1)
+            showCollection1.push(show2)
+            showCollection1.push(show3)
 
             var showCollection2 = new ShowCollection()
-            showCollection2.name = "showCollection2/5167"
-            showCollection2.urlBase = "http://urlbase2"
-            var showA = newTestShow("showCollection2", "5", "2")
-            var showB = newTestShow("showCollection2", "5", "3")
-            var showC = newTestShow("showCollection2", "5", "4")
-            showCollection2.push(showA);
-            showCollection2.push(showB);
-            showCollection2.push(showC);
+            showCollection2.name = 'showCollection2/5167'
+            showCollection2.urlBase = 'http://urlbase2'
+            var showA = newTestShow('showCollection2', '5', '2')
+            var showB = newTestShow('showCollection2', '5', '3')
+            var showC = newTestShow('showCollection2', '5', '4')
+            showCollection2.push(showA)
+            showCollection2.push(showB)
+            showCollection2.push(showC)
 
 
             favoriteRepository.save(showCollection1)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
             favoriteRepository.save(showCollection2)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
             favoriteRepository.findByCollectionName('showCollection2/5167').then(
@@ -309,7 +311,7 @@ describe('favoriteRepository', function() {
                     assert.equal(showCollection.name, 'showCollection2/5167')
                 }
             ).catch(err => {
-                console.error("ERROR! " + err)
+                console.error('ERROR! ' + err)
             })
 
 
@@ -319,7 +321,7 @@ describe('favoriteRepository', function() {
                     assert.equal(show.urltodownload, 'http://urltodownload_showCollection2_5_3')
                 }
             ).catch(err => {
-                console.error("ERROR! " + err)
+                console.error('ERROR! ' + err)
             })
 
             favoriteRepository.deleteAll().then(
@@ -328,39 +330,39 @@ describe('favoriteRepository', function() {
                 }
             )
 
-        });
+        })
 
-        it('Should not find the url show in the Collection', function() {
+        it('Should not find the url show in the Collection', function () {
             var showCollection1 = new ShowCollection()
-            showCollection1.name = "showCollection1/5167"
-            showCollection1.urlBase = "http://urlbase1"
-            var show1 = newTestShow("showCollection1", "5", "2")
-            var show2 = newTestShow("showCollection1", "5", "3")
-            var show3 = newTestShow("showCollection1", "5", "4")
-            showCollection1.push(show1);
-            showCollection1.push(show2);
-            showCollection1.push(show3);
+            showCollection1.name = 'showCollection1/5167'
+            showCollection1.urlBase = 'http://urlbase1'
+            var show1 = newTestShow('showCollection1', '5', '2')
+            var show2 = newTestShow('showCollection1', '5', '3')
+            var show3 = newTestShow('showCollection1', '5', '4')
+            showCollection1.push(show1)
+            showCollection1.push(show2)
+            showCollection1.push(show3)
 
             var showCollection2 = new ShowCollection()
-            showCollection2.name = "showCollection2/5167"
-            showCollection2.urlBase = "http://urlbase2"
-            var showA = newTestShow("showCollection2", "5", "2")
-            var showB = newTestShow("showCollection2", "5", "3")
-            var showC = newTestShow("showCollection2", "5", "4")
-            showCollection2.push(showA);
-            showCollection2.push(showB);
-            showCollection2.push(showC);
+            showCollection2.name = 'showCollection2/5167'
+            showCollection2.urlBase = 'http://urlbase2'
+            var showA = newTestShow('showCollection2', '5', '2')
+            var showB = newTestShow('showCollection2', '5', '3')
+            var showC = newTestShow('showCollection2', '5', '4')
+            showCollection2.push(showA)
+            showCollection2.push(showB)
+            showCollection2.push(showC)
 
 
             favoriteRepository.save(showCollection1)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
             favoriteRepository.save(showCollection2)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
@@ -370,7 +372,7 @@ describe('favoriteRepository', function() {
                     assert.equal(show, null)
                 }
             ).catch(err => {
-                console.error("ERROR! " + err)
+                console.error('ERROR! ' + err)
             })
 
             return favoriteRepository.deleteAll().then(
@@ -378,46 +380,46 @@ describe('favoriteRepository', function() {
                     assert.equal(numRemoved, 2)
                 }
             )
-        });
+        })
 
 
-    });
+    })
 
 
-    describe('#mergeShowCollections()', function() {
+    describe('#mergeShowCollections()', function () {
 
-        it('Should update with three new shows in the Collection 2 and discard repetead', function() {
+        it('Should update with three new shows in the Collection 2 and discard repetead', function () {
 
             var showCollection1 = new ShowCollection()
-            showCollection1.name = "showCollection1/567"
-            showCollection1.urlBase = "http://urlbase1"
-            var show1 = newTestShow("showCollection1_1", "5", "2")
-            var show2 = newTestShow("showCollection1_2", "5", "3")
-            var show3 = newTestShow("showCollection1_3", "5", "4")
-            showCollection1.push(show1);
-            showCollection1.push(show2);
-            showCollection1.push(show3);
+            showCollection1.name = 'showCollection1/567'
+            showCollection1.urlBase = 'http://urlbase1'
+            var show1 = newTestShow('showCollection1_1', '5', '2')
+            var show2 = newTestShow('showCollection1_2', '5', '3')
+            var show3 = newTestShow('showCollection1_3', '5', '4')
+            showCollection1.push(show1)
+            showCollection1.push(show2)
+            showCollection1.push(show3)
 
             var showCollection2 = new ShowCollection()
-            showCollection2.name = "showCollection2/567"
-            showCollection2.urlBase = "http://urlbase2"
-            var showA = newTestShow("showCollection2_1", "5", "1")
-            var showB = newTestShow("showCollection2_2", "5", "2")
-            var showC = newTestShow("showCollection2_3", "5", "3")
-            showCollection2.push(showC);
-            showCollection2.push(showB);
-            showCollection2.push(showA);
+            showCollection2.name = 'showCollection2/567'
+            showCollection2.urlBase = 'http://urlbase2'
+            var showA = newTestShow('showCollection2_1', '5', '1')
+            var showB = newTestShow('showCollection2_2', '5', '2')
+            var showC = newTestShow('showCollection2_3', '5', '3')
+            showCollection2.push(showC)
+            showCollection2.push(showB)
+            showCollection2.push(showA)
 
 
             favoriteRepository.save(showCollection1)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
             favoriteRepository.save(showCollection2)
                 .catch(err => {
-                    console.error("ERROR!" + err)
+                    console.error('ERROR!' + err)
                     assert.ok(1 == 0) // Forzamos el pete del test
                 })
 
@@ -426,19 +428,19 @@ describe('favoriteRepository', function() {
             favoriteRepository.findByCollectionName('showCollection2/567').then(
                 showCollection => {
                     assert.equal(showCollection.shows.length, 3)
-                        //console.log(`\n\n ShowCollection ANTES ${JSON.stringify(showCollection)}\n\n `)
+                    //console.log(`\n\n ShowCollection ANTES ${JSON.stringify(showCollection)}\n\n `)
                 }
             )
 
             var showCollectionCrawled = new ShowCollection()
-            showCollectionCrawled.name = "showCollection2/567"
-            showCollectionCrawled.urlBase = "http://urlbase2"
+            showCollectionCrawled.name = 'showCollection2/567'
+            showCollectionCrawled.urlBase = 'http://urlbase2'
 
-            var newShow1 = newTestShow("showCollection2_1", "5", "1")
-            var newShow2 = newTestShow("showCollection2_2", "5", "2")
-            var newShow3 = newTestShow("showCollection2_3", "5", "3")
-            var newShow4 = newTestShow("showCollection2_4", "5", "4")
-            var newShow5 = newTestShow("showCollection2_5", "5", "5")
+            var newShow1 = newTestShow('showCollection2_1', '5', '1')
+            var newShow2 = newTestShow('showCollection2_2', '5', '2')
+            var newShow3 = newTestShow('showCollection2_3', '5', '3')
+            var newShow4 = newTestShow('showCollection2_4', '5', '4')
+            var newShow5 = newTestShow('showCollection2_5', '5', '5')
             showCollectionCrawled.push(newShow5)
             showCollectionCrawled.push(newShow4)
             showCollectionCrawled.push(newShow3)
@@ -449,7 +451,7 @@ describe('favoriteRepository', function() {
             return favoriteRepository.mergeShowCollections(showCollectionCrawled, 'showCollection2/567').then(
                 newShowsPersisted => {
                     assert.equal(5, newShowsPersisted.length)
-                        // Imprimimos despues..
+                    // Imprimimos despues..
                     favoriteRepository.findByCollectionName('showCollection2/567').then(
                         showCollection => {
                             //console.log(`\n\nshowCollection DESPUES ${JSON.stringify(showCollection)}`)
@@ -458,10 +460,10 @@ describe('favoriteRepository', function() {
                     )
                 }
             ).catch(err => {
-                console.error("ERROR! " + err)
+                console.error('ERROR! ' + err)
             })
 
-        });
+        })
 
-    });
-});
+    })
+})
