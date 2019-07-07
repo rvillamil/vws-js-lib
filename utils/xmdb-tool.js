@@ -14,6 +14,7 @@ function processParamTitle() {
         help()
         process.exit(1)
     }
+
     return titleToSearch
 }
 
