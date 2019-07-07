@@ -1,10 +1,9 @@
-var ShowCollection = require('../lib/model/showCollection');
-var FavoriteRepository = require('../lib/repositories/favoriteRepository');
-const path = require('path');
+var ShowCollection = require('../lib/model/showCollection')
+var FavoriteRepository = require('../lib/repositories/favoriteRepository')
 
 function processArgsNumber() {
     if (process.argv.length > 5) {
-        console.log("ERROR! Number of arguments error. 2 parameters are requiered")
+        console.log('ERROR! Number of arguments error. 2 parameters are requiered')
         help()
         process.exit(1)
     }
@@ -14,7 +13,7 @@ function processArgsNumber() {
 function processOptionArgument() {
     var option = process.argv[2]
     if (!option) {
-        console.log("ERROR! wrong parameters")
+        console.log('ERROR! wrong parameters')
         help()
         process.exit(1)
     }
@@ -22,7 +21,7 @@ function processOptionArgument() {
         (option != '-s') &&
         (option != '-l')) {
 
-        console.log("ERROR! wrong parameters")
+        console.log('ERROR! wrong parameters')
         help()
         process.exit(1)
     }
@@ -33,7 +32,7 @@ function processOptionArgument() {
 function processUserDataPath() {
     var userDataPath = process.argv[3]
     if (!userDataPath) {
-        console.log("ERROR! wrong parameters")
+        console.log('ERROR! wrong parameters')
         help()
         process.exit(1)
     }
@@ -47,12 +46,12 @@ function processParamTitle() {
     var option = process.argv[2]
 
     if (!titleToSearch) {
-        console.log("ERROR! wrong parameters")
+        console.log('ERROR! wrong parameters')
         help()
         process.exit(1)
     }
     if ((!titleToSearch) && (option == '-l')) {
-        console.log("ERROR! wrong parameters")
+        console.log('ERROR! wrong parameters')
         help()
         process.exit(1)
     }
@@ -61,11 +60,11 @@ function processParamTitle() {
 
 function help() {
     console.log(`Usage: ${process.argv[1]} [-s|-d|-l] 'database path' [show collection name]`)
-    console.log(`-s: save show collection`)
-    console.log(`-d: delete show collection`)
-    console.log(`-l: list show collection`)
-    console.log(`     e.g.: ./dbutils -l '/Users/Name/Library/Application Support/Video Website Scraper/vws-db'`)
-    console.log(`     e.g.: ./dbutils -s '/Users/Name/Library/Application Support/Video Website Scraper/vws-db' 'pp/ll'`)
+    console.log('-s: save show collection')
+    console.log('-d: delete show collection')
+    console.log('-l: list show collection')
+    console.log('     e.g.: ./dbutils -l \'/Users/Name/Library/Application Support/Video Website Scraper/vws-db\'')
+    console.log('     e.g.: ./dbutils -s \'/Users/Name/Library/Application Support/Video Website Scraper/vws-db\' \'pp/ll\'')
 }
 
 function saveFavoriteShowCollection(showCollectionName) {
@@ -100,7 +99,7 @@ function deleteFavoriteShowCollection(showCollectionName) {
 function listAllFavoritesShowCollection() {
     return favoriteRepository.findAll().then(
         showCollectionList => {
-            showCollectionList.forEach(function(showCollection) {
+            showCollectionList.forEach(function (showCollection) {
                 console.log(`Show collection saved!: ${JSON.stringify(showCollection)}\n`)
             })
         }
@@ -112,8 +111,8 @@ function listAllFavoritesShowCollection() {
 // Global var
 //
 processArgsNumber()
-option = processOptionArgument()
-var favoriteRepository = new FavoriteRepository(processUserDataPath());
+var option = processOptionArgument()
+var favoriteRepository = new FavoriteRepository(processUserDataPath())
 if (option == '-d') {
     deleteFavoriteShowCollection(processParamTitle())
 } else if (option == '-s') {
