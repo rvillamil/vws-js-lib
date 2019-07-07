@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 var ShowCollection = require('../lib/model/showCollection')
 var FavoriteRepository = require('../lib/repositories/favoriteRepository')
 

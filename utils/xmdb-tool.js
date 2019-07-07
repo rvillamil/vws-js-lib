@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const crawler = require('../lib/crawler')
 const Show = require('../lib/model/show')
 
