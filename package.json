@@ -23,6 +23,7 @@
     "license": "MIT",
     "homepage": "https://github.com/rvillamil/vws-js-lib",
     "devDependencies": {
+        "eslint": "*",
         "mocha": "^5.0.1"
     },
     "dependencies": {
