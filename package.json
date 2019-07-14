@@ -1,6 +1,6 @@
 {
     "name": "vws-js-lib",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "Node module for web-scraping on torrent video websites",
     "directories": {
         "test": "test"
@@ -23,6 +23,7 @@
     "license": "MIT",
     "homepage": "https://github.com/rvillamil/vws-js-lib",
     "devDependencies": {
+        "eslint": "*",
         "mocha": "^5.0.1"
     },
     "dependencies": {
