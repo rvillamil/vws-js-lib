@@ -71,7 +71,7 @@ describe('favoriteRepository', function () {
                 })
             favoriteRepository.findAll(2).then(
                 showCollectionList => {
-                    console.log('showCollectionList.length: ' + showCollectionList.length)
+                    //console.log('showCollectionList.length: ' + showCollectionList.length)
                     assert.equal(showCollectionList.length, 2)
                 }
             )
@@ -113,7 +113,6 @@ describe('favoriteRepository', function () {
                 }
             )
         })
-
 
         it('Not Should save duplicated collection name', function () {
 

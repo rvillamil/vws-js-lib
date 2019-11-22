@@ -13,7 +13,7 @@ describe('tmdb', function () {
         it('Should return one Show object with the film Star Wars', function () {
             return tmdb.searchShow('Star wars')
                 .then(show => {
-                    //console.log('Show TMDB: ', show);
+                    //console.log('Show TMDB: ', show)
                     assert.equal(show.title, 'Star wars')
                     assert.equal(show.year, '1977')
                     assert.equal(show.originalTitle, 'Star Wars')
