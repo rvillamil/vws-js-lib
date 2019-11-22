@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- Bug fixed on title parsing
 - ESLint minor bugs fixed
+- Minor bugs on test
   
 ## [3.0.0] - 2019-07-06
 
