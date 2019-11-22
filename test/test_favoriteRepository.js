@@ -28,6 +28,7 @@ function newTestShow(title, currentSession, currentEpisode) {
 
 describe('favoriteRepository', function () {
     var favoriteRepository = new FavoriteRepository('vws-db')
+    favoriteRepository.deleteAll() // La BB.DD puede estar sucia..la borramos inicialmente
 
     describe('#findAll()', function () {
 
@@ -70,6 +71,7 @@ describe('favoriteRepository', function () {
                 })
             favoriteRepository.findAll(2).then(
                 showCollectionList => {
+                    console.log('showCollectionList.length: ' + showCollectionList.length)
                     assert.equal(showCollectionList.length, 2)
                 }
             )
