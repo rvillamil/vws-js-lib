@@ -7,10 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.0.1] - 2019-11-23
+
+### Changed
+
+- Upgrading 3rdParty libraries
 - Bug fixed on title parsing
 - ESLint minor bugs fixed
 - Minor bugs on test
-  
+
 ## [3.0.0] - 2019-07-06
 
 ### Changed
