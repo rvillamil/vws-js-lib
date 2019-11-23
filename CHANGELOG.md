@@ -53,7 +53,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- Now persist all tvshows information about the showcollection in favorites database. Historic storage
+- Now persist all tvshows information about the showcollection in favorites database
 - New favorites tool management console: `utils/dbutils`
 
 ## [2.0.2] - 2018-10-07
