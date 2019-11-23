@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.0.1] - 2019-11-23
+
+### Changed
+
+- Upgrading 3rdParty libraries
+- Bug fixed on title parsing
+- ESLint minor bugs fixed
+- Minor bugs on test
+
 ## [3.0.0] - 2019-07-06
 
 ### Changed
@@ -44,7 +53,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- Now persist all tvshows information about the showcollection in favorites database. Historic storage
+- Now persist all tvshows information about the showcollection in favorites database
 - New favorites tool management console: `utils/dbutils`
 
 ## [2.0.2] - 2018-10-07

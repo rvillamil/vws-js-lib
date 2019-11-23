@@ -4,31 +4,30 @@
 // - mocha ...: https://mochajs.org/
 // - assert ..: https://nodejs.org/api/all.html
 //
-const assert = require('assert');
-const omdb = require('../lib/omdb');
-const show = require('../lib/model/show');
+const assert = require('assert')
+const omdb = require('../lib/omdb')
 
-describe('omdb', function() {
-    describe('#searchShow()', function() {
+describe('omdb', function () {
+    describe('#searchShow()', function () {
 
-        it('Should return one Show object with the film Star Wars', function() {
+        it('Should return one Show object with the film Star Wars', function () {
             return omdb.searchShow('Star wars')
                 .then(show => {
                     //console.log('Show OMDB: ', show);
-                    assert.equal(show.title, 'Star wars');
-                    assert.equal(show.year, '1977');
-                    assert.equal(show.originalTitle, 'Star Wars: Episode IV - A New Hope');
-                    assert.equal(show.releaseDate, '25 May 1977');
+                    assert.equal(show.title, 'Star wars')
+                    assert.equal(show.year, '1977')
+                    assert.equal(show.originalTitle, 'Star Wars: Episode IV - A New Hope')
+                    assert.equal(show.releaseDate, '25 May 1977')
 
-                    assert.equal(show.error, 0);
+                    assert.equal(show.error, 0)
                 })
-        });
+        })
 
-        it('Should return one Show object with error not 0', function() {
+        it('Should return one Show object with error not 0', function () {
             return omdb.searchShow('dfewpom pmwd')
                 .then(show => {
-                    assert.notEqual(show.error, 0);
+                    assert.notEqual(show.error, 0)
                 })
-        });
-    });
-});
+        })
+    })
+})
