@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+- New dontorrent.com crawler!
+
 ## [3.0.1] - 2019-11-23
 
 ### Changed
