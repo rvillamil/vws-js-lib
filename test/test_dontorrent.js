@@ -50,6 +50,7 @@ describe('dontorrent', function () {
                     'https://blazing.network/imagenes/peliculas/Vengadores%20Endgame.jpg'
                 )
                 assert.equal(show.releaseDate, '22-11-2019')
+                assert.equal(show.year, '2019')
                 assert.equal(
                     show.urltodownload,
                     'https://blazing.network/torrents/peliculas/Vengadores_Endgame_OPEN_MATTE.torrent'
