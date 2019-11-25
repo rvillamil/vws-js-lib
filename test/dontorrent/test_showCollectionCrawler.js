@@ -15,9 +15,8 @@ describe('dontorrent/showCollectionCrawler', function () {
         return showCollectionCrawler.crawlDataShowCollection('https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada').then(showCollection => {
             //console.log("ShowCollection crawled:'" + JSON.stringify(showCollection) + "'");
 
-            showCollection.name = '63880/63881/Mr-Robot-4-Temporada'
-            showCollection.url = 'https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada'
-
+            assert.equal(showCollection.name, '63880/63881/Mr-Robot-4-Temporada')
+            assert.equal(showCollection.url, 'https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada')
             assert.ok(showCollection.shows)
             assert.ok(showCollection.shows.length > 0)
             showCollection.shows.forEach(show => {
@@ -26,7 +25,7 @@ describe('dontorrent/showCollectionCrawler', function () {
                 assert.ok(show.sinopsis)
                 assert.ok(show.description)
                 assert.equal(show.quality, 'HDTV')
-                //assert.equal(show.fileSize, '2,85 GB')
+                assert.equal(show.fileSize, 'N/A')
                 assert.equal(
                     show.urlwithCover,
                     'https://blazing.network/imagenes/series/MrRobot4.jpg'
