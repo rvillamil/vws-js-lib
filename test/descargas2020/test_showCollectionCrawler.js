@@ -37,11 +37,10 @@ describe('descargas2020/showCollectionCrawler', function () {
                     // assert.equal(show.originalTitle, '') // dontorrent no proporciona este dato
                 })
             })
-
     })
-    /*
+
     it('should return the TVShow \'La resistencia\' 2x156 (aunque la URL ponga temporada 1)', function () {
-        return showCollectionCrawler.crawlDataShowCollection('https://descargas2020.org/descargar/serie-en-hd/la-resistencia/temporada-1/capitulo-56-al-57/').then(show => {
+        return showCollectionCrawler.crawlDataTVShow('https://descargas2020.org/descargar/serie-en-hd/la-resistencia/temporada-1/capitulo-56-al-57/').then(show => {
             //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
             assert.equal(
                 show.urlBase,
@@ -65,5 +64,5 @@ describe('descargas2020/showCollectionCrawler', function () {
             )
         })
     })
-    */
+
 })
