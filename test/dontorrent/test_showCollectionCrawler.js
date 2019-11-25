@@ -33,7 +33,7 @@ describe('dontorrent/showCollectionCrawler', function () {
                 assert.equal(show.year, '2019')
                 assert.ok(show.releaseDate)
                 assert.ok(show.urltodownload)
-                assert.equal(show.originalTitle, '') // dontorrent no proporciona este dato
+                // assert.equal(show.originalTitle, '') // dontorrent no proporciona este dato
 
             })
         })
