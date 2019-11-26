@@ -7,7 +7,7 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const showCollectionCrawler = require('../../lib/crawlers/dontorrent/showCollectionCrawler')
+const showCollectionCrawler = require('../../lib/crawlers/dontorrent/crawler/showCollectionCrawler')
 
 describe('dontorrent/showCollectionCrawler', function () {
     it('should return the TVShow \'Mr Robot\' with all data', function () {

@@ -7,7 +7,7 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const showCrawler = require('../../lib/crawlers/dontorrent/showCrawler')
+const showCrawler = require('../../lib/crawlers/dontorrent/crawler/showCrawler')
 
 describe('dontorrent/showCrawler', function () {
     it('should return the film \'Vengadores: Endgame\' with all data', function () {

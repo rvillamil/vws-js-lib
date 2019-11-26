@@ -7,7 +7,7 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const dontorrent = require('../../lib/crawlers/dontorrent/dontorrent')
+const dontorrent = require('../../lib/crawlers/dontorrent/facade')
 
 describe('dontorrent/dontorrent', function () {
     this.timeout(15000)
