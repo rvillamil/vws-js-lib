@@ -7,12 +7,12 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const showCrawler = require('../../lib/crawlers/descargas2020/showCrawler')
+const filmCrawler = require('../../lib/crawlers/descargas2020/filmCrawler')
 
-describe('descargas2020/showCrawler', function () {
+describe('descargas2020/filmCrawler', function () {
 
     it('should return the film \'300\' with all data', function () {
-        return showCrawler.crawlDataShow('https://descargas2020.org/descargar/peliculas-x264-mkv/300/').then(show => {
+        return filmCrawler.crawlDataFilm('https://descargas2020.org/descargar/peliculas-x264-mkv/300/').then(show => {
             //console.log("Show crawled:'" + JSON.stringify(show) + "'");
             assert.equal(show.urlBase, 'https://descargas2020.org/descargar/peliculas-x264-mkv/300/')
             assert.equal(show.title, '300')
