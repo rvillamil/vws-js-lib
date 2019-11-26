@@ -9,7 +9,7 @@
 const assert = require('assert')
 const filmCrawler = require('../../../lib/crawlers/descargas2020/crawler/filmCrawler')
 
-describe('descargas2020/filmCrawler', function () {
+describe('descargas2020/crawler/filmCrawler', function () {
 
     it('should return the film \'300\' with all data', function () {
         return filmCrawler.crawlDataFilm('https://descargas2020.org/descargar/peliculas-x264-mkv/300/').then(show => {

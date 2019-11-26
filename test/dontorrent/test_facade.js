@@ -9,7 +9,7 @@
 const assert = require('assert')
 const dontorrent = require('../../lib/crawlers/dontorrent/facade')
 
-describe('dontorrent/dontorrent', function () {
+describe('dontorrent/facade', function () {
     this.timeout(15000)
 
     describe('#crawlLinkToURLsWithVideoPremieres()', function () {

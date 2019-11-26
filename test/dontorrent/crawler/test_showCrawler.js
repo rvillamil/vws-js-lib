@@ -9,7 +9,7 @@
 const assert = require('assert')
 const showCrawler = require('../../../lib/crawlers/dontorrent/crawler/showCrawler')
 
-describe('dontorrent/showCrawler', function () {
+describe('dontorrent/crawler/showCrawler', function () {
     it('should return the film \'Vengadores: Endgame\' with all data', function () {
         return showCrawler.crawlDataShow('https://dontorrent.org/pelicula/21442/Vengadores-Endgame-Open-Matte-Imax').then(show => {
             //console.log("Show crawled:'" + JSON.stringify(show) + "'");

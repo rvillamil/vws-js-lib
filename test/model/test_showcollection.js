@@ -19,7 +19,7 @@ function newTestShow(title, currentSession, currentEpisode) {
     return toShow
 }
 
-describe('ShowCollection', function () {
+describe('model/ShowCollection', function () {
 
     describe('#push(show)', function () {
 

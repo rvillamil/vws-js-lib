@@ -9,7 +9,7 @@
 const assert = require('assert')
 const showCollectionCrawler = require('../../../lib/crawlers/descargas2020/crawler/tvshowCollectionCrawler')
 
-describe('descargas2020/showCollectionCrawler', function () {
+describe('descargas2020/crawler/showCollectionCrawler', function () {
     // TODO!! Tratar la coleccion no el show individual..
 
     it('should return the TVShow \'Watchmen\'', function () {

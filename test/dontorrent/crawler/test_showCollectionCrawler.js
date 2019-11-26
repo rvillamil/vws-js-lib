@@ -9,7 +9,7 @@
 const assert = require('assert')
 const showCollectionCrawler = require('../../../lib/crawlers/dontorrent/crawler/showCollectionCrawler')
 
-describe('dontorrent/showCollectionCrawler', function () {
+describe('dontorrent/crawler/showCollectionCrawler', function () {
     it('should return the TVShow \'Mr Robot\' with all data', function () {
 
         return showCollectionCrawler.crawlDataShowCollection('https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada').then(showCollection => {

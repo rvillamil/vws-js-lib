@@ -8,7 +8,7 @@
 const assert = require('assert')
 const descargas2020 = require('../../lib/crawlers/descargas2020/facade')
 
-describe('descargas2020', function () {
+describe('descargas2020/facade', function () {
     this.timeout(15000)
     describe('#crawlLinkToURLsWithVideoPremieres()', function () {
         it('should return a video premiere url list with 2 url', function () {

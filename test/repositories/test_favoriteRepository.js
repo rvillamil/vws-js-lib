@@ -26,7 +26,7 @@ function newTestShow(title, currentSession, currentEpisode) {
     return toShow
 }
 
-describe('favoriteRepository', function () {
+describe('repositories/favoriteRepository', function () {
     var favoriteRepository = new FavoriteRepository('vws-db')
     favoriteRepository.deleteAll() // La BB.DD puede estar sucia..la borramos inicialmente
 
