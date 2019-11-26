@@ -7,7 +7,7 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const showCollectionCrawler = require('../../lib/crawlers/descargas2020/showCollectionCrawler')
+const showCollectionCrawler = require('../../lib/crawlers/descargas2020/crawler/tvshowCollectionCrawler')
 
 describe('descargas2020/showCollectionCrawler', function () {
     // TODO!! Tratar la coleccion no el show individual..

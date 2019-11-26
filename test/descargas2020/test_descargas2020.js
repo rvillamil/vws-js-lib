@@ -6,7 +6,7 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const descargas2020 = require('../../lib/crawlers/descargas2020/descargas2020')
+const descargas2020 = require('../../lib/crawlers/descargas2020/facade')
 
 describe('descargas2020', function () {
     this.timeout(15000)
