@@ -12,32 +12,29 @@ const showCollectionCrawler = require('../../../lib/crawlers/descargas2020/crawl
 describe('descargas2020/crawler/showCollectionCrawler', function () {
     // TODO!! Tratar la coleccion no el show individual..
 
-    it('should return the TVShow \'Watchmen\'', function () {
+    it('should return five episodes from tvshow collection \'Watchmen\'', function () {
 
         var uri = 'https://descargas2020.org/series-hd/watchmen/5258'
 
-        return showCollectionCrawler.crawlDataShowCollection(uri)
+        return showCollectionCrawler.crawlDataShowCollection(uri, 5)
             .then(showCollection => {
-                //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
                 assert.equal(showCollection.name, 'watchmen/5258')
                 assert.equal(showCollection.url, 'https://descargas2020.org/series-hd/watchmen/5258')
                 assert.ok(showCollection.shows)
                 assert.ok(showCollection.shows.length > 0)
                 showCollection.shows.forEach(show => {
-                    assert.equal(show.urlBase, 'https://descargas2020.org/series-hd/watchmen/5258')
+                    assert.ok(show.urlBase)
                     assert.equal(show.title, 'Watchmen')
                     assert.ok(show.sinopsis)
                     assert.ok(show.description)
-                    assert.equal(show.quality, 'HDTV')
-                    assert.equal(show.fileSize, 'N/A')
-                    assert.equal(
-                        show.urlwithCover,
-                        'https://descargas2020.org/pictures/c/thumbs/5258_1571665790-Watchmen.jpg'
-                    )
-                    assert.equal(show.year, '2019')
+                    assert.ok(show.quality)
+                    assert.ok(show.fileSize)
+                    assert.ok(show.urlwithCover)
+                    assert.ok(show.year)
                     assert.ok(show.releaseDate)
                     assert.ok(show.urltodownload)
-                    // assert.equal(show.originalTitle, '') // dontorrent no proporciona este dato
+                    //assert.ok(show.originalTitle)
+                    console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
                 })
             })
     })
