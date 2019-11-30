@@ -10,8 +10,6 @@ const assert = require('assert')
 const showCollectionCrawler = require('../../../lib/crawlers/descargas2020/crawler/tvshowCollectionCrawler')
 
 describe('descargas2020/crawler/showCollectionCrawler', function () {
-    // TODO!! Tratar la coleccion no el show individual..
-
     it('should return five episodes from tvshow collection \'Watchmen\'', function () {
 
         var uri = 'https://descargas2020.org/series-hd/watchmen/5258'
@@ -21,7 +19,7 @@ describe('descargas2020/crawler/showCollectionCrawler', function () {
                 assert.equal(showCollection.name, 'watchmen/5258')
                 assert.equal(showCollection.url, 'https://descargas2020.org/series-hd/watchmen/5258')
                 assert.ok(showCollection.shows)
-                assert.ok(showCollection.shows.length > 0)
+                assert.equal(showCollection.shows.length, 5)
                 showCollection.shows.forEach(show => {
                     assert.ok(show.urlBase)
                     assert.equal(show.title, 'Watchmen')
@@ -33,8 +31,9 @@ describe('descargas2020/crawler/showCollectionCrawler', function () {
                     assert.ok(show.year)
                     assert.ok(show.releaseDate)
                     assert.ok(show.urltodownload)
+                    assert.equal(show.collectionName, showCollection.name)
                     //assert.ok(show.originalTitle)
-                    console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
+                    //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
                 })
             })
     })
