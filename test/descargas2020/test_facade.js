@@ -12,17 +12,18 @@ describe('descargas2020/facade', function () {
     this.timeout(15000)
     describe('#crawlLinkToURLsWithVideoPremieres()', function () {
         it('should return a video premiere url list with 2 url', function () {
-            return descargas2020.crawlLinkToURLsWithVideoPremieres(2).then(urls => {
-                assert.ok(urls.length == 2)
-            })
+            return descargas2020.crawlLinkToURLsWithVideoPremieres(2).then(
+                urls => {
+                    //console.log(`urls: ${JSON.stringify(urls)}`)
+                    assert.ok(urls.length == 2)
+                })
         })
     })
 
     describe('#crawlLinkToURLsWithBillboardFilms()', function () {
         it('should return a billboard film url list with 2 url', function () {
-            return descargas2020
-                .crawlLinkToURLsWithBillboardFilms(2)
-                .then(urls => assert.ok(urls.length == 2))
+            return descargas2020.crawlLinkToURLsWithBillboardFilms(2).then(
+                urls => assert.ok(urls.length == 2))
         })
     })
 
@@ -30,7 +31,10 @@ describe('descargas2020/facade', function () {
         it('should return a tvshow url list with 3 url', function () {
             return descargas2020
                 .crawlLinkToURLsWithLatestTVShows(3)
-                .then(urls => assert.ok(urls.length == 3))
+                .then(urls => {
+                    console.log(`urls: ${JSON.stringify(urls)}`)
+                    assert.ok(urls.length == 3)
+                })
         })
     })
 
