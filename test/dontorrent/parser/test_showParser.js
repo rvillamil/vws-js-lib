@@ -8,7 +8,7 @@
 //
 const assert = require('assert')
 const cheerio = require('cheerio')
-const ShowParser = require('../../../lib/crawlers/dontorrent/showParser')
+const ShowParser = require('../../../lib/crawlers/dontorrent/parser/showParser')
 
 describe('dontorrent/parser/showParser', function () {
 
