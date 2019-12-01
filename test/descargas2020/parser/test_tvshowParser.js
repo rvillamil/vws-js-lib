@@ -9,7 +9,7 @@ const tvshowParser = require('../../../lib/crawlers/descargas2020/parser/tvshowP
 
 describe('descargas2020/parser/tvshowParser', function () {
 
-    describe('parseSession', function () {
+    describe('#parseSession()', function () {
 
         it('should return sesion 8', function () {
 
@@ -34,7 +34,7 @@ describe('descargas2020/parser/tvshowParser', function () {
         })
     })
 
-    describe('parseEpisode', function () {
+    describe('#parseEpisode()', function () {
 
         it('should return episode 6', function () {
 

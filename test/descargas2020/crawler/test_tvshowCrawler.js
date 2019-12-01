@@ -11,7 +11,7 @@ const tvshowCrawler = require('../../../lib/crawlers/descargas2020/crawler/tvsho
 
 describe('descargas2020/crawler/tvshowCrawler', function () {
 
-    describe('crawlDataTVShow', function () {
+    describe('#crawlDataTVShow()', function () {
         it('should return the TVShow \'La resistencia\' 2x156 (aunque la URL ponga temporada 1)', function () {
             return tvshowCrawler.crawlDataTVShow('https://descargas2020.org/descargar/serie-en-hd/la-resistencia/temporada-1/capitulo-56-al-57/').then(show => {
                 //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);

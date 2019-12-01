@@ -9,7 +9,7 @@ const tvshowCollectionParser = require('../../../lib/crawlers/descargas2020/pars
 
 describe('descargas2020/parser/tvshowCollectionParser', function () {
 
-    describe('parseUrlWithShowCollectionName', function () {
+    describe('#parseUrlWithShowCollectionName()', function () {
 
         it('should return the collection name from URL', function () {
 

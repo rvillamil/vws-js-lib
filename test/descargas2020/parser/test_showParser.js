@@ -9,7 +9,7 @@ const showParser = require('../../../lib/crawlers/descargas2020/parser/showParse
 
 describe('descargas2020/parser/showParser', function () {
 
-    describe('parseFullName', function () {
+    describe('#parseFullName()', function () {
 
         it('should return the text \'\'Watchmen - Temporada 1 [HDTV 720p][Cap.106][AC3 5.1 Castellano][www.descargas2020.ORG][www.pctnew.ORG]', function () {
 
