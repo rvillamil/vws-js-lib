@@ -6,7 +6,7 @@
         "test": "test"
     },
     "scripts": {
-        "test": "rm -f vws-db && mocha --recursive"
+        "test": "rm -f vws-db && nyc mocha --recursive"
     },
     "repository": {
         "type": "git",
@@ -24,7 +24,8 @@
     "homepage": "https://github.com/rvillamil/vws-js-lib",
     "devDependencies": {
         "eslint": "*",
-        "mocha": "*"
+        "mocha": "*",
+        "nyc": "*"
     },
     "dependencies": {
         "cheerio": "*",
