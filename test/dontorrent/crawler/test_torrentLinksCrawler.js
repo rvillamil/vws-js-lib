@@ -23,6 +23,14 @@ describe('dontorrent/crawler/torrentLinksCrawler', function () {
                 })
         })
 
+        it('should return the "peliculas" torrent links list with size 15 even if you ask 30', function () {
+            return torrentLinksCrawler.crawlLinksFrom(constantsDontorrent.URL_BASE_VIDEOPREMIERES_HD, 30, 'pelicula')
+                .then(torrentLinks => {
+                    //console.log(`torrentLinks - ${JSON.stringify(torrentLinks)}`)
+                    assert.equal(torrentLinks.length, 15)
+                })
+        })
+
         it('should return the "series" torrent links list with size 3', function () {
             return torrentLinksCrawler.crawlLinksFrom(constantsDontorrent.URL_BASE_VIDEOPREMIERES_HD, 3, 'serie')
                 .then(torrentLinks => {

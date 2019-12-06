@@ -4,8 +4,6 @@ Node module for web-scraping on torrent video websites and search in some intern
 
 Mainly uses a module called [cheerio](https://github.com/cheeriojs/cheerio) by Matthew Mueller which implements a subset of jQuery specifically designed for server use.
 
-Other module is [request-promise](https://github.com/request/request-promise), "the simplified HTTP request client 'request' with Promise support. Powered by Bluebird"
-
 Currently websites scraped list:
 
 - [descargas2020.org](https://descargas2020.org/)
@@ -32,11 +30,11 @@ $npm install
 
 ### Example use
 
-#### Node module for crawl 2 video premieres in 'tumejortorrent' portal
+#### Node module for crawl 2 video premieres in 'dontorrent' portal
 
 ```js
-var Show = require('vws-js-lib/lib/show');
-var crawler = require('vws-js-lib/lib/crawler');
+var Show = require('vws-js-lib/lib/model/show');
+var crawler = require('vws-js-lib/lib/dontorrent/crawler/showCrawler');
 
 var onShowFoundEvent = function onShowDataCrawled(show) {
     console.log(`onShowDataCrawled - Show crawled !!  --> ${JSON.stringify(show)}\n\n`)
