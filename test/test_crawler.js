@@ -16,7 +16,7 @@ describe('crawler', function () {
             return crawler.crawlVideoPremieres(
                 2,
                 show => {
-                    //console.log("show: " + JSON.stringify(show));
+                    //console.log("show: " + JSON.stringify(show))
                     assert(show.title)
                     assert(show.urltodownload)
                     assert.equal(show.error, 0)
