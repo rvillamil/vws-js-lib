@@ -9,6 +9,7 @@ Other module is [request-promise](https://github.com/request/request-promise), "
 Currently websites scraped list:
 
 - [descargas2020.org](https://descargas2020.org/)
+- [dontorrent.org](https://dontorrent.org)
 
 Implemented node modules for search on internet movie databases as:
 
