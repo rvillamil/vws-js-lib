@@ -34,7 +34,7 @@ describe('descargas2020/crawler/showCollectionCrawler', function () {
                         assert.ok(show.urltodownload)
                         assert.equal(show.collectionName, showCollection.name)
                         //assert.ok(show.originalTitle)
-                        console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
+                        //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
                     })
                 })
         })
