@@ -46,7 +46,7 @@ describe('crawler', function () {
                     assert(show.title)
                     assert(show.urltodownload)
                     assert.equal(show.error, 0)
-                    //console.log("TVShow: " + JSON.stringify(show));
+                    //console.log("TVShow: " + JSON.stringify(show))
                 }
             ).then(shows => assert.ok(shows.length == 3))
         })
@@ -72,6 +72,4 @@ describe('crawler', function () {
                 })
         })
     })
-
-
 })

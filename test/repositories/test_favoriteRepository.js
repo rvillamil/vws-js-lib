@@ -11,9 +11,9 @@
 // npm modules requiered
 //
 const assert = require('assert')
-var ShowCollection = require('../lib/model/showCollection')
-var FavoriteRepository = require('../lib/repositories/favoriteRepository')
-const Show = require('../lib/model/show')
+var ShowCollection = require('../../lib/model/showCollection')
+var FavoriteRepository = require('../../lib/repositories/favoriteRepository')
+const Show = require('../../lib/model/show')
 
 function newTestShow(title, currentSession, currentEpisode) {
     var toShow = new Show()
@@ -26,7 +26,7 @@ function newTestShow(title, currentSession, currentEpisode) {
     return toShow
 }
 
-describe('favoriteRepository', function () {
+describe('repositories/favoriteRepository', function () {
     var favoriteRepository = new FavoriteRepository('vws-db')
     favoriteRepository.deleteAll() // La BB.DD puede estar sucia..la borramos inicialmente
 

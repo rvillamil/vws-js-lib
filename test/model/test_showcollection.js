@@ -5,8 +5,8 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const Show = require('../lib/model/show')
-const ShowCollection = require('../lib/model/showCollection')
+const Show = require('../../lib/model/show')
+const ShowCollection = require('../../lib/model/showCollection')
 
 function newTestShow(title, currentSession, currentEpisode) {
     var toShow = new Show()
@@ -19,7 +19,7 @@ function newTestShow(title, currentSession, currentEpisode) {
     return toShow
 }
 
-describe('ShowCollection', function () {
+describe('model/ShowCollection', function () {
 
     describe('#push(show)', function () {
 
