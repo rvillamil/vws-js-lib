@@ -12,6 +12,28 @@ describe('crawler', function () {
     this.timeout(55000)
 
     describe('#crawlVideoPremieres()', function () {
+        it('should return a video premiere list with zero show', function () {
+            return crawler.crawlVideoPremieres(
+                0,
+                show => {
+                    assert.equal(0, 1) // No debería de entrar aqui
+                    assert.equal(show.error, 0)
+                }
+            ).then(shows => assert.ok(shows.length == 0))
+        })
+
+        it('should return a video premiere list with one show', function () {
+            return crawler.crawlVideoPremieres(
+                1,
+                show => {
+                    //console.log("show: " + JSON.stringify(show))
+                    assert(show.title)
+                    assert(show.urltodownload)
+                    assert.equal(show.error, 0)
+                }
+            ).then(shows => assert.ok(shows.length == 1))
+        })
+
         it('should return a video premiere list with two shows', function () {
             return crawler.crawlVideoPremieres(
                 2,
@@ -22,6 +44,18 @@ describe('crawler', function () {
                     assert.equal(show.error, 0)
                 }
             ).then(shows => assert.ok(shows.length == 2))
+        })
+
+        it('should return a video premiere list with three shows', function () {
+            return crawler.crawlVideoPremieres(
+                3,
+                show => {
+                    //console.log("show: " + JSON.stringify(show))
+                    assert(show.title)
+                    assert(show.urltodownload)
+                    assert.equal(show.error, 0)
+                }
+            ).then(shows => assert.ok(shows.length == 3))
         })
     })
     describe('#crawlBillboardFilms()', function () {
