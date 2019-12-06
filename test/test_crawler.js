@@ -43,12 +43,12 @@ describe('crawler', function () {
             return crawler.crawlTVShows(
                 3,
                 show => {
-                    assert.equal(show.title, 'pp')-- > //TODO: ESTE TEST DICE QUE FUNCIONA Y NO FUNCJONA...esta mal
-                        assert(show.urltodownload)
+                    assert(show.title)
+                    assert(show.urltodownload)
                     assert.equal(show.error, 0)
-                    console.log("TVShow: " + JSON.stringify(show))
+                    //console.log("TVShow: " + JSON.stringify(show))
                 }
-            )
+            ).then(shows => assert.ok(shows.length == 3))
         })
     })
 
@@ -72,6 +72,4 @@ describe('crawler', function () {
                 })
         })
     })
-
-
 })
