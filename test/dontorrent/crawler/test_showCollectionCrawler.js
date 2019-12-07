@@ -37,7 +37,6 @@ describe('dontorrent/crawler/showCollectionCrawler', function () {
                     assert.ok(show.releaseDate)
                     assert.ok(show.urltodownload)
                     // assert.equal(show.originalTitle, '') // dontorrent no proporciona este dato
-
                 })
             })
         })
@@ -62,7 +61,7 @@ describe('dontorrent/crawler/showCollectionCrawler', function () {
                         show.urlwithCover,
                         'https://blazing.network/imagenes/series/MrRobot4.jpg'
                     )
-                    assert.ok(showCollection.shows.length > 7)
+                    assert.equal(showCollection.shows.length, 3)
                     assert.equal(show.year, '2019')
                     assert.ok(show.releaseDate)
                     assert.ok(show.urltodownload)
