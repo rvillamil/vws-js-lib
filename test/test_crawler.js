@@ -105,21 +105,33 @@ describe('crawler', function () {
 
 
     describe('#crawlTVShowCollections()', function () {
-        it('should return a TVShow collection list with 2 showscollection with 4 episodes every collecion', function () {
+        it('should return a TVShow collection list with 3 showscollection with 4 episodes every collecion from all torrent sites', function () {
             var showCollection1 = new ShowCollection()
             showCollection1.name = 'modern-family/2261'
+            showCollection1.domain = 'descargas2020.org'
+            showCollection1.url = 'https://descargas2020.org/series-hd/modern-family/2261'
 
             var showCollection2 = new ShowCollection()
-            showCollection1.name = 'arrow/1596'
+            showCollection2.name = 'arrow/1596'
+            showCollection2.domain = 'descargas2020.org'
+            showCollection2.url = 'https://descargas2020.org/series-hd/arrow/1596'
+
+            var showCollection3 = new ShowCollection()
+            showCollection3.name = '63880/63881/Mr-Robot-4-Temporada'
+            showCollection3.domain = 'dontorrent.org'
+            showCollection3.url = 'https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada'
 
             var showCollectionList = []
             showCollectionList.push(showCollection1)
             showCollectionList.push(showCollection2)
+            showCollectionList.push(showCollection3)
 
-            return crawler.crawlTVShowCollections(4, showCollectionList)
+            return crawler.crawlTVShowCollectionsBy(4, showCollectionList)
                 .then(newShowCollectionList => {
-                    assert.equal(newShowCollectionList.length, 2)
+                    assert.equal(newShowCollectionList.length, 3)
                     assert.equal(newShowCollectionList[0].shows.length, 4)
+                    assert.equal(newShowCollectionList[1].shows.length, 4)
+                    assert.equal(newShowCollectionList[2].shows.length, 4)
                 })
         })
     })
