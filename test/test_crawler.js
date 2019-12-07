@@ -57,8 +57,25 @@ describe('crawler', function () {
                 }
             ).then(shows => assert.ok(shows.length == 3))
         })
+
+        it('should return a video premiere list with 35 shows as max when i request 40', function () {
+            return crawler.crawlVideoPremieres(
+                40,
+                show => {
+                    //console.log("show: " + JSON.stringify(show))
+                    assert(show.title)
+                    assert(show.domain)
+                    assert(show.urltodownload)
+                    assert.equal(show.error, 0)
+                }
+            ).then(shows => {
+                //console.log("show: " + JSON.stringify(show))
+                assert.equal(shows.length, 35)
+            })
+        })
     })
     describe('#crawlBillboardFilms()', function () {
+
         it('should return a billboard film list with two shows', function () {
             return crawler.crawlBillboardFilms(
                 2,
