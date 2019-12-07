@@ -23,6 +23,7 @@ describe('dontorrent/crawler/showCollectionCrawler', function () {
                 showCollection.shows.forEach(show => {
                     assert.equal(show.urlBase, 'https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada')
                     assert.equal(show.title, 'Mr. Robot')
+                    assert.equal(show.urlCollection, showCollection.url)
                     assert.ok(show.sinopsis)
                     assert.ok(show.description)
                     assert.equal(show.quality, 'HDTV')

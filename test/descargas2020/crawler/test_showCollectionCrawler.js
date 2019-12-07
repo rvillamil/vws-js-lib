@@ -23,6 +23,7 @@ describe('descargas2020/crawler/showCollectionCrawler', function () {
                     assert.equal(showCollection.shows.length, 5)
                     showCollection.shows.forEach(show => {
                         assert.ok(show.urlBase)
+                        assert.equal(show.urlCollection, uri)
                         assert.equal(show.title, 'Watchmen')
                         assert.ok(show.sinopsis)
                         assert.ok(show.description)
