@@ -16,7 +16,7 @@ describe('dontorrent/crawler/showCrawler', function () {
             return showCrawler.crawlDataShow('https://dontorrent.org/pelicula/21442/Vengadores-Endgame-Open-Matte-Imax').then(show => {
                 //console.log("Show crawled:'" + JSON.stringify(show) + "'");
                 assert.equal(show.urlBase, 'https://dontorrent.org/pelicula/21442/Vengadores-Endgame-Open-Matte-Imax')
-                assert.equal(show.title, 'Vengadores: Endgame (Open Matte Imax)')
+                assert.equal(show.title, 'Vengadores: Endgame')
                 assert.ok(show.sinopsis)
                 assert.ok(show.description)
                 assert.equal(show.quality, 'HDRip')
