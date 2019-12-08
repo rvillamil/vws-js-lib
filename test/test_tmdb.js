@@ -13,12 +13,13 @@ describe('tmdb', function () {
         it('Should return one Show object with the film Star Wars', function () {
             return tmdb.searchShow('Star wars')
                 .then(show => {
-                    //console.log('Show TMDB: ', show)
+                    console.log('Show TMDB: ', show)
                     assert.equal(show.title, 'Star wars')
                     assert.equal(show.year, '1977')
                     assert.equal(show.originalTitle, 'Star Wars')
                     assert.equal(show.releaseDate, '1977-05-25')
                     assert.equal(show.error, 0)
+                    assert.equal(show.urlwithCover, 'http://image.tmdb.org/t/p/w185//4hOUzmButYUeON0prG3RpbqS7ag.jpg')
                 })
         })
 

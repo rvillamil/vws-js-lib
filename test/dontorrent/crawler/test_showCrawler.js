@@ -21,10 +21,7 @@ describe('dontorrent/crawler/showCrawler', function () {
                 assert.ok(show.description)
                 assert.equal(show.quality, 'HDRip')
                 assert.equal(show.fileSize, '2,85 GB')
-                assert.equal(
-                    show.urlwithCover,
-                    'https://blazing.network/imagenes/peliculas/Vengadores%20Endgame.jpg'
-                )
+                assert.equal(show.urlwithCover, null)
                 assert.equal(show.year, '2019')
                 assert.equal(
                     show.urltodownload,
