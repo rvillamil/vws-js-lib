@@ -32,12 +32,22 @@ describe('dontorrent/crawler/torrentLinksCrawler', function () {
         })
 
         it('should return the "series" torrent links list with size 3', function () {
-            return torrentLinksCrawler.crawlLinksFrom(constantsDontorrent.URL_BASE_VIDEOPREMIERES_HD, 3, 'serie')
+            return torrentLinksCrawler.crawlLinksFrom(constantsDontorrent.URL_BASE_TVSHOWS_HD, 3, 'serie')
                 .then(torrentLinks => {
                     //console.log(`torrentLinks - ${JSON.stringify(torrentLinks)}`)
                     assert.equal(torrentLinks.length, 3)
                 })
         })
+
+
+        it('should return the "series" torrent links list with size 20', function () {
+            return torrentLinksCrawler.crawlLinksFrom(constantsDontorrent.URL_BASE_TVSHOWS_HD, 15, 'serie')
+                .then(torrentLinks => {
+                    //console.log(`torrentLinks - ${JSON.stringify(torrentLinks)}`)
+                    assert.equal(torrentLinks.length, 15)
+                })
+        })
+
     })
 })
 
