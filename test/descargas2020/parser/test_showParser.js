@@ -13,7 +13,6 @@ describe('descargas2020/parser/showParser', function () {
 
         it('should return the text \'\'Watchmen - Temporada 1 [HDTV 720p][Cap.106][AC3 5.1 Castellano][www.descargas2020.ORG][www.pctnew.ORG]', function () {
 
-
             var htmlFragment = '<script type="application/ld+json">' +
                 '{' +
                 '  "@context": "http://schema.org/",' +

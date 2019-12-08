@@ -89,9 +89,9 @@ describe('crawler', function () {
         })
     })
 
-    describe('#crawlTVShows()', function () {
+    describe('#crawlTVShowCollections()', function () {
         it('should return a TVShow list with three shows', function () {
-            return crawler.crawlTVShows(
+            return crawler.crawlTVShowCollections(
                 3,
                 show => {
                     assert(show.title)
@@ -104,7 +104,7 @@ describe('crawler', function () {
     })
 
 
-    describe('#crawlTVShowCollections()', function () {
+    describe('#crawlTVShowCollectionsBy()', function () {
         it('should return a TVShow collection list with 3 showscollection with 4 episodes every collecion from all torrent sites', function () {
             var showCollection1 = new ShowCollection()
             showCollection1.name = 'modern-family/2261'
