@@ -15,7 +15,7 @@ describe('dontorrent/searcher/showSearch', function () {
     describe('#search()', function () {
         it('should return the first 10 shows for \'Star Wars\' string search (films and TVShows)', function () {
             //assert.equal(showCollection.shows.length, 6)
-            return showSearcher.search('Star Wars', 10).then(
+            return showSearcher.search('Star Wars', 4).then(
                 shows => {
                     console.log(`Shows found: ${JSON.stringify(shows)}`)
                     assert(shows.length > 1)
