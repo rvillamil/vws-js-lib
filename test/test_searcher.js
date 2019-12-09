@@ -13,11 +13,11 @@ describe('searcher', function () {
     describe('#searchShows()', function () {
         it('should return a search result list with 3 shows', function () {
             return searcher.searchShows(
-                'Star Wars',
+                'Supergirl',
                 3,
                 searchResult => {
                     //console.log(`searchResult: ${JSON.stringify(searchResult)}`)
-                    assert(searchResult.show.title)
+                    assert(searchResult.show)
                 }
             ).then(searchResults => assert.ok(searchResults.length == 3))
         })
