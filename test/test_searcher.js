@@ -6,7 +6,6 @@
 //
 const assert = require('assert')
 const searcher = require('../lib/searcher')
-const SearchResult = require('../lib/model/searchResult')
 
 describe('searcher', function () {
     this.timeout(55000)
@@ -17,7 +16,8 @@ describe('searcher', function () {
                 'Star Wars',
                 3,
                 searchResult => {
-                    console.log(`searchResult: ${JSON.stringify(searchResult)}`)
+                    //console.log(`searchResult: ${JSON.stringify(searchResult)}`)
+                    assert(searchResult.show.title)
                 }
             ).then(searchResults => assert.ok(searchResults.length == 3))
         })
