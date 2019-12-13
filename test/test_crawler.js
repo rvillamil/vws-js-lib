@@ -76,16 +76,16 @@ describe('crawler', function () {
     })
     describe('#crawlBillboardFilms()', function () {
 
-        it('should return a billboard film list with two shows', function () {
+        it('should return a billboard film list with at least, four shows', function () {
             return crawler.crawlBillboardFilms(
-                2,
+                4,
                 show => {
                     assert(show.title)
                     assert(show.urltodownload)
                     assert.equal(show.error, 0)
                     // console.log("show: " + JSON.stringify(show));
                 }
-            ).then(shows => assert.ok(shows.length == 2))
+            ).then(shows => assert.ok(1>=shows.length<=4))
         })
     })
 
