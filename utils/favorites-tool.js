@@ -61,17 +61,20 @@ function processParamTitle() {
 
 function help() {
     console.log(`Usage: ${process.argv[1]} [-s|-d|-l] 'database path' [show collection name]`)
-    console.log('-s: save show collection')
+    console.log('-s: save show collection (Only works on descargas2020.org)')
     console.log('-d: delete show collection')
     console.log('-l: list show collection')
-    console.log('     e.g.: ./dbutils -l \'/Users/Name/Library/Application Support/Video Website Scraper/vws-db\'')
-    console.log('     e.g.: ./dbutils -s \'/Users/Name/Library/Application Support/Video Website Scraper/vws-db\' \'pp/ll\'')
+    console.log('     e.g.: ./dbutils -l \'/Users/Rodrigo/Library/Application Support/Video Website Scraper/vws-db\'')
+    console.log('     e.g.: ./dbutils -s \'/Users/Rodrigo/Library/Application Support/Video Website Scraper/vws-db\' \'pp/ll\'')
 }
 
 function saveFavoriteShowCollection(showCollectionName) {
 
     var showCollection = new ShowCollection()
+
     showCollection.name = showCollectionName
+    showCollection.url = 'https://descargas2020.org/series-hd/' + showCollectionName
+    showCollection.domain = 'descargas2020.org'
 
     return favoriteRepository.save(showCollection).then(
         newShowCollection => {

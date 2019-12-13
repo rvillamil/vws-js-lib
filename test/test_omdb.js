@@ -18,7 +18,7 @@ describe('omdb', function () {
                     assert.equal(show.year, '1977')
                     assert.equal(show.originalTitle, 'Star Wars: Episode IV - A New Hope')
                     assert.equal(show.releaseDate, '25 May 1977')
-
+                    assert.equal(show.urlwithCover, 'https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg')
                     assert.equal(show.error, 0)
                 })
         })

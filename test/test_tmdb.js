@@ -19,6 +19,7 @@ describe('tmdb', function () {
                     assert.equal(show.originalTitle, 'Star Wars')
                     assert.equal(show.releaseDate, '1977-05-25')
                     assert.equal(show.error, 0)
+                    assert.equal(show.urlwithCover, 'http://image.tmdb.org/t/p/w185//4hOUzmButYUeON0prG3RpbqS7ag.jpg')
                 })
         })
 

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [4.0.0] - 2019-12-13
+
+- New dontorrent.com crawler!
+- New dontorrent.com searcher!
+- Renaming tool 'dbutils' to 'favorites-tool'
+
 ## [3.0.1] - 2019-11-23
 
 ### Changed

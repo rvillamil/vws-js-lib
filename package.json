@@ -1,12 +1,12 @@
 {
     "name": "vws-js-lib",
-    "version": "3.0.1",
+    "version": "4.0.0",
     "description": "Node module for web-scraping on torrent video websites",
     "directories": {
         "test": "test"
     },
     "scripts": {
-        "test": "rm -f vws-db && mocha"
+        "test": "rm -f vws-db && nyc mocha --recursive"
     },
     "repository": {
         "type": "git",
@@ -24,7 +24,8 @@
     "homepage": "https://github.com/rvillamil/vws-js-lib",
     "devDependencies": {
         "eslint": "*",
-        "mocha": "*"
+        "mocha": "*",
+        "nyc": "*"
     },
     "dependencies": {
         "cheerio": "*",
