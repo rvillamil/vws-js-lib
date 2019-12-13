@@ -76,22 +76,22 @@ describe('crawler', function () {
     })
     describe('#crawlBillboardFilms()', function () {
 
-        it('should return a billboard film list with two shows', function () {
+        it('should return a billboard film list with at least, four shows', function () {
             return crawler.crawlBillboardFilms(
-                2,
+                4,
                 show => {
                     assert(show.title)
                     assert(show.urltodownload)
                     assert.equal(show.error, 0)
                     // console.log("show: " + JSON.stringify(show));
                 }
-            ).then(shows => assert.ok(shows.length == 2))
+            ).then(shows => assert.ok(1>=shows.length<=4))
         })
     })
 
-    describe('#crawlTVShows()', function () {
+    describe('#crawlTVShowCollections()', function () {
         it('should return a TVShow list with three shows', function () {
-            return crawler.crawlTVShows(
+            return crawler.crawlTVShowCollections(
                 3,
                 show => {
                     assert(show.title)
@@ -104,7 +104,7 @@ describe('crawler', function () {
     })
 
 
-    describe('#crawlTVShowCollections()', function () {
+    describe('#crawlTVShowCollectionsBy()', function () {
         it('should return a TVShow collection list with 3 showscollection with 4 episodes every collecion from all torrent sites', function () {
             var showCollection1 = new ShowCollection()
             showCollection1.name = 'modern-family/2261'

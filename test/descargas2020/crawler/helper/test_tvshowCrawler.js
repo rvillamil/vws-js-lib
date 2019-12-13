@@ -7,7 +7,7 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const tvshowCrawler = require('../../../lib/crawlers/descargas2020/crawler/tvshowCrawler')
+const tvshowCrawler = require('../../../../lib/crawlers/descargas2020/crawler/helper/tvshowCrawler')
 
 describe('descargas2020/crawler/tvshowCrawler', function () {
 

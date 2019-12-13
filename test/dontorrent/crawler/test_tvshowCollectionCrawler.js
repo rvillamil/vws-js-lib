@@ -7,13 +7,13 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const showCollectionCrawler = require('../../../lib/crawlers/dontorrent/crawler/showCollectionCrawler')
+const tvshowCollectionCrawler = require('../../../lib/crawlers/dontorrent/crawler/tvshowCollectionCrawler')
 
-describe('dontorrent/crawler/showCollectionCrawler', function () {
+describe('dontorrent/crawler/tvshowCollectionCrawler', function () {
     describe('#crawlDataShowCollection()', function () {
         it('should return the TVShow \'Mr Robot\' with all episodes', function () {
 
-            return showCollectionCrawler.crawlDataShowCollection('https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada').then(showCollection => {
+            return tvshowCollectionCrawler.crawlDataShowCollection('https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada').then(showCollection => {
                 //console.log("ShowCollection crawled:'" + JSON.stringify(showCollection) + "'");
 
                 assert.equal(showCollection.name, '63880/63881/Mr-Robot-4-Temporada')
@@ -43,7 +43,7 @@ describe('dontorrent/crawler/showCollectionCrawler', function () {
 
         it('should return the TVShow \'Mr Robot\' with 3 episodes max', function () {
 
-            return showCollectionCrawler.crawlDataShowCollection('https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada', 3).then(showCollection => {
+            return tvshowCollectionCrawler.crawlDataShowCollection('https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada', 3).then(showCollection => {
                 //console.log("ShowCollection crawled:'" + JSON.stringify(showCollection) + "'");
 
                 assert.equal(showCollection.name, '63880/63881/Mr-Robot-4-Temporada')
@@ -72,7 +72,7 @@ describe('dontorrent/crawler/showCollectionCrawler', function () {
 
         it('should return the TVShow \'Mr Robot\' with 2 episodes max', function () {
 
-            return showCollectionCrawler.crawlDataShowCollection('https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada', 30).then(showCollection => {
+            return tvshowCollectionCrawler.crawlDataShowCollection('https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada', 30).then(showCollection => {
                 //console.log("ShowCollection crawled:'" + JSON.stringify(showCollection) + "'");
 
                 assert.equal(showCollection.name, '63880/63881/Mr-Robot-4-Temporada')
@@ -101,7 +101,7 @@ describe('dontorrent/crawler/showCollectionCrawler', function () {
 
         it('should return the TVShow \'Mr Robot\' with 1 episode', function () {
 
-            return showCollectionCrawler.crawlDataShowCollection('https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada', 1).then(showCollection => {
+            return tvshowCollectionCrawler.crawlDataShowCollection('https://dontorrent.org/serie/63880/63881/Mr-Robot-4-Temporada', 1).then(showCollection => {
                 //console.log("ShowCollection crawled:'" + JSON.stringify(showCollection) + "'");
 
                 assert.equal(showCollection.name, '63880/63881/Mr-Robot-4-Temporada')
