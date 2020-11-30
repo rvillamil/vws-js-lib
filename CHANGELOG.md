@@ -31,7 +31,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Change the portal to parse: Now is 'descargas2020.org'
+- Change the portal to parse: Now is 'pctmix.org'
 - Refactor code
 
 ## [2.1.4] - 2019-02-24

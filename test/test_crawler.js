@@ -108,13 +108,13 @@ describe('crawler', function () {
         it('should return a TVShow collection list with 3 showscollection with 4 episodes every collecion from all torrent sites', function () {
             var showCollection1 = new ShowCollection()
             showCollection1.name = 'modern-family/2261'
-            showCollection1.domain = 'descargas2020.org'
-            showCollection1.url = 'https://descargas2020.org/series-hd/modern-family/2261'
+            showCollection1.domain = 'pctmix.org'
+            showCollection1.url = 'https://pctmix.org/series-hd/modern-family/2261'
 
             var showCollection2 = new ShowCollection()
             showCollection2.name = 'arrow/1596'
-            showCollection2.domain = 'descargas2020.org'
-            showCollection2.url = 'https://descargas2020.org/series-hd/arrow/1596'
+            showCollection2.domain = 'pctmix.org'
+            showCollection2.url = 'https://pctmix.org/series-hd/arrow/1596'
 
             var showCollection3 = new ShowCollection()
             showCollection3.name = '63880/63881/Mr-Robot-4-Temporada'

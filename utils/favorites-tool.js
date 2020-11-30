@@ -61,7 +61,7 @@ function processParamTitle() {
 
 function help() {
     console.log(`Usage: ${process.argv[1]} [-s|-d|-l] 'database path' [show collection name]`)
-    console.log('-s: save show collection (Only works on descargas2020.org)')
+    console.log('-s: save show collection (Only works on pctmix.org)')
     console.log('-d: delete show collection')
     console.log('-l: list show collection')
     console.log('     e.g.: ./dbutils -l \'/Users/Rodrigo/Library/Application Support/Video Website Scraper/vws-db\'')
@@ -73,8 +73,8 @@ function saveFavoriteShowCollection(showCollectionName) {
     var showCollection = new ShowCollection()
 
     showCollection.name = showCollectionName
-    showCollection.url = 'https://descargas2020.org/series-hd/' + showCollectionName
-    showCollection.domain = 'descargas2020.org'
+    showCollection.url = 'https://pctmix.org/series-hd/' + showCollectionName
+    showCollection.domain = 'pctmix.org'
 
     return favoriteRepository.save(showCollection).then(
         newShowCollection => {

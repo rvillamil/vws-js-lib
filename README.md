@@ -6,7 +6,7 @@ Mainly uses a module called [cheerio](https://github.com/cheeriojs/cheerio) by M
 
 Currently websites scraped list:
 
-- [descargas2020.org](https://descargas2020.org/)
+- [pctmix.org](https://pctmix.org/)
 - [dontorrent.org](https://dontorrent.org)
 
 Implemented node modules for search on internet movie databases as:
