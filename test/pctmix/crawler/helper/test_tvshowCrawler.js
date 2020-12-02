@@ -21,7 +21,7 @@ describe('pctmix/crawler/tvshowCrawler', function () {
                     `https://${siteConstants.DOMAIN}/descargar/serie-en-hd/un-mundo-feliz/temporada-1/capitulo-09/`
                 )
                 assert.equal(show.collectionName, 'un-mundo-feliz/6333')
-                assert.equal(show.title, 'Un Mundo Feliz')
+                assert.equal(show.title, 'Un mundo feliz')
                 assert.equal(show.year, '2020')
                 assert.equal(show.currentSession, '1')
                 assert.equal(show.currentEpisode, '9')

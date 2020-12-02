@@ -20,7 +20,7 @@ describe('pctmix/crawler/filmCrawler', function () {
             return filmCrawler.crawlDataFilm(urlWithFilm).then(show => {
                 //console.log("Show crawled:'" + JSON.stringify(show) + "'");
                 assert.equal(show.urlBase, urlWithFilm)
-                assert.equal(show.title, 'EJECUCION INMINENTE (1999)')
+                assert.equal(show.title, 'Ejecucion inminente')
                 //assert.ok (show.originalTitle)
                 assert.ok(show.sinopsis)
                 assert.ok(show.description)
