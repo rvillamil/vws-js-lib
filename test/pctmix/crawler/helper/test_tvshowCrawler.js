@@ -30,12 +30,13 @@ describe('pctmix/crawler/tvshowCrawler', function () {
                 assert.equal(show.fileSize, '2 GB')
                 assert.equal(
                     show.urlwithCover,
-                    `https://${siteConstants.DOMAIN}/pictures/c/thumbs/4116_la-resistencia.jpg`
+                    `https://${siteConstants.DOMAIN}/pictures/c/thumbs/6333_1601805574-Un-Mundo-Feliz.jpg`
                 )
+
                 assert.equal(show.releaseDate, '30-11-2020')
                 assert.equal(
                     show.urltodownload,
-                    `https://${siteConstants.DOMAIN}/descargar-torrent/124523_-1562334660-La-Resistencia---Temporada-2--HDTV-720p-AC3-5-1`
+                    `https://${siteConstants.DOMAIN}/download/143918_-1606730825-Un-Mundo-Feliz---Temporada-1--HDTV-720p-AC3-5-1.torrent`                     
                 )
             })
         })
