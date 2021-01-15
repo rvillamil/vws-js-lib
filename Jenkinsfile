@@ -17,8 +17,8 @@ pipeline {
 
         stage('Software Composition Analysis (SCA)') {
             steps {                 
-                 sh 'npm install -g @cyclonedx/bom'
-                 sh 'cyclonedx-bom -o bom.xml'
+                 sh 'npm install @cyclonedx/bom'
+                 sh './node_modules/.bin/cyclonedx-bom -o bom.xml'
             }            
         }
 

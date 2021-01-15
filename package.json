@@ -28,6 +28,7 @@
         "nyc": "^15.1.0"
     },
     "dependencies": {
+        "@cyclonedx/bom": "^2.0.2",
         "cheerio": "*",
         "nedb": "*",
         "request": "*",
