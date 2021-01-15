@@ -17,8 +17,10 @@ pipeline {
 
         stage('Software Composition Analysis (SCA)') {
             steps {                 
-                 sh 'npm install -g @cyclonedx/bom'
-                 cyclonedx-bom -o bom.xml                 
+                 sh 'npm install -g @cyclonedx/bom'             
+            }
+            steps {                                  
+                 sh 'cyclonedx-bom -o bom.xml'
             }
         }
         // dependencyTrackPublisher artifact: 'devsecops-java-sandbox', autoCreateProjects: false, dependencyTrackApiKey: '', dependencyTrackUrl: '', projectId: '2d6fc921-8dd7-4c3d-9279-eb747a1fb6e1', synchronous: false
