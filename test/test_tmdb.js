@@ -10,7 +10,7 @@ const tmdb = require('../lib/tmdb')
 describe('tmdb', function () {
     describe('#searchFilm()', function () {
         it('Should return one Show object with the film Star Wars', function () {
-            return tmdb.searchShow('Star wars').then((show) => {
+            return tmdb.searchShow('Star wars','1977').then((show) => {
                 //console.log('Show TMDB: ', show)
                 assert.equal(show.title, 'Star wars')
                 assert.equal(show.year, '1977')
@@ -23,7 +23,7 @@ describe('tmdb', function () {
 
 
         it('Should return one Show object with the film El Padre , year 2020/2021', function () {
-            return tmdb.searchShow('El Padre','2021').then((show) => {
+            return tmdb.searchShow('El Padre','2020').then((show) => {
                 //console.log('Show TMDB: ', show)
                 assert.equal(show.title, 'El Padre')
                 assert.equal(show.year, '2020') // En este caso, la pelicula en españa es de 2021 y en TMDB de 2020. Al hacer la busqueda por 2021 nos encuentra la de 2020 primero(la mas cercana)
