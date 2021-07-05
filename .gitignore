@@ -332,3 +332,4 @@ $RECYCLE.BIN/
 
 # vws files
 vws-db
+package-lock.json
