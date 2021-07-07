@@ -15,29 +15,31 @@ describe('pctmix/crawler/tvshowCrawler', function () {
     describe('#crawlDataTVShow()', function () {
         it('should return the TVShow \'Batwoman\' 2x06', function () {
             
-            return tvshowCrawler.crawlDataTVShow(`https://${siteConstants.DOMAIN}/descargar/serie-en-hd/batwoman/temporada-2/capitulo-06/`).then(show => {
+            // https://pctmix1.com/descargar/torrent/serie-en-hd/black-lightning/temporada-4/capitulo-09-al-13/2021-07-06/
+            return tvshowCrawler.crawlDataTVShow(`https://${siteConstants.DOMAIN}/descargar/serie-en-hd/black-lightning/temporada-4/capitulo-09-al-13/2021-07-06/`).then(show => {
                 //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
                 assert.equal(
                     show.urlBase,
-                    `https://${siteConstants.DOMAIN}/descargar/serie-en-hd/batwoman/temporada-2/capitulo-06/`
+                    `https://${siteConstants.DOMAIN}/descargar/serie-en-hd/black-lightning/temporada-4/capitulo-09-al-13/2021-07-06/`
                 )
-                assert.equal(show.collectionName, 'batwoman/5212')
-                assert.equal(show.title, 'Batwoman')
+                assert.equal(show.collectionName, 'black-lightning/3626')
+                assert.equal(show.title, 'Black lightning')
                 assert.equal(show.year, '2021')
-                assert.equal(show.currentSession, '2')
-                assert.equal(show.currentEpisode, '06')
+                assert.equal(show.currentSession, '4')
+                assert.equal(show.currentEpisode, '09')
                 assert.ok(show.description)
                 assert.equal(show.quality, 'HDTV 720p')
-                assert.equal(show.fileSize, '1.5 GB')
+                assert.equal(show.fileSize, '4.9 GB')
                 assert.equal(
                     show.urlwithCover,
-                    `https://${siteConstants.DOMAIN}/pictures/c/thumbs/5212_1570531110-Batwoman.jpg`
+                    `https://${siteConstants.DOMAIN}/pictures/c/thumbs/3626_black-lightning.jpg`
                 )
-
-                assert.equal(show.releaseDate, '02-03-2021')
+                
+                // https://pctmix1.com/download/153751_-1625640900-Black-Lightning--Proper----Temporada-4--HDTV-720p-AC3-5-1.torrent
+                assert.equal(show.releaseDate, '07-07-2021')
                 assert.equal(
                     show.urltodownload,
-                    `https://${siteConstants.DOMAIN}/descargar-torrent/147478_-1614669299-Batwoman---Temporada-2--HDTV-720p-AC3-5-1/`
+                    `https://${siteConstants.DOMAIN}/download/153751_-1625640900-Black-Lightning--Proper----Temporada-4--HDTV-720p-AC3-5-1.torrent`
                 )
             })
         })
