@@ -17,7 +17,8 @@ describe('tmdb', function () {
         assert.equal(show.originalTitle, 'Star Wars')
         assert.equal(show.releaseDate, '1977-05-25')
         assert.equal(show.error, 0)
-        //assert.equal(show.urlwithCover, 'http://image.tmdb.org/t/p/w185//4hOUzmButYUeON0prG3RpbqS7ag.jpg')
+        assert(show.sinopsis)        
+        assert(show.urlwithCover)
       })
     })
 
@@ -30,13 +31,27 @@ describe('tmdb', function () {
         assert.equal(show.originalTitle, 'The Father')
         assert.equal(show.releaseDate, '2020-12-23')
         assert.equal(show.error, 0)
-        //assert.equal(show.urlwithCover, 'http://image.tmdb.org/t/p/w185//4hOUzmButYUeON0prG3RpbqS7ag.jpg')
+        assert(show.sinopsis)        
+        assert(show.urlwithCover)
       })
+    })
+
+    it('Should return one Show object with the Superman', function () {
+      return tmdb.searchShow('Superman')
+        .then(show => {
+          //console.log('Show TMDB: ', show)
+          assert.equal(show.year, '1978')
+          assert.equal(show.releaseDate, '1978-12-13')
+          assert.equal(show.tmdbRating, 7.1)
+          assert.equal(show.title, 'Superman')          
+          assert.equal(show.originalTitle, 'Superman')          
+          assert(show.sinopsis)
+        })
     })
 
     it('Should return one Show object with error not 0', function () {
       return tmdb.searchShow('dfewpom pmwd').then((show) => {
-        //console.log('Show: ', show);
+        //console.log('Show: ', show)
         assert.notStrictEqual(show.error, 0)
       })
     })
@@ -45,10 +60,13 @@ describe('tmdb', function () {
   describe('#searchTvShow()', function () {
     it('Should return one Show object with the TVShow named as \'Arrow\'', function () {
       return tmdb.searchShow('Arrow', 'tv').then((show) => {
-        console.log('Show TMDB: ', show)
-        //assert(show.sinopsis)
+        //console.log('Show TMDB: ', show)
+        assert(! show.sinopsis)
         assert.equal(show.title, 'Arrow')
+        assert.equal(show.year, '2019')
+        assert.equal(show.originalTitle, 'Arrow')
         assert.equal(show.error, 0)
+        assert.equal(show.releaseDate, '2019-07-12')
       })
     })
   })

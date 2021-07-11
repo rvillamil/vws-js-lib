@@ -23,6 +23,20 @@ describe('omdb', function () {
         })
     })
 
+    it('Should return one Show object with the Superman', function () {
+      return omdb.searchShow('Superman')
+        .then(show => {
+          console.log('Show OMDB: ', show)
+          assert.equal(show.year, '1978')
+          //assert.equal(show.releaseDate, '1978-12-15')
+          assert.equal(show.imdbRating, 7.3)
+          assert.equal(show.rottenTomatoes, '94%')          
+          assert.equal(show.title, 'Superman')          
+          assert.equal(show.originalTitle, 'Superman')          
+          assert(show.sinopsis)
+        })
+    })
+
     it('Should return one Show object with error not 0', function () {
       return omdb.searchShow('dfewpom pmwd')
         .then(show => {
