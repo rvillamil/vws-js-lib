@@ -29,6 +29,7 @@
     },
     "dependencies": {
         "@cyclonedx/bom": "^2.0.2",
+        "axios": "^0.21.1",
         "cheerio": "*",
         "nedb": "*",
         "request": "*",
