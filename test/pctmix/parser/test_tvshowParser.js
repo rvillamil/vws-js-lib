@@ -9,11 +9,11 @@ const tvshowParser = require('../../../lib/crawlers/pctmix/parser/tvshowParser')
 
 describe('pctmix/parser/tvshowParser', function () {
 
-    describe('#parseSession()', function () {
+  describe('#parseSession()', function () {
 
-        it('should return sesion 8', function () {
+    it('should return sesion 8', function () {
 
-            var htmlFragment = '<script type="application/ld+json">' +
+      var htmlFragment = '<script type="application/ld+json">' +
                 '{' +
                 '  "@context": "http://schema.org/",' +
                 '  "@type": "Recipe",' +
@@ -29,16 +29,16 @@ describe('pctmix/parser/tvshowParser', function () {
                 '    "worstRating": "1"' +
                 '  }'
 
-            assert.ok(tvshowParser)
-            assert.equal(tvshowParser.parseSession(htmlFragment), '1')
-        })
+      assert.ok(tvshowParser)
+      assert.equal(tvshowParser.parseSession(htmlFragment), '1')
     })
+  })
 
-    describe('#parseEpisode()', function () {
+  describe('#parseEpisode()', function () {
 
-        it('should return episode 6', function () {
+    it('should return episode 6', function () {
 
-            var htmlFragment = '<script type="application/ld+json">' +
+      var htmlFragment = '<script type="application/ld+json">' +
                 '{' +
                 '  "@context": "http://schema.org/",' +
                 '  "@type": "Recipe",' +
@@ -54,8 +54,8 @@ describe('pctmix/parser/tvshowParser', function () {
                 '    "worstRating": "1"' +
                 '  }'
 
-            assert.ok(tvshowParser)
-            assert.equal(tvshowParser.parseEpisode(htmlFragment, '1'), '06')
-        })
+      assert.ok(tvshowParser)
+      assert.equal(tvshowParser.parseEpisode(htmlFragment, '1'), '06')
     })
+  })
 })
