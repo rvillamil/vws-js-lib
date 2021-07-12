@@ -13,9 +13,8 @@ const siteConstants = require('../../../lib/crawlers/pctmix/constants')
 describe('pctmix/crawler/tvshowCrawler', function () {
 
   describe('#crawlDataTVShow()', function () {
-    it('should return the TVShow \'Batwoman\' 2x06', function () {
-                  
-      // https://pctmix1.com/descargar/torrent/serie-en-hd/black-lightning/temporada-4/capitulo-09-al-13/2021-07-06/
+    it('should return the TVShow \'Black Lightning\' 2x06', function () {                  
+      
       return tvshowCrawler.crawlDataTVShow(`https://pctmix1.com/descargar/torrent/serie-en-hd/black-lightning/temporada-4/capitulo-09-al-13/2021-07-06/`).then(show => {
         //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
         assert.equal(
@@ -42,6 +41,24 @@ describe('pctmix/crawler/tvshowCrawler', function () {
         )
       })
     })
+
+    
+    it('should return the TVShow \'The office\'', function () {                  
+      
+      return tvshowCrawler.crawlDataTVShow(`https://pctmix1.com/descargar/torrent/serie-en-hd/the-office/temporada-7/capitulo-23-al-26/`).then(show => {
+        //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
+        assert.equal(
+          show.urlBase,
+          `https://pctmix1.com/descargar/torrent/serie-en-hd/the-office/temporada-7/capitulo-23-al-26/`
+        )                     
+                
+        assert.equal(
+          show.urltodownload,
+          `https://pctmix1.com/download/154046_-1626071122-The-Office---Temporada-7--HDTV-720p-AC3-5-1.torrent`
+        )
+      })
+    })
+  
   })
 
 })
