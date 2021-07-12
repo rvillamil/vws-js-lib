@@ -60,7 +60,7 @@ describe('crawler', function () {
       ).then(shows => assert.ok(shows.length == 3))
     })
 
-    it('should return a video premiere list with 35 shows as max when i request 40', function () {
+    it('should return a video premiere list with 34 shows as max when request 40', function () {
       return crawler.crawlVideoPremieres(
         40,
         show => {
@@ -72,7 +72,7 @@ describe('crawler', function () {
         }
       ).then(shows => {
         //console.log("show: " + JSON.stringify(show))
-        assert.equal(shows.length, 35)
+        assert.equal(shows.length, 34)
       })
     })
   })
