@@ -1,6 +1,6 @@
 # VWS JS library
 
-Node module for web-scraping on torrent video websites and search in some internet film databases
+Node module for web-scraping on torrent video websites
 
 Mainly uses a module called [cheerio](https://github.com/cheeriojs/cheerio) by Matthew Mueller which implements a subset of jQuery specifically designed for server use.
 
@@ -28,56 +28,6 @@ $cd vws-js-lib
 $npm install
 ```
 
-### Example use
-
-#### Node module for crawl 2 video premieres in 'dontorrent' portal
-
-```js
-var Show = require('vws-js-lib/lib/model/show');
-var crawler = require('vws-js-lib/lib/dontorrent/crawler/showCrawler');
-
-var onShowFoundEvent = function onShowDataCrawled(show) {
-    console.log(`onShowDataCrawled - Show crawled !!  --> ${JSON.stringify(show)}\n\n`)
-}
-
-return crawler.crawlVideoPremieres(2, onShowDataCrawled)
-    .then(showList => {
-        console.log("crawler - crawlVideoPremieres length: " + showList.length);
-    }).catch(function (err) {
-        console.log('ERROR! crawlVideoPremieres: ' + err);
-    });
-```
-
-#### Node module for search in OMDB
-
-```js
-var omdb = require('vws-js-lib/lib/omdb');
-
-return omdb.searchShow('Star wars', '1977')
-    .then(show => {
-        console.log('Show Star wars: ', show);
-    })
-    .catch(err => {
-        console.log('Error: ' + err);
-    });
-```
-
-#### Node module for earch in TMDB
-
-```js
-var tmdb = require('vws-js-lib/lib/tmdb');
-
-return tmdb.searchShow('Star wars', '1977')
-    .then(show => {
-        console.log('Show Star wars: ', show);
-    })
-    .catch(err => {
-        console.log('Error: ' + err);
-    });
-```
-
-- More examples in 'test' directory
-
 ## Running the tests
 
  For running the automated tests for this system, with [Mocha](https://mochajs.org) Javascript test framework
@@ -92,6 +42,19 @@ or indiviual test by description
 $npm test -- --grep "omdb"
 $npm test -- --grep "crawler"
 ```
+
+## Release version
+
+I user Github actions + [semantic relases plugin](https://github.com/semantic-release/semantic-release) on push on master. 
+
+It Requieres commit message:
+
+| Commit message                                                                                                                                                                                   | Release type               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------- |
+| `fix(pencil): stop graphite breaking when too much pressure applied`                                                                                                                             | Patch Release              |
+| `feat(pencil): add 'graphiteWidth' option`                                                                                                                                                       | ~~Minor~~ Feature Release  |
+| `perf(pencil): remove graphiteWidth option`<br><br>`BREAKING CHANGE: The graphiteWidth option has been removed.`<br>`The default graphite width of 10mm is always used for performance reasons.` | ~~Major~~ Breaking Release |
+
 
 ## Versioning
 
