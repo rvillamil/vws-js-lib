@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Publish NPM with semantic-release
 on: [push]
 jobs:
   build:
