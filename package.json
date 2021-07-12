@@ -1,6 +1,6 @@
 {
     "name": "vws-js-lib",
-    "version": "4.1.0",
+    "version": "1.2.0",
     "husky": {
         "hooks": {
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
