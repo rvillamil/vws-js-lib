@@ -36,8 +36,7 @@ describe('pctmix/crawler/filmCrawler', function () {
         assert.equal(show.year, '1987')
         assert.equal(
           show.urltodownload,
-          'https://pctmix1.com/descargar-torrent/153738_-1625634500-Superdetective-en-Hollywood-2--1987---BluRay-MicroHD'
-                    
+          'https://pctmix1.com/descargar-torrent/153738_-1625634500-Superdetective-en-Hollywood-2--1987---BluRay-MicroHD'                    
         )
 
         //assert.equal(show.originalTitle, '')
