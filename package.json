@@ -1,6 +1,6 @@
 {
     "name": "@vws-js-lib/crawler",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "husky": {
         "hooks": {
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
@@ -28,7 +28,7 @@
         "video",
         "website-scraping"
     ],
-    "author": "Rodrigo Villamil Pérez",
+    "author": "Rodrigo Villamil Pérez <rodrigo.villamil@gmail.com>",
     "license": "MIT",
     "homepage": "https://github.com/rvillamil/vws-js-lib",
     "devDependencies": {
