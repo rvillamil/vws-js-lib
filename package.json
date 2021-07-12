@@ -1,6 +1,6 @@
 {
     "name": "@vws-js-lib/crawler",
-    "version": "1.4.0",
+    "version": "4.2.0",
     "husky": {
         "hooks": {
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"

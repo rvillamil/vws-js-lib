@@ -45,6 +45,8 @@ $npm test -- --grep "crawler"
 
 ## Release version
 
+Waring! Version on package.json is automatic. Don't change
+
 I user Github actions + [semantic relases plugin](https://github.com/semantic-release/semantic-release) on push on master. 
 
 It Requieres commit message:
