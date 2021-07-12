@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [4.1.0] - 2021-07-12
+
+- Several Bug fixed on pctmix1 parsing
+
 ## [4.0.6] - 2021-05-31
 
 - Bug fixed on pctmix1 parsing
