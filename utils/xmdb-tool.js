@@ -2,6 +2,7 @@
 const crawler = require('../lib/crawler')
 const Show = require('../lib/model/show')
 const tmdb = require('../lib/agents/tmdb')
+const omdb = require('../lib/agents/omdb')
 
 var filmOrTvShow
 var titleToSearch
@@ -65,6 +66,25 @@ function searchFilmOnTMDB(isFilmOrTvShow, title, year) {
   }
 }
 
+function searchFilmOnOMDB(isFilmOrTvShow, title, year) {
+  console.log('#############################################')
+  console.log ('Searching only on OMDB')
+  console.log('')
+  if (isFilmOrTvShow=='-f') {
+    return omdb.searchShow(title,false).then((showData) => {      
+      console.log(`Film: ${JSON.stringify(showData)}`)
+      console.log('')
+    })
+  }
+
+  if (isFilmOrTvShow=='-t') {
+    return omdb.searchShow(title, false).then((showData) => {      
+      console.log(`TV Show: ${JSON.stringify(showData)}`)
+      console.log('')
+    })
+  }
+}
+
 function searchFilmByTitle(isFilmOrTvShow, title, year) {
   console.log('#############################################')
   console.log ('Searching and mixed results from TMDB o OMDB')
@@ -89,7 +109,11 @@ function searchFilmByTitle(isFilmOrTvShow, title, year) {
 }
 
 processParamTitle()
-//searchFilmOnTMDB (filmOrTvShow,titleToSearch, yearToSearch)
+searchFilmOnTMDB (filmOrTvShow,titleToSearch, yearToSearch)
+  .then (nothing=>{searchFilmOnOMDB (filmOrTvShow,titleToSearch, yearToSearch)})
 
-searchFilmOnTMDB (filmOrTvShow,titleToSearch, yearToSearch).then (
-  nothing=>{searchFilmByTitle(filmOrTvShow,titleToSearch, yearToSearch)})
+/*
+searchFilmOnTMDB (filmOrTvShow,titleToSearch, yearToSearch)
+  .then ( nothing=>{searchFilmOnOMDB(filmOrTvShow,titleToSearch, yearToSearch)})
+  .then ( nothing=>{searchFilmByTitle(filmOrTvShow,titleToSearch, yearToSearch)})
+*/
