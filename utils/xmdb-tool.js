@@ -49,7 +49,7 @@ function help() {
 
 function searchFilmOnTMDB(isFilmOrTvShow, title, year) {
   console.log('#############################################')
-  console.log ('Searching only on TMDB')
+  console.log ('TMDB => Searching only on TMDB')
   console.log('')
   if (isFilmOrTvShow=='-f') {
     return tmdb.searchShow(title,year,'movie',false).then((showData) => {      
@@ -68,17 +68,17 @@ function searchFilmOnTMDB(isFilmOrTvShow, title, year) {
 
 function searchFilmOnOMDB(isFilmOrTvShow, title, year) {
   console.log('#############################################')
-  console.log ('Searching only on OMDB')
+  console.log ('OMDB => Searching only on OMDB')
   console.log('')
   if (isFilmOrTvShow=='-f') {
-    return omdb.searchShow(title,false).then((showData) => {      
+    return omdb.searchShow(title,year,'movie',false).then((showData) => {      
       console.log(`Film: ${JSON.stringify(showData)}`)
       console.log('')
     })
   }
 
   if (isFilmOrTvShow=='-t') {
-    return omdb.searchShow(title, false).then((showData) => {      
+    return omdb.searchShow(title,year,'tv', false).then((showData) => {      
       console.log(`TV Show: ${JSON.stringify(showData)}`)
       console.log('')
     })
@@ -87,7 +87,7 @@ function searchFilmOnOMDB(isFilmOrTvShow, title, year) {
 
 function searchFilmByTitle(isFilmOrTvShow, title, year) {
   console.log('#############################################')
-  console.log ('Searching and mixed results from TMDB o OMDB')
+  console.log ('XMDB => Searching and mixed results from TMDB o OMDB')
   console.log('')
 
   var show = new Show()
@@ -109,11 +109,9 @@ function searchFilmByTitle(isFilmOrTvShow, title, year) {
 }
 
 processParamTitle()
-searchFilmOnTMDB (filmOrTvShow,titleToSearch, yearToSearch)
-  .then (nothing=>{searchFilmOnOMDB (filmOrTvShow,titleToSearch, yearToSearch)})
 
-/*
 searchFilmOnTMDB (filmOrTvShow,titleToSearch, yearToSearch)
-  .then ( nothing=>{searchFilmOnOMDB(filmOrTvShow,titleToSearch, yearToSearch)})
-  .then ( nothing=>{searchFilmByTitle(filmOrTvShow,titleToSearch, yearToSearch)})
-*/
+  .then( nothing=>{searchFilmOnOMDB(filmOrTvShow,titleToSearch, yearToSearch).then(
+    nothing =>{searchFilmByTitle(filmOrTvShow,titleToSearch, yearToSearch)}
+  )})
+
