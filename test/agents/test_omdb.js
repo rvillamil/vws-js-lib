@@ -13,7 +13,7 @@ describe('omdb', function () {
     it('Should return one Show object with the film Star Wars', function () {
       return omdb.searchShow('Star wars')
         .then(show => {
-          console.log('Show OMDB: ', show);
+          console.log('Show OMDB: ', show)
           assert.equal(show.title, 'Star wars')
           assert.equal(show.year, '1977')
           assert.equal(show.originalTitle, 'Star Wars')
