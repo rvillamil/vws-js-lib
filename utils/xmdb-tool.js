@@ -1,36 +1,95 @@
 /* eslint-disable no-console */
 const crawler = require('../lib/crawler')
 const Show = require('../lib/model/show')
+const tmdb = require('../lib/agents/tmdb')
+
+var filmOrTvShow
+var titleToSearch
+var yearToSearch
 
 function processParamTitle() {
-  if (process.argv.length > 3) {
+
+  if (process.argv.length < 5) {
     console.log('ERROR! Argument list error')
     help()
     process.exit(1)
   }
-  var titleToSearch = process.argv[2]
-  if (!titleToSearch) {
-    console.log('ERROR! Need the title to search')
+  filmOrTvShow = process.argv[2]
+  if (!filmOrTvShow) {
+    console.log('ERROR! Param requiere')
     help()
     process.exit(1)
   }
 
-  return titleToSearch
+  titleToSearch = process.argv[3]
+  if (!titleToSearch) {
+    console.log('ERROR! Param requiere')
+    help()
+    process.exit(1)
+  }
+
+  yearToSearch = process.argv[4]
+  if (!yearToSearch) {
+    console.log('ERROR! Param requiere')
+    help()
+    process.exit(1)
+  }
 }
 
 function help() {
-  console.log('Search a film in TMDB and OMDB databases')
-  console.log(`   Usage: ${process.argv[1]} 'film title'`)
+
+  console.log('Search a Film or TVShow in TMDB and OMDB databases')
+  console.log(`   Usage: ${process.argv[1]} -f|-t 'title' 'year'`)
+  console.log('   -f : For search Film')
+  console.log('   -t : For search TVShows')
 }
 
-function searchFilmByTitle(title) {
+
+
+function searchFilmOnTMDB(isFilmOrTvShow, title, year) {
+  console.log('#############################################')
+  console.log ('Searching only on TMDB')
+  console.log('')
+  if (isFilmOrTvShow=='-f') {
+    return tmdb.searchShow(title,year,'movie',false).then((showData) => {      
+      console.log(`Film: ${JSON.stringify(showData)}`)
+      console.log('')
+    })
+  }
+
+  if (isFilmOrTvShow=='-t') {
+    return tmdb.searchShow(title,year,'tv', false).then((showData) => {      
+      console.log(`TV Show: ${JSON.stringify(showData)}`)
+      console.log('')
+    })
+  }
+}
+
+function searchFilmByTitle(isFilmOrTvShow, title, year) {
+  console.log('#############################################')
+  console.log ('Searching and mixed results from TMDB o OMDB')
+  console.log('')
+
   var show = new Show()
   show.title = title
-
-  return crawler.searchShowInXMDB(show, 'movie', true).then((showData) => {
-    console.log('------------------------------------')
-    console.log(`Show: ${JSON.stringify(showData)}`)
-  })
+  show.year = year
+  
+  if (isFilmOrTvShow=='-f') {
+    return crawler.searchShowInXMDB(show, 'movie', false).then((showData) => {      
+      console.log(`Film: ${JSON.stringify(showData)}`)
+      console.log('')
+    })
+  }
+  if (isFilmOrTvShow=='-t') {
+    return crawler.searchShowInXMDB(show, 'tv', false).then((showData) => {  
+      console.log(`TV Show: ${JSON.stringify(showData)}`)
+      console.log('')
+    })
+  }
 }
 
-searchFilmByTitle(processParamTitle())
+processParamTitle()
+//searchFilmOnTMDB (filmOrTvShow,titleToSearch, yearToSearch)
+
+searchFilmOnTMDB (filmOrTvShow,titleToSearch, yearToSearch).then (
+  nothing=>{searchFilmByTitle(filmOrTvShow,titleToSearch, yearToSearch)})
