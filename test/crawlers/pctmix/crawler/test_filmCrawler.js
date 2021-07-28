@@ -7,8 +7,8 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const filmCrawler = require('../../../lib/crawlers/pctmix/crawler/filmCrawler')
-const siteConstants = require('../../../lib/crawlers/pctmix/constants')
+const filmCrawler = require('../../../../lib/crawlers/pctmix/crawler/filmCrawler')
+const siteConstants = require('../../../../lib/crawlers/pctmix/constants')
 
 describe('pctmix/crawler/filmCrawler', function () {
 

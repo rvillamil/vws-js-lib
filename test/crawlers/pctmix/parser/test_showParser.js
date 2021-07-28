@@ -5,7 +5,7 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const showParser = require('../../../lib/crawlers/pctmix/parser/showParser')
+const showParser = require('../../../../lib/crawlers/pctmix/parser/showParser')
 
 describe('pctmix/parser/showParser', function () {
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const crawler = require('../lib/crawler')
+const crawler = require('../lib/crawler_OLD')
 const Show = require('../lib/model/show')
 const tmdb = require('../lib/agents/tmdb')
 const omdb = require('../lib/agents/omdb')

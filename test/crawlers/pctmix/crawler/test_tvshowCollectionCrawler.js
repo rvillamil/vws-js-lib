@@ -7,8 +7,8 @@
 // - assert ..: https://nodejs.org/api/all.html
 //
 const assert = require('assert')
-const showCollectionCrawler = require('../../../lib/crawlers/pctmix/crawler/tvshowCollectionCrawler')
-const siteConstants = require('../../../lib/crawlers/pctmix/constants')
+const showCollectionCrawler = require('../../../../lib/crawlers/pctmix/crawler/tvshowCollectionCrawler')
+const siteConstants = require('../../../../lib/crawlers/pctmix/constants')
 
 describe('pctmix/crawler/tvshowCollectionCrawler', function () {
   describe('#crawlDataShowCollection()', function () {
