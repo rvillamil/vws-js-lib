@@ -2,7 +2,7 @@
 /* eslint-disable func-names */
 /* eslint-disable no-undef */
 const assert = require('assert')
-const crawler = require('../lib/tvShowCollectionsCrawler')
+const crawler = require('../lib/tvShowCrawler')
 // const ShowCollection = require('../lib/model/showCollection')
 // const siteConstants = require('../lib/crawlers/pctmix/constants')
 // const Show = require('../lib/model/show')
@@ -10,8 +10,8 @@ const crawler = require('../lib/tvShowCollectionsCrawler')
 describe('tvShowCollectionsCrawler', function () {
   this.timeout(55000)
 
-  describe('#crawlTVShowCollections()', () => {
-    it('should return a TVShow list with three shows', () => crawler.crawlTVShowCollections(
+  describe('#crawlTVShows()', () => {
+    it('should return a TVShow list with three shows', () => crawler.crawlTVShows(
       3,
       (show) => {
         assert(show.title)
@@ -20,7 +20,7 @@ describe('tvShowCollectionsCrawler', function () {
         // console.log("TVShow: " + JSON.stringify(show))
       },
     ).then((shows) => assert.ok(shows.length === 3)))
-    it('should return a TVShow list with zero show', () => crawler.crawlTVShowCollections(
+    it('should return a TVShow list with zero show', () => crawler.crawlTVShows(
       0,
       (show) => {
         assert(0, 1) // No debería de entrar aqui
