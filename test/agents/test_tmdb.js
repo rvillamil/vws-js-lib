@@ -8,7 +8,7 @@
 const assert = require('assert')
 const tmdb = require('../../lib/agents/tmdb')
 
-describe('tmdb', () => {
+describe('agents/tmdb', () => {
   describe('#searchFilm()', () => {
     it('Should return one Show object with the film Star Wars', () => tmdb.searchShow('Star wars', '1977').then((show) => {
       // console.log('Show TMDB: ', show)

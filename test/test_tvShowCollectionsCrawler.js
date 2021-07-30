@@ -1,11 +1,6 @@
 // @ts-nocheck
+/* eslint-disable func-names */
 /* eslint-disable no-undef */
-//
-// Testing support:
-//
-// - mocha ...: https://mochajs.org/
-// - assert ..: https://nodejs.org/api/all.html
-//
 const assert = require('assert')
 const crawler = require('../lib/tvShowCollectionsCrawler')
 // const ShowCollection = require('../lib/model/showCollection')
@@ -24,7 +19,14 @@ describe('tvShowCollectionsCrawler', function () {
         assert.equal(show.error, 0)
         // console.log("TVShow: " + JSON.stringify(show))
       },
-    ).then((shows) => assert.ok(shows.length == 3)))
+    ).then((shows) => assert.ok(shows.length === 3)))
+    it('should return a TVShow list with zero show', () => crawler.crawlTVShowCollections(
+      0,
+      (show) => {
+        assert(0, 1) // No debería de entrar aqui
+        assert(show.error, 0)
+      },
+    ).then((shows) => assert.ok(shows.length === 0)))
   })
   /*
   describe('#crawlTVShowCollectionsBy()', () => {

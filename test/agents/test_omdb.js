@@ -8,7 +8,7 @@
 const assert = require('assert')
 const omdb = require('../../lib/agents/omdb')
 
-describe('omdb', () => {
+describe('agents/omdb', () => {
   describe('#searchShow()', () => {
     it('Should return one Show object with the film Star Wars', () => omdb.searchShow('Star wars')
       .then((show) => {

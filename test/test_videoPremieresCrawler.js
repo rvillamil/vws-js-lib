@@ -1,12 +1,6 @@
-/* eslint-disable func-names */
 // @ts-nocheck
+/* eslint-disable func-names */
 /* eslint-disable no-undef */
-//
-// Testing support:
-//
-// - mocha ...: https://mochajs.org/
-// - assert ..: https://nodejs.org/api/all.html
-//
 const assert = require('assert')
 const crawler = require('../lib/videoPremieresCrawler')
 

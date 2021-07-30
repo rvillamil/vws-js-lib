@@ -1,12 +1,6 @@
+// @ts-nocheck
 /* eslint-disable func-names */
 /* eslint-disable no-undef */
-// @ts-nocheck
-//
-// Testing support:
-//
-// - mocha ...: https://mochajs.org/
-// - assert ..: https://nodejs.org/api/all.html
-//
 const assert = require('assert')
 const Show = require('../lib/model/show')
 const xmdbSearcher = require('../lib/xmdbSearcher')
