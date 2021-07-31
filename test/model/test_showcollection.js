@@ -18,7 +18,7 @@ function newTestShow(title, currentSession, currentEpisode) {
 describe('model/ShowCollection', () => {
   describe('#push(show)', () => {
     const showCollection = new ShowCollection()
-    showCollection.name = 'collection_TVShow_5'
+    showCollection.location = 'collection_TVShow_5'
     showCollection.url = 'http://urlbase'
 
     const show1 = newTestShow('TVShow', '5', '2')

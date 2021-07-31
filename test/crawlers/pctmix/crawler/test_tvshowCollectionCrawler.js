@@ -12,7 +12,7 @@ describe('crawlers/pctmix/crawler/tvshowCollectionCrawler', () => {
 
       return showCollectionCrawler.crawlDataShowCollection(uri, 5)
         .then((showCollection) => {
-          assert.equal(showCollection.name, 'the-office/7001')
+          assert.equal(showCollection.location, 'the-office/7001')
           assert.equal(showCollection.url, `${siteConstants.URL_BASE_TVSHOWS_HD}the-office/7001`)
           assert.ok(showCollection.shows)
           assert.equal(showCollection.shows.length, 5)
