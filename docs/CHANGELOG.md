@@ -1,3 +1,10 @@
+## [4.3.2](https://github.com/rvillamil/vws-js-lib/compare/v4.3.1...v4.3.2) (2021-07-31)
+
+
+### Performance Improvements
+
+* Removing compatibility with 4.3.0 ([68325e5](https://github.com/rvillamil/vws-js-lib/commit/68325e5b0d7e6bf291e612ddb2a19d9fc533c886))
+
 ## [4.3.1](https://github.com/rvillamil/vws-js-lib/compare/v4.3.0...v4.3.1) (2021-07-24)
 
 
