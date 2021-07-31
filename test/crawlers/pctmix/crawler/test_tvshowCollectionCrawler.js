@@ -29,7 +29,7 @@ describe('crawlers/pctmix/crawler/tvshowCollectionCrawler', () => {
             assert.ok(show.year)
             assert.ok(show.releaseDate)
             assert.ok(show.urltodownload.includes('.torrent'))
-            assert.equal(show.collectionName, showCollection.name)
+            assert.equal(show.collectionName, showCollection.location)
             // assert.ok(show.originalTitle)
             // console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
           })
