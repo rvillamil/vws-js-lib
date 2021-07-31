@@ -2,7 +2,8 @@
 
 Node module for web-scraping on torrent video websites
 
-Mainly uses a module called [cheerio](https://github.com/cheeriojs/cheerio) by Matthew Mueller which implements a subset of jQuery specifically designed for server use.
+Mainly uses a module called [cheerio](https://github.com/cheeriojs/cheerio) by Matthew Mueller which implements
+ a subset of jQuery specifically designed for server use.
 
 Currently websites scraped list:
 
@@ -44,7 +45,7 @@ $npm test -- --grep "crawler"
 
 ## Release version
 
-I user Github actions + [semantic relases plugin](https://github.com/semantic-release/semantic-release) on push on master. 
+I user Github actions + [semantic relases plugin](https://github.com/semantic-release/semantic-release) on push on master.
 
 **Warning! Version on package.json is automatic. Don't change**
 
@@ -55,7 +56,6 @@ It Requieres commit message:
 | `fix(pencil): stop graphite breaking when too much pressure applied`                                                                                                                             | Patch Release              |
 | `feat(pencil): add 'graphiteWidth' option`                                                                                                                                                       | ~~Minor~~ Feature Release  |
 | `perf(pencil): remove graphiteWidth option`<br><br>`BREAKING CHANGE: The graphiteWidth option has been removed.`<br>`The default graphite width of 10mm is always used for performance reasons.` | ~~Major~~ Breaking Release |
-
 
 Example (on master):
 
@@ -71,9 +71,8 @@ $git push
 
 When CI ends, then, there is a release version generated on:
 
-- https://www.npmjs.com/package/@vws-js-lib/crawler
-- https://github.com/rvillamil/vws-js-lib/releases
-
+- <https://www.npmjs.com/package/@vws-js-lib/crawler>
+- <https://github.com/rvillamil/vws-js-lib/releases>
 
 ## License
 
