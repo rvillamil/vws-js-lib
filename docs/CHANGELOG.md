@@ -1,3 +1,15 @@
+# [4.4.0](https://github.com/rvillamil/vws-js-lib/compare/v4.3.2...v4.4.0) (2021-08-02)
+
+
+### Bug Fixes
+
+* Removing innecesary data ([9ea154a](https://github.com/rvillamil/vws-js-lib/commit/9ea154addb94e5e169db48ae59f2f67ed4e31e0c))
+
+
+### Features
+
+* New function for crawling by location ([cfe994a](https://github.com/rvillamil/vws-js-lib/commit/cfe994a374db8ca8a1e1444fd97a4c40d6161042))
+
 ## [4.3.2](https://github.com/rvillamil/vws-js-lib/compare/v4.3.1...v4.3.2) (2021-07-31)
 
 
