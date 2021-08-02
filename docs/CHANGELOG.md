@@ -1,3 +1,10 @@
+## [4.4.1](https://github.com/rvillamil/vws-js-lib/compare/v4.4.0...v4.4.1) (2021-08-02)
+
+
+### Bug Fixes
+
+* Bug on collecionName update on show ([b000139](https://github.com/rvillamil/vws-js-lib/commit/b00013936de66d158b4b2eb24ca2e4adfd08cc43))
+
 # [4.4.0](https://github.com/rvillamil/vws-js-lib/compare/v4.3.2...v4.4.0) (2021-08-02)
 
 
