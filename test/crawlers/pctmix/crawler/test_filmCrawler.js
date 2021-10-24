@@ -23,12 +23,12 @@ describe('crawlers/pctmix/crawler/filmCrawler', () => {
         assert.equal(show.releaseDate, '07-07-2021')
         assert.equal(
           show.urlwithCover,
-          'https://pctmix1.com/pictures/f/mediums/153738_-1625634500-Superdetective-en-Hollywood-2--1987---BluRay-MicroHD.jpg',
+          `https://${siteConstants.DOMAIN}/pictures/f/mediums/153738_-1625634500-Superdetective-en-Hollywood-2--1987---BluRay-MicroHD.jpg`,
         )
         assert.equal(show.year, '1987')
         assert.equal(
           show.urltodownload,
-          'https://pctmix1.com/descargar-torrent/153738_-1625634500-Superdetective-en-Hollywood-2--1987---BluRay-MicroHD',
+          `https://${siteConstants.DOMAIN}/descargar-torrent/153738_-1625634500-Superdetective-en-Hollywood-2--1987---BluRay-MicroHD`,
         )
 
         // assert.equal(show.originalTitle, '')
