@@ -1,3 +1,10 @@
+## [4.4.2](https://github.com/rvillamil/vws-js-lib/compare/v4.4.1...v4.4.2) (2021-11-08)
+
+
+### Bug Fixes
+
+* new url ([e737041](https://github.com/rvillamil/vws-js-lib/commit/e73704120890aece72a7c9331c07a1fb32ce98ac))
+
 ## [4.4.1](https://github.com/rvillamil/vws-js-lib/compare/v4.4.0...v4.4.1) (2021-08-02)
 
 
