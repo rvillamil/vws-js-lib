@@ -32,7 +32,7 @@ describe('crawlers/pctmix/crawler/tvshowCollectionCrawler', () => {
             // assert.ok(show.originalTitle)
             // console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
           })
-        })
+        }).done()
     })
   })
 })

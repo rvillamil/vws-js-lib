@@ -14,7 +14,7 @@ describe('crawlers/pctmix/crawler/tvshowCrawler', () => {
           show.urlBase,
           `https://${siteConstants.DOMAIN}/descargar/torrent/serie-en-hd/the-office/temporada-9/capitulo-22-al-23/`,
         )
-        assert.equal(show.collectionName, 'the-office/7001')
+        assert.equal(show.collectionName, 'the-office/7004')
         assert.equal(show.title, 'The office')
         assert.equal(show.year, '2021')
         assert.equal(show.currentSession, '9')

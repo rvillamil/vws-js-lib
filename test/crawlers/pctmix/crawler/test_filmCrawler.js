@@ -7,7 +7,7 @@ const siteConstants = require('../../../../lib/crawlers/pctmix/constants')
 
 describe('crawlers/pctmix/crawler/filmCrawler', () => {
   describe('#crawlDataFilm()', () => {
-    it('should return the film \'Richard dice adios \' with all data', () => {
+    it('should return one film with all data crawled', () => {
       // https://pctmix1.com/descargar/peliculas-x264-mkv/superdetective-en-hollywood-2-1987-/bluray-microhd/
       const urlWithFilm = `https://${siteConstants.DOMAIN}/descargar/peliculas-x264-mkv/superdetective-en-hollywood-2-1987-/bluray-microhd/`
 
