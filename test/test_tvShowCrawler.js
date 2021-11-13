@@ -17,6 +17,7 @@ describe('tvShowCrawler', function () {
         // console.log("TVShow: " + JSON.stringify(show))
       },
     ).then((shows) => assert.ok(shows.length === 3)))
+
     it('should return a TVShow list with zero show', () => crawler.crawlTVShows(
       0,
       (show) => {

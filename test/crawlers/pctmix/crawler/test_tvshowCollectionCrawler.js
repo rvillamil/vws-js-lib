@@ -10,11 +10,11 @@ describe('crawlers/pctmix/crawler/tvshowCollectionCrawler', () => {
     it('should return 5 episodes from TVShow Collection', () => {
       const uri = `${siteConstants.URL_BASE_TVSHOWS_HD}the-office/7001`
 
-      return showCollectionCrawler.crawlDataShowCollection(uri, 5)
+      return showCollectionCrawler.crawlDataShowCollection(uri, 2)
         .then((showCollection) => {
           assert.equal(showCollection.location, 'the-office/7001')
           assert.ok(showCollection.shows)
-          assert.equal(showCollection.shows.length, 5)
+          assert.equal(showCollection.shows.length, 2)
 
           showCollection.shows.forEach((show) => {
             assert.ok(show.urlBase)
@@ -29,7 +29,7 @@ describe('crawlers/pctmix/crawler/tvshowCollectionCrawler', () => {
             assert.ok(show.urltodownload.includes('.torrent'))
             assert.equal(show.collectionName, showCollection.location)
             // assert.ok(show.originalTitle)
-            //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`)
+            console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`)
           })
         })
     })
