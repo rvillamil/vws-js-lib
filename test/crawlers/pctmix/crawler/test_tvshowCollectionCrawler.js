@@ -7,7 +7,7 @@ const siteConstants = require('../../../../lib/crawlers/pctmix/constants')
 
 describe('crawlers/pctmix/crawler/tvshowCollectionCrawler', () => {
   describe('#crawlDataShowCollection()', () => {
-    it('should return 5 episodes from Un mundo Feliz collection \'Un mundo Feliz\'', () => {
+    it('should return 5 episodes from TVShow Collection', () => {
       const uri = `${siteConstants.URL_BASE_TVSHOWS_HD}the-office/7001`
 
       return showCollectionCrawler.crawlDataShowCollection(uri, 5)
@@ -18,7 +18,6 @@ describe('crawlers/pctmix/crawler/tvshowCollectionCrawler', () => {
 
           showCollection.shows.forEach((show) => {
             assert.ok(show.urlBase)
-            assert.equal(show.urlCollection, uri)
             assert.equal(show.title, 'The office')
             assert.ok(show.sinopsis)
             assert.ok(show.description)
@@ -30,9 +29,9 @@ describe('crawlers/pctmix/crawler/tvshowCollectionCrawler', () => {
             assert.ok(show.urltodownload.includes('.torrent'))
             assert.equal(show.collectionName, showCollection.location)
             // assert.ok(show.originalTitle)
-            // console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`);
+            //console.log(`TVShow Crawled:  ${JSON.stringify(show)}\n\n`)
           })
-        }).done()
+        })
     })
   })
 })
