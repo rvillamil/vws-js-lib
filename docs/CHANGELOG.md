@@ -1,3 +1,10 @@
+## [4.4.4](https://github.com/rvillamil/vws-js-lib/compare/v4.4.3...v4.4.4) (2021-11-13)
+
+
+### Bug Fixes
+
+* urlwithCover override ([bf026cc](https://github.com/rvillamil/vws-js-lib/commit/bf026cc156ca98b18ee2ee4188fe87e20628f004))
+
 ## [4.4.3](https://github.com/rvillamil/vws-js-lib/compare/v4.4.2...v4.4.3) (2021-11-13)
 
 
