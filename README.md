@@ -7,8 +7,7 @@ Mainly uses a module called [cheerio](https://github.com/cheeriojs/cheerio) by M
 
 Currently websites scraped list:
 
-- [pctmix.org](https://pctmix.org/)
-- [dontorrent.org](https://dontorrent.org)
+- [atomixhq.one](https://atomixhq.one/)
 
 Implemented node modules for search on internet movie databases as:
 
